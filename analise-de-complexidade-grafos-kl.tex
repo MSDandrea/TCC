@@ -27,6 +27,7 @@
 \usepackage{color}				% Controle das cores
 \usepackage{graphicx}			% Inclusão de gráficos
 \usepackage{microtype} 			% para melhorias de justificação
+\usepackage{diagbox} %tabelas com barras
 % ---
 		
 % ---
@@ -42,9 +43,13 @@
 \usepackage[alf]{abntex2cite}	% Citações padrão ABNT
 
 % --- 
+% Pacotes matemáticos
+% ---
+\usepackage{amsthm}
+% --- 
 % CONFIGURAÇÕES DE PACOTES
 % --- 
-
+\newtheorem{definition}{Definição}
 % ---
 % Configurações do pacote backref
 % Usado sem a opção hyperpageref de backref
@@ -365,10 +370,11 @@
 % ---
 % inserir lista de abreviaturas e siglas
 % ---
-% \begin{siglas}
-%   \item[ABNT] Associação Brasileira de Normas Técnicas
-%   \item[abnTeX] ABsurdas Normas para TeX
-% \end{siglas}
+\begin{siglas}
+  \item[\textit{L}] Complexidade de tempo Linear
+  \item[\textit{P}] Complexidade de tempo Polinomial determinístico
+  \item[\textit{NP}] Complexidade de tempo Polinomial não determinístico
+\end{siglas}
 % % ---
 %
 % % ---
@@ -403,44 +409,44 @@
 \chapter*[Introdução]{Introdução}
 \addcontentsline{toc}{chapter}{Introdução}
 % ----------------------------------------------------------
-
-Este documento e seu código-fonte são exemplos de referência de uso da classe
-\textsf{abntex2} e do pacote \textsf{abntex2cite}. O documento 
-exemplifica a elaboração de trabalho acadêmico (tese, dissertação e outros do
-gênero) produzido conforme a ABNT NBR 14724:2011 \emph{Informação e documentação
-- Trabalhos acadêmicos - Apresentação}.
-
-A expressão ``Modelo Canônico'' é utilizada para indicar que \abnTeX\ não é
-modelo específico de nenhuma universidade ou instituição, mas que implementa tão
-somente os requisitos das normas da ABNT. Uma lista completa das normas
-observadas pelo \abnTeX\ é apresentada em \citeonline{abntex2classe}.
-
-Sinta-se convidado a participar do projeto \abnTeX! Acesse o site do projeto em
-\url{http://www.abntex.net.br/}. Também fique livre para conhecer,
-estudar, alterar e redistribuir o trabalho do \abnTeX, desde que os arquivos
-modificados tenham seus nomes alterados e que os créditos sejam dados aos
-autores originais, nos termos da ``The \LaTeX\ Project Public
-License''\footnote{\url{http://www.latex-project.org/lppl.txt}}.
-
-Encorajamos que sejam realizadas customizações específicas deste exemplo para
-universidades e outras instituições --- como capas, folha de aprovação, etc.
-Porém, recomendamos que ao invés de se alterar diretamente os arquivos do
-\abnTeX, distribua-se arquivos com as respectivas customizações.
-Isso permite que futuras versões do \abnTeX~não se tornem automaticamente
-incompatíveis com as customizações promovidas. Consulte
-\citeonline{abntex2-wiki-como-customizar} par mais informações.
-
-Este documento deve ser utilizado como complemento dos manuais do \abnTeX\ 
-\cite{abntex2classe,abntex2cite,abntex2cite-alf} e da classe \textsf{memoir}
-\cite{memoir}. 
-
-Esperamos, sinceramente, que o \abnTeX\ aprimore a qualidade do trabalho que
-você produzirá, de modo que o principal esforço seja concentrado no principal:
-na contribuição científica.
-
-Equipe \abnTeX 
-
-Lauro César Araujo
+%
+% Este documento e seu código-fonte são exemplos de referência de uso da classe
+% \textsf{abntex2} e do pacote \textsf{abntex2cite}. O documento 
+% exemplifica a elaboração de trabalho acadêmico (tese, dissertação e outros do
+% gênero) produzido conforme a ABNT NBR 14724:2011 \emph{Informação e documentação
+% - Trabalhos acadêmicos - Apresentação}.
+%
+% A expressão ``Modelo Canônico'' é utilizada para indicar que \abnTeX\ não é
+% modelo específico de nenhuma universidade ou instituição, mas que implementa tão
+% somente os requisitos das normas da ABNT. Uma lista completa das normas
+% observadas pelo \abnTeX\ é apresentada em \citeonline{abntex2classe}.
+%
+% Sinta-se convidado a participar do projeto \abnTeX! Acesse o site do projeto em
+% \url{http://www.abntex.net.br/}. Também fique livre para conhecer,
+% estudar, alterar e redistribuir o trabalho do \abnTeX, desde que os arquivos
+% modificados tenham seus nomes alterados e que os créditos sejam dados aos
+% autores originais, nos termos da ``The \LaTeX\ Project Public
+% License''\footnote{\url{http://www.latex-project.org/lppl.txt}}.
+%
+% Encorajamos que sejam realizadas customizações específicas deste exemplo para
+% universidades e outras instituições --- como capas, folha de aprovação, etc.
+% Porém, recomendamos que ao invés de se alterar diretamente os arquivos do
+% \abnTeX, distribua-se arquivos com as respectivas customizações.
+% Isso permite que futuras versões do \abnTeX~não se tornem automaticamente
+% incompatíveis com as customizações promovidas. Consulte
+% \citeonline{abntex2-wiki-como-customizar} par mais informações.
+%
+% Este documento deve ser utilizado como complemento dos manuais do \abnTeX\ 
+% \cite{abntex2classe,abntex2cite,abntex2cite-alf} e da classe \textsf{memoir}
+% \cite{memoir}. 
+%
+% Esperamos, sinceramente, que o \abnTeX\ aprimore a qualidade do trabalho que
+% você produzirá, de modo que o principal esforço seja concentrado no principal:
+% na contribuição científica.
+%
+% Equipe \abnTeX 
+%
+% Lauro César Araujo
 
 % ----------------------------------------------------------
 % PARTE
@@ -457,22 +463,52 @@ Lauro César Araujo
 % ----------------------------------------------------------
 % PARTE
 % ----------------------------------------------------------
-\part{Referenciais teóricos}
+\part{Análise de problemas clássicos para Grafos(2,1)}
 % ----------------------------------------------------------
 
 % ---
 % Capitulo de revisão de literatura
 % ---
-\chapter{Lorem ipsum dolor sit amet}
+\chapter{Coloração em Grafos(2,1)}
 % ---
 
 % ---
-\section{Aliquam vestibulum fringilla lorem}
+\section{Definição}
 % ---
 
-\lipsum[1]
+O problema de coloração em grafos pode ser definido como:
 
-\lipsum[2-3]
+\begin{definition}
+  Coloração em Grafos\\
+  Entrada: um Grafo $G$ e um inteiro $k$\\
+  Saída: Verdadeiro se e somente se cada vértice pertencente à $G$ pode ser colorido com uma entre $k$ cores
+  de tal forma que dado quaisquer dois vértices adjacentes eles tenham cores distintas
+\end{definition}
+
+\section{Complexidade de coloração em Grafos(2,1)}
+
+\section{Complexidade de coloração extendida à Grafos(k,l)}
+% mostrar (3,0),(4,0)(0,4)e(0,3)
+
+Sabemos também que coloração é de solução linear tanto para grafos split quanto para grafos bipartidos portanto podemos obter a seguinte tabela
+
+\begin{table}[htb!]
+  \center
+  \begin{tabular}{l|*{6}c}
+    \toprule
+    \backslashbox{$k$}{$l$} & 0 & 1 & 2 & 3 & 4 & n\\
+    \midrule
+    0 & \textit{L} & \textit{L} & \textit{P} & ? & \textit{NP} & \textit{NP}\\
+    1 & \textit{L} & \textit{P} & \textit{NP} & \textit{NP} & \textit{NP} & \textit{NP}\\
+    2 & \textit{P} & \textit{NP} & \textit{NP} & \textit{NP} & \textit{NP} & \textit{NP}\\
+    3 & \textit{P} & \textit{NP} & \textit{NP} & \textit{NP} & \textit{NP} & \textit{NP}\\
+    4 & \textit{NP} & \textit{NP} & \textit{NP} & \textit{NP} & \textit{NP} & \textit{NP}\\
+    n & \textit{NP} & \textit{NP} & \textit{NP} & \textit{NP} & \textit{NP} & \textit{NP}\\
+    \bottomrule
+  \end{tabular}%
+  \caption{Complexidade do problema de coloração em Grafos(k, l)}
+  \label{tab:tabela_coloraçãoKl}%
+\end{table}%
 
 % ----------------------------------------------------------
 % PARTE

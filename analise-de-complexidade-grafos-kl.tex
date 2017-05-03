@@ -24,7 +24,7 @@
 \usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
 \usepackage{lastpage}			% Usado pela Ficha catalográfica
 \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
-\usepackage{color}				% Controle das cores
+\usepackage{color}		% Controle das cores
 \usepackage{graphicx}			% Inclusão de gráficos
 \usepackage{microtype} 			% para melhorias de justificação
 \usepackage{diagbox} %tabelas com barras
@@ -50,6 +50,7 @@
 % CONFIGURAÇÕES DE PACOTES
 % --- 
 \newtheorem{definition}{Definição}
+\newtheorem{teorema}{Teorema}
 % ---
 % Configurações do pacote backref
 % Usado sem a opção hyperpageref de backref
@@ -371,9 +372,8 @@
 % inserir lista de abreviaturas e siglas
 % ---
 \begin{siglas}
-  \item[\textit{L}] Complexidade de tempo Linear
   \item[\textit{P}] Complexidade de tempo Polinomial determinístico
-  \item[\textit{NP}] Complexidade de tempo Polinomial não determinístico
+  \item[\textit{NPc}] Complexidade de tempo Polinomial não determinístico completa
 \end{siglas}
 % % ---
 %
@@ -490,7 +490,21 @@ O problema de coloração em grafos pode ser definido como:
 \section{Complexidade de coloração extendida à Grafos(k,l)}
 % mostrar (3,0),(4,0)(0,4)e(0,3)
 
-Sabemos também que coloração é de solução linear tanto para grafos split quanto para grafos bipartidos portanto podemos obter a seguinte tabela
+\begin{itemize}
+  \item Grafo(1,2)
+  \item Grafo(2,1)
+  \item Grafo(3,0):\newline
+      Tendo um Grafo G da classe (3,0) como entrada para o problema de coloração sabemos já que o grafo pode ser colorido com 3 cores, resta saber se 3 é o o numero mínimo de cores que pode ser usado, portanto devemos verificar se G é bipartido (colorível com 2 cores) ou um grafo sem arestas (colorível com 1 cor), como ambas verificações são polinomiais podemos afirmar que coloring de Grafo(3,0) é resolvível de forma polinomial.
+  \item Grafo(4,0):
+      \begin{teorema}
+        Se 3-coloração de planar é NPc então coloração de Grafo(4,0) é NPc
+      \end{teorema}
+      \begin{proof}
+      \end{proof}
+  \item Grafo(0,3)
+  \item Grafo(0,4)
+\end{itemize}
+Sabemos também que coloração é de solução trivial para cliques, independentes, para grafos split e para grafos bipartidos portanto podemos obter a seguinte tabela
 
 \begin{table}[htb!]
   \center
@@ -498,12 +512,12 @@ Sabemos também que coloração é de solução linear tanto para grafos split q
     \toprule
     \backslashbox{$k$}{$l$} & 0 & 1 & 2 & 3 & 4 & n\\
     \midrule
-    0 & \textit{L} & \textit{L} & \textit{P} & ? & \textit{NP} & \textit{NP}\\
-    1 & \textit{L} & \textit{P} & \textit{NP} & \textit{NP} & \textit{NP} & \textit{NP}\\
-    2 & \textit{P} & \textit{NP} & \textit{NP} & \textit{NP} & \textit{NP} & \textit{NP}\\
-    3 & \textit{P} & \textit{NP} & \textit{NP} & \textit{NP} & \textit{NP} & \textit{NP}\\
-    4 & \textit{NP} & \textit{NP} & \textit{NP} & \textit{NP} & \textit{NP} & \textit{NP}\\
-    n & \textit{NP} & \textit{NP} & \textit{NP} & \textit{NP} & \textit{NP} & \textit{NP}\\
+    0 & \textit{P} & \textit{P} & \textit{P} & ? & \textit{NPc} & \textit{NPc}\\
+    1 & \textit{P} & \textit{P} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc}\\
+    2 & \textit{P} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc}\\
+    3 & \textit{P} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc}\\
+    4 & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc}\\
+    n & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc}\\
     \bottomrule
   \end{tabular}%
   \caption{Complexidade do problema de coloração em Grafos(k, l)}

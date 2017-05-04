@@ -490,21 +490,25 @@ O problema de coloração em grafos pode ser definido como:
 \section{Complexidade de coloração extendida à Grafos(k,l)}
 % mostrar (3,0),(4,0)(0,4)e(0,3)
 
+Sabemos que coloração é de solução conhecidamente polinomial para clique, independente, grafos split e para grafos bipartidos.
+
+Iremos demonstrar abaixo a complexidade para casos de ordem superiores. 
 \begin{itemize}
   \item Grafo(1,2)
   \item Grafo(2,1)
   \item Grafo(3,0):\newline
-      Tendo um Grafo G da classe (3,0) como entrada para o problema de coloração sabemos já que o grafo pode ser colorido com 3 cores, resta saber se 3 é o o numero mínimo de cores que pode ser usado, portanto devemos verificar se G é bipartido (colorível com 2 cores) ou um grafo sem arestas (colorível com 1 cor), como ambas verificações são polinomiais podemos afirmar que coloring de Grafo(3,0) é resolvível de forma polinomial.
+      Tendo um Grafo G da classe (3,0) como entrada para o problema de coloração sabemos já que o grafo pode ser colorido com 3 cores, resta saber se 3 é o o numero mínimo de cores que pode ser usado, portanto devemos verificar se G é bipartido (colorível com 2 cores) ou um grafo sem arestas (colorível com 1 cor), como ambas verificações são polinomiais podemos afirmar que coloração de Grafo(3,0) é resolvível de forma polinomial.
   \item Grafo(4,0):
       \begin{teorema}
         Se 3-coloração de planar é NPc então coloração de Grafo(4,0) é NPc
       \end{teorema}
       \begin{proof}
+        Sabemos que todo grafo planar é 4-colorível, e que alguns grafos(4,0) são planares, portanto sabemos que para qualquer Grafo G $\in$ subconjunto de planares de grafos(4,0), sua quantidade máxima de cores é 4, nos resta saber se 4 também é sua quantidade mínima, porém 3-coloração de planar é NPc logo descobrir a coloração mínima de G é NPc e consequentemente coloração de Grafos(4,0) é NPc
       \end{proof}
   \item Grafo(0,3)
   \item Grafo(0,4)
 \end{itemize}
-Sabemos também que coloração é de solução trivial para cliques, independentes, para grafos split e para grafos bipartidos portanto podemos obter a seguinte tabela
+portanto podemos obter a seguinte tabela:
 
 \begin{table}[htb!]
   \center

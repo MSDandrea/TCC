@@ -506,7 +506,16 @@ Iremos demonstrar abaixo a complexidade para casos de ordem superiores.
         Sabemos que todo grafo planar é 4-colorível, e que alguns grafos(4,0) são planares, portanto sabemos que para qualquer Grafo G $\in$ subconjunto de planares de grafos(4,0), sua quantidade máxima de cores é 4, nos resta saber se 4 também é sua quantidade mínima, porém 3-coloração de planar é NPc logo descobrir a coloração mínima de G é NPc e consequentemente coloração de Grafos(4,0) é NPc
       \end{proof}
   \item Grafo(0,3)
+      \begin{teorema}
+        (?)Se lista coloração em Grafos(2,0) é NPc então coloração em Grafos(3,0) é NPc
+      \end{teorema}
   \item Grafo(0,4)
+      \begin{teorema}
+      Se clique cover em planar é NPc então Coloração de Grafo(0,4) é NPc 
+      \end{teorema}
+      \begin{proof}
+        Sabemos que o problema de coloração em qualquer grafo G é equivalente ao problema de clique cover no seu complemento $\overline G$, ou seja, para determinar a complexidade de coloração de Grafos(0,4) iremos determinar a complexidade de clique cover em Grafos(4,0), sabemos que um subconjunto de Grafos(4,0) são planares e que clique cover em planares é NPc, logo clique cover em Grafos(4,0) é NPc implicando que coloração em Grafos(0,4) seja NPc
+      \end{proof}
 \end{itemize}
 portanto podemos obter a seguinte tabela:
 

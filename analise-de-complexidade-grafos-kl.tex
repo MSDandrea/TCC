@@ -51,6 +51,8 @@
 % --- 
 \newtheorem{definition}{Definição}
 \newtheorem{teorema}{Teorema}
+\newtheorem{corolario}{Corolário}
+\graphicspath{{figuras/}}
 % ---
 % Configurações do pacote backref
 % Usado sem a opção hyperpageref de backref
@@ -463,13 +465,13 @@
 % ----------------------------------------------------------
 % PARTE
 % ----------------------------------------------------------
-\part{Análise de problemas clássicos para Grafos(2,1)}
+\part{Análise do problema de coloração para Grafos(k,l)}
 % ----------------------------------------------------------
 
 % ---
 % Capitulo de revisão de literatura
 % ---
-\chapter{Coloração em Grafos(2,1)}
+\chapter{Evolução do problema de coloração considerando o crescimento de k e l}
 % ---
 
 % ---
@@ -494,7 +496,48 @@ Sabemos que coloração é de solução conhecidamente polinomial para clique, i
 
 Iremos demonstrar abaixo a complexidade para casos de ordem superiores. 
 \begin{itemize}
-  \item Grafo(1,2)
+  \item Grafo(1,2):
+    \begin{teorema}
+      Se lista coloração de grafos split é NPc então coloração de Grafos(1,2) é NPc
+    \end{teorema}
+    \begin{proof}
+      A prova do teorema baseia-se em mostrar que uma solução de lista coloração para grafos split implica em uma solução para o problema de coloração de um Grafo(1,2) H, portanto para provarmos é preciso mostrar que
+      \begin{itemize}
+        \item Se um grafo split G possui uma lista coloração própria então H é k-colorível para k=nº de cores nas listas (1)
+        \item Se H é k-colorível então G possui uma lista coloração própria (2)
+      \end{itemize}
+      (1):\newline
+      \begin{figure}[!ht]
+        \centering
+        \includegraphics[width=0.5\textwidth]{split-1.png}
+        \caption{Grafo G: Instância sim para o problema de lista coloração para split }
+      \end{figure}
+      Usaremos a seguinte construção:\newline
+      Considere G um grafo split e que para cada vértice $v \in V(G)$ exista uma lista de cores $S_v$ referente a esse vértice, cada lista contém pelo menos uma cor do conjunto $C = \{c_1,c_2,c_3,...,c_k \}$, sendo G uma instância sim para o problema de lista coloração, criemos uma clique K onde cada vértice $k \in V(K)$ representa uma cor presente em $C$. Seja $H = G \cup K$ para todo vértice $v \in G$ e todo vértice $u_i \in K$ adicione uma aresta $(u_i,v)$ à H se e somente se v não possui a cor $c_i$ em sua lista coloração em G
+      
+      Podemos então generalizar da seguinte forma, dado um grafo split $G$ onde cada vértice de $G$ possui uma lista de possíveis cores então o grafo $H_G$ obtido pela construção anterior possui uma k-coloração.
+      
+      Note que a clique K possui exatamente k vértices, consequentemente para colorirmos K precisaremos de k cores, sem perda de generalidade assumimos que $u_1$ será colorido com $c_1$, $u_2$ com $c_2$ e assim por diante.
+      
+      Por construção uma aresta de $u_i$ só existe para $v_a$ em $H$ se e somente se, $v_a$ não possui $c_i$ em sua lista de cores, portanto a coloração atribuída à K não conflita com a com a lista coloração de G, e portanto para todo vértice perntecente a G podemos lhe atribuir a mesma cor que lhe foi atribuída no problema de lista coloração, obtendo uma coloração própria para H
+      
+      (2):\newline
+      Suponha que o grafo $H_G$ possua uma K-coloração própria, onde k é o numero de cores nas listas de G
+      
+      Seja K a maior clique presente em $H_G$, por construção $H_G$ é colorível com k cores onde k é a cardinalidade de K, observe que a remoção de K não afeta a coloração de $H_G - K$
+      
+      Como $H_G$ é k-colorível e a clique K possui k vértices todas as cores de tal k-coloração estão presentes em K. Sem perda de generalidade podemos assumir que as cores $c_1,c_2,...,c_k$ estão atribuídas aos vértices $u_1,u_2,...,u_k$ pertencentes à K
+      
+      Por construção de $H_G$ todo par $(v,u_i)$ onde $v \in H_G - K$ e $u_i \in K$ é não adjacente se e somente se o vértice $v$ não possui $c_i$ em sua lista coloração no grafo $G$
+      
+      Logo a k-coloração atribuídas aos vértices em $H_G - K$ formam uma coloração para G onde todo vértice em $V(G)$ possui uma cor de sua lista. Portanto G é uma instância sim de lista coloração
+    \end{proof}
+    \begin{corolario}
+    Seja G uma instância de lista coloração onde G é uma (k,l) partição e seja c o número de cores utilizadas em G, existe um grafo $H_G$ (k,l+1) particionável tal que G é uma instância sim de lista coloração, se e somente se $H_G$ é c-colorível
+    \end{corolario}
+    \begin{corolario}
+    Se Lista coloração é NPc em Grafos(r,l) então Coloração é NPc em Grafos(r,l+1)
+    \end{corolario}    
   \item Grafo(2,1)
   \item Grafo(3,0):\newline
       Tendo um Grafo G da classe (3,0) como entrada para o problema de coloração sabemos já que o grafo pode ser colorido com 3 cores, resta saber se 3 é o o numero mínimo de cores que pode ser usado, portanto devemos verificar se G é bipartido (colorível com 2 cores) ou um grafo sem arestas (colorível com 1 cor), como ambas verificações são polinomiais podemos afirmar que coloração de Grafo(3,0) é resolvível de forma polinomial.

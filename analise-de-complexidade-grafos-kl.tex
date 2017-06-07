@@ -73,7 +73,7 @@
 % ---
 % Informações de dados para CAPA e FOLHA DE ROSTO
 % ---
-\titulo{Análise de complexidade parametrizada em problemas de coloração para Grafos(k,l)}
+\titulo{Análise de complexidade parametrizada em problemas de coloração para Grafos(r,l)}
 \autor{Matheus Souza D'Andrea Alves}
 \local{Niterói\\Rio de Janeiro\\Brasil}
 \data{2017}
@@ -328,13 +328,13 @@
 \begin{resumo}
  O trabalho apresentado a seguir tem como proposta desvendar e catalogar a complexidade
  de problemas clássicos para a classe de Grafos(2,1), aprofundar em alguns deles quanto
- a complexidade parametrizada e extender as descobertas para Grafos(k,l).\\
+ a complexidade parametrizada e extender as descobertas para Grafos(r,l).\\
  Para tanto utilizaremos do conhecimento prévio de complexidade para Grafos \textit{Split}
  e Grafos Bipartidos.
  
  \vspace{\onelineskip}
  
- \textbf{Palavras-chave}: Complexidade parametrizada. Grafos(k,l). Partição de grafos.
+ \textbf{Palavras-chave}: Complexidade parametrizada. Grafos(r,l). Partição de grafos.
 \end{resumo}
 
 % resumo em inglês
@@ -342,7 +342,7 @@
  \begin{otherlanguage*}{english}
    The work presented in this paper has the purpose of find and catalog the complexity
    of classical problems for the Graph(2,1) graph class, probe some of those about their 
-   parametrized complexity and extend the findings to the Graph(k,l) graph class\\
+   parametrized complexity and extend the findings to the Graph(r,l) graph class\\
    In way of doing so we will use de previous knowledge about thee complexity of problems for the
    Split and Bipartide graph classes
 
@@ -465,13 +465,13 @@
 % ----------------------------------------------------------
 % PARTE
 % ----------------------------------------------------------
-\part{Análise do problema de coloração para Grafos(k,l)}
+\part{Análise do problema de coloração para Grafos(r,l)}
 % ----------------------------------------------------------
 
 % ---
 % Capitulo de revisão de literatura
 % ---
-\chapter{Evolução do problema de coloração considerando o crescimento de k e l}
+\chapter{Evolução do problema de coloração considerando o crescimento de r e l}
 % ---
 
 % ---
@@ -483,15 +483,13 @@ O problema de coloração em grafos pode ser definido como:
 \begin{definition}
   Coloração em Grafos\\
   Entrada: um Grafo $G$ e um inteiro $k$\\
-  Saída: Verdadeiro se e somente se cada vértice pertencente à $G$ pode ser colorido com uma entre $k$ cores
-  de tal forma que dado quaisquer dois vértices adjacentes eles tenham cores distintas
+  Questão: Cada vértice pertencente à $G$ pode ser colorido com uma entre $k$ cores
+  de tal forma que dado quaisquer dois vértices adjacentes eles tenham cores distintas e $k$ seja o mínimo de cores possível? 
 \end{definition}
 
-\section{Complexidade de coloração em Grafos(2,1)}
+\section{Complexidade de coloração em Grafos(r,l)}
 
-\section{Complexidade de coloração extendida à Grafos(k,l)}
-% mostrar (3,0),(4,0)(0,4)e(0,3)
-
+%Discorrer e comentar sobre soluções já conhecida para coloração (r,l)
 Sabemos que coloração é de solução conhecidamente polinomial para clique, independente, grafos split e para grafos bipartidos.
 
 Iremos demonstrar abaixo a complexidade para casos de ordem superiores. 
@@ -533,7 +531,7 @@ Iremos demonstrar abaixo a complexidade para casos de ordem superiores.
       Logo a k-coloração atribuídas aos vértices em $H_G - K$ formam uma coloração para G onde todo vértice em $V(G)$ possui uma cor de sua lista. Portanto G é uma instância sim de lista coloração
     \end{proof}
     \begin{corolario}
-    Seja G uma instância de lista coloração onde G é uma (k,l) partição e seja c o número de cores utilizadas em G, existe um grafo $H_G$ (k,l+1) particionável tal que G é uma instância sim de lista coloração, se e somente se $H_G$ é c-colorível
+    Seja G uma instância de lista coloração onde G é uma (r,l) partição e seja c o número de cores utilizadas em G, existe um grafo $H_G$ (k,l+1) particionável tal que G é uma instância sim de lista coloração, se e somente se $H_G$ é c-colorível
     \end{corolario}
     \begin{corolario}
     Se Lista coloração é NPc em Grafos(r,l) então Coloração é NPc em Grafos(r,l+1)
@@ -576,8 +574,8 @@ portanto podemos obter a seguinte tabela:
     n & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc}\\
     \bottomrule
   \end{tabular}%
-  \caption{Complexidade do problema de coloração em Grafos(k, l)}
-  \label{tab:tabela_coloraçãoKl}%
+  \caption{Complexidade do problema de coloração em Grafos(r,l)}
+  \label{tab:tabela_coloraçãorl}%
 \end{table}%
 
 % ----------------------------------------------------------

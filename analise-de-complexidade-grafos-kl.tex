@@ -492,6 +492,63 @@ O problema de coloração em grafos pode ser definido como:
 %Discorrer e comentar sobre soluções já conhecida para coloração (r,l)
 Sabemos que coloração é de solução conhecidamente polinomial para clique, independente, grafos split e para grafos bipartidos.
 
+%primeira tabela de dicotomia
+\begin{table}[htb!]
+  \center
+  \begin{tabular}{l|*{7}c}
+    \toprule
+    \backslashbox{$r$}{$l$} & 0 & 1 & 2 & 3 & 4 & \ldots & n\\
+    \midrule
+    0 & \textit{P} & \textit{P} & ? & ? & ? & \ldots & ?\\
+    1 & \textit{P} & \textit{P} & ? & ? & ? & \ldots & ?\\
+    2 & \textit{P} & ? & ? & ? & ? & \ldots & ?\\
+    3 & ? & ? & ? & ? & ? & \ldots & ?\\
+    4 & ? & ? & ? & ? & ? & \ldots & ?\\
+    $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & ?\\
+    n & ? & ? & ? & ? & ? & \ldots & ?\\
+    \bottomrule
+  \end{tabular}%
+  \caption{1ª Dicotomia parcial do problema de coloração em Grafos(r,l)}
+  \label{tab:tabela_part1dictrl}%
+\end{table}%
+
+
+%Teorema que coloração em (3,0) e (0,2) são polinomiais e (4,0) é NPc 
+\begin{itemize}
+  \item Grafo(3,0):\newline
+      Tendo um Grafo G da classe (3,0) como entrada para o problema de coloração sabemos já que o grafo pode ser colorido com 3 cores, resta saber se 3 é o o numero mínimo de cores que pode ser usado, portanto devemos verificar se G é bipartido (colorível com 2 cores) ou um grafo sem arestas (colorível com 1 cor), como ambas verificações são polinomiais podemos afirmar que coloração de Grafo(3,0) é resolvível de forma polinomial.
+  \item Grafo(4,0):
+      \begin{teorema}
+        Se 3-coloração de planar é NPc então coloração de Grafo(4,0) é NPc
+      \end{teorema}
+      \begin{proof}
+        Sabemos que todo grafo planar é 4-colorível, e que alguns grafos(4,0) são planares, portanto sabemos que para qualquer Grafo G $\in$ subconjunto de planares de grafos(4,0), sua quantidade máxima de cores é 4, nos resta saber se 4 também é sua quantidade mínima, porém 3-coloração de planar é NPc logo descobrir a coloração mínima de G é NPc e consequentemente coloração de Grafos(4,0) é NPc
+      \end{proof}
+\end{itemize}
+
+Esses resultados nos levam à preencher a dicotomia da seguinte forma
+%Segunda tabela de dicotomia
+\begin{table}[htb!]
+  \center
+  \begin{tabular}{l|*{7}c}
+    \toprule
+    \backslashbox{$r$}{$l$} & 0 & 1 & 2 & 3 & 4 & \ldots & n\\
+    \midrule
+    0 & \textit{P} & \textit{P} & \textit{P} & ? & ? & \ldots & ?\\
+    1 & \textit{P} & \textit{P} & ? & ? & ? & \ldots & ?\\
+    2 & \textit{P} & ? & ? & ? & ? & \ldots & ?\\
+    3 & \textit{P} & ? & ? & ? & ? & \ldots & ?\\
+    4 & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \ldots & \textit{NPc}\\
+    $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & ?\\
+    n & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \ldots & \textit{NPc}\\
+    \bottomrule
+  \end{tabular}%
+  \caption{2ª Dicotomia parcial do problema de coloração em Grafos(r,l)}
+  \label{tab:tabela_part2dictrl}%
+\end{table}%
+
+%Demonstrar lista-coloração(r,l)Npc -> coloração(r,l+1)Npc e seus colorários (1,2) & (2,1)
+
 Iremos demonstrar abaixo a complexidade para casos de ordem superiores. 
 \begin{itemize}
   \item Grafo(1,2):
@@ -537,15 +594,7 @@ Iremos demonstrar abaixo a complexidade para casos de ordem superiores.
     Se Lista coloração é NPc em Grafos(r,l) então Coloração é NPc em Grafos(r,l+1)
     \end{corolario}    
   \item Grafo(2,1)
-  \item Grafo(3,0):\newline
-      Tendo um Grafo G da classe (3,0) como entrada para o problema de coloração sabemos já que o grafo pode ser colorido com 3 cores, resta saber se 3 é o o numero mínimo de cores que pode ser usado, portanto devemos verificar se G é bipartido (colorível com 2 cores) ou um grafo sem arestas (colorível com 1 cor), como ambas verificações são polinomiais podemos afirmar que coloração de Grafo(3,0) é resolvível de forma polinomial.
-  \item Grafo(4,0):
-      \begin{teorema}
-        Se 3-coloração de planar é NPc então coloração de Grafo(4,0) é NPc
-      \end{teorema}
-      \begin{proof}
-        Sabemos que todo grafo planar é 4-colorível, e que alguns grafos(4,0) são planares, portanto sabemos que para qualquer Grafo G $\in$ subconjunto de planares de grafos(4,0), sua quantidade máxima de cores é 4, nos resta saber se 4 também é sua quantidade mínima, porém 3-coloração de planar é NPc logo descobrir a coloração mínima de G é NPc e consequentemente coloração de Grafos(4,0) é NPc
-      \end{proof}
+  
   \item Grafo(0,3)
       \begin{teorema}
         (?)Se lista coloração em Grafos(2,0) é NPc então coloração em Grafos(3,0) é NPc
@@ -562,20 +611,21 @@ portanto podemos obter a seguinte tabela:
 
 \begin{table}[htb!]
   \center
-  \begin{tabular}{l|*{6}c}
+  \begin{tabular}{l|*{7}c}
     \toprule
-    \backslashbox{$k$}{$l$} & 0 & 1 & 2 & 3 & 4 & n\\
+    \backslashbox{$r$}{$l$} & 0 & 1 & 2 & 3 & 4 & \ldots & n\\
     \midrule
-    0 & \textit{P} & \textit{P} & \textit{P} & ? & \textit{NPc} & \textit{NPc}\\
-    1 & \textit{P} & \textit{P} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc}\\
-    2 & \textit{P} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc}\\
-    3 & \textit{P} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc}\\
-    4 & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc}\\
-    n & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc}\\
+    0 & \textit{P} & \textit{P} & \textit{P} & \textit{NPc} & \textit{NPc} & \ldots & \textit{NPc}\\
+    1 & \textit{P} & \textit{P} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \ldots & \textit{NPc}\\
+    2 & \textit{P} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \ldots & \textit{NPc}\\
+    3 & \textit{P} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \ldots & \textit{NPc}\\
+    4 & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \ldots & \textit{NPc}\\
+    $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & \textit{NPc}\\
+    n & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \ldots & \textit{NPc}\\
     \bottomrule
   \end{tabular}%
-  \caption{Complexidade do problema de coloração em Grafos(r,l)}
-  \label{tab:tabela_coloraçãorl}%
+  \caption{Dicotomia do problema de coloração em Grafos(r,l)}
+  \label{tab:tabela_dictrl}%
 \end{table}%
 
 % ----------------------------------------------------------

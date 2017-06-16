@@ -490,8 +490,14 @@ O problema de coloração em grafos pode ser definido como:
 \section{Complexidade de coloração em Grafos(r,l)}
 
 %Discorrer e comentar sobre soluções já conhecida para coloração (r,l)
-Sabemos que coloração é de solução conhecidamente polinomial para clique, independente, grafos split e para grafos bipartidos.
+O problema de coloração aplicado a Grafos(r,l) é de fácil solução para algumas especificações,
+por exemplo um Grafo vazio, que é um Grafo(0,0) pode ser colorido com 0 cores, um Grafo disperso i.e um Grafo(1,0) é colorível com apenas uma cor, já que não existem arestas nesse grafo.
 
+Já um Grafo completo, ou seja um Grafo(0,1), é colorível com K cores onde K é a quantidade de vértices nesse grafo completo, em um Grafo split que é um Grafo(1,1) essa regra se repete, já que cada vértice do conjunto independete pode ser colorível com alguma cor já presente na clique.
+
+E por fim, Grafos bipartidos são coloridos com 2 cores uma cor para cada conjunto independente.
+
+Sabemos então que coloração é de solução polinomial para grafos completos, dispersos, split e para grafos bipartidos. Assim, temos como ponto de partida para a exploração futura da complexidade de Grafos de cardinalidade superiores a seguinte tabela.\newpage
 %primeira tabela de dicotomia
 \begin{table}[htb!]
   \center
@@ -512,19 +518,33 @@ Sabemos que coloração é de solução conhecidamente polinomial para clique, i
   \label{tab:tabela_part1dictrl}%
 \end{table}%
 
-
+Portanto agora nos é interessante abordar a complexidade para as classes na fronteira do que já conheçemos
 %Teorema que coloração em (3,0) e (0,2) são polinomiais e (4,0) é NPc 
 \begin{itemize}
-  \item Grafo(3,0):\newline
-      Tendo um Grafo G da classe (3,0) como entrada para o problema de coloração sabemos já que o grafo pode ser colorido com 3 cores, resta saber se 3 é o o numero mínimo de cores que pode ser usado, portanto devemos verificar se G é bipartido (colorível com 2 cores) ou um grafo sem arestas (colorível com 1 cor), como ambas verificações são polinomiais podemos afirmar que coloração de Grafo(3,0) é resolvível de forma polinomial.
+  \item Grafo(0,2):
+     \begin{teorema}
+        Coloração de Grafo(0,2) é Polinomial.
+     \end{teorema}
+     \begin{proof}
+      Um Grafo(0,2) é um grafo separável em 2 cliques, e que todo vértice faz parte de alguma das cliques, logo conhecer a clique máxima é simples e tendo a clique máxima sabemos que o numero mínimo de cores que pode ser usado para colorir o grafo é a cardinalidade da clique máxima.
+     \end{proof}
+  \item Grafo(3,0):
+     \begin{teorema}
+        Coloração de Grafo(3,0) é Polinomial.
+     \end{teorema}
+     \begin{proof}
+      Tendo um Grafo G da classe (3,0) como entrada para o problema de coloração sabemos então que o grafo pode ser colorido com 3 cores, resta saber se 3 é o o número mínimo de cores que pode ser usado, portanto devemos verificar se G é bipartido (colorível com duas cores) ou um grafo sem arestas (colorível com uma cor), como ambas verificações são polinomiais podemos afirmar que coloração de Grafo(3,0) é resolvível de forma polinomial.
+     \end{proof}
   \item Grafo(4,0):
       \begin{teorema}
-        Se 3-coloração de planar é NPc então coloração de Grafo(4,0) é NPc
+        Coloração de Grafo(4,0) é NP-Completo.
       \end{teorema}
       \begin{proof}
-        Sabemos que todo grafo planar é 4-colorível, e que alguns grafos(4,0) são planares, portanto sabemos que para qualquer Grafo G $\in$ subconjunto de planares de grafos(4,0), sua quantidade máxima de cores é 4, nos resta saber se 4 também é sua quantidade mínima, porém 3-coloração de planar é NPc logo descobrir a coloração mínima de G é NPc e consequentemente coloração de Grafos(4,0) é NPc
+        Sabemos que todo grafo planar é 4-colorível, e que alguns Grafos(4,0) são planares, portanto sabemos que para qualquer Grafo G $\in$ subconjunto de planares de Grafos(4,0), sua quantidade máxima de cores é 4, nos resta saber se 4 também é sua quantidade mínima, porém 3-coloração de planar é NPc logo descobrir a coloração mínima de G é NPc e consequentemente coloração de Grafos(4,0) é NPc
       \end{proof}
 \end{itemize}
+
+É importante notar aqui que, todo Grafo(r,l) é simultaneamente um Grafo(r+1,l) já que podemos formar uma nova clique trivial utilizando qualquer vértice, e um Grafo(r,l+1) já que podemos formar um novo conjunto independente trivial a partir de qualquer vértice, portanto se o problema de coloração é NP-Completo para um Grafo(r,l) então ele é NP-Completo para qualquer Grafo(r+1,l) ou Grafo(r,l+1).
 
 Esses resultados nos levam à preencher a dicotomia da seguinte forma
 %Segunda tabela de dicotomia
@@ -539,7 +559,7 @@ Esses resultados nos levam à preencher a dicotomia da seguinte forma
     2 & \textit{P} & ? & ? & ? & ? & \ldots & ?\\
     3 & \textit{P} & ? & ? & ? & ? & \ldots & ?\\
     4 & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \ldots & \textit{NPc}\\
-    $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & ?\\
+    $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & \textit{NPc}\\
     n & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \ldots & \textit{NPc}\\
     \bottomrule
   \end{tabular}%
@@ -547,9 +567,10 @@ Esses resultados nos levam à preencher a dicotomia da seguinte forma
   \label{tab:tabela_part2dictrl}%
 \end{table}%
 
+Ainda nos falta mostrar a complexidade para alguns casos de fronteira, que necessitam de uma demonstração mais complexa.
 %Demonstrar lista-coloração(r,l)Npc -> coloração(r,l+1)Npc e seus colorários (1,2) & (2,1)
 
-Iremos demonstrar abaixo a complexidade para casos de ordem superiores. 
+Iremos demonstrar abaixo a complexidade para tais casos. 
 \begin{itemize}
   \item Grafo(1,2):
     \begin{teorema}
@@ -577,7 +598,7 @@ Iremos demonstrar abaixo a complexidade para casos de ordem superiores.
       Por construção uma aresta de $u_i$ só existe para $v_a$ em $H$ se e somente se, $v_a$ não possui $c_i$ em sua lista de cores, portanto a coloração atribuída à K não conflita com a com a lista coloração de G, e portanto para todo vértice perntecente a G podemos lhe atribuir a mesma cor que lhe foi atribuída no problema de lista coloração, obtendo uma coloração própria para H
       
       (2):\newline
-      Suponha que o grafo $H_G$ possua uma K-coloração própria, onde k é o numero de cores nas listas de G
+      Suponha que o grafo $H_G$ possua uma K-coloração própria, onde k é o número de cores nas listas de G
       
       Seja K a maior clique presente em $H_G$, por construção $H_G$ é colorível com k cores onde k é a cardinalidade de K, observe que a remoção de K não afeta a coloração de $H_G - K$
       

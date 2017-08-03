@@ -1,0 +1,31 @@
+\documentclass[a4paper,11pt]{article}
+% packages --------------------------
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsthm}
+\usepackage{diagbox} %tabelas com barras
+\usepackage{booktabs}
+\usepackage{graphicx}			% Inclusão de gráficos
+% ------------------------------------
+% config
+\newtheorem{definição}{Definição}
+\newtheorem{teorema}{Teorema}
+\newtheorem{corolario}{Corolário}
+\graphicspath{{../figuras/}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+% ------------------------------------
+
+\title{Coloração de grafos(r,l)}
+\author{Matheus Souza D'Andrea Alves e Uéverton dos Santos Souza}
+
+\begin{document}
+  \maketitle
+  A intenção do trabalho é a de explorar e elaborar uma dicotomia para o problema de Coloração mínima em Grafos(r,l) (i.e. grafos que podem ser particionados em r conjuntos independentes e l cliques) quanto a sua complexidade.
+  
+  Para tanto começaremos os estudos a partir de conhecimentos simples sobre coloração e particionamento de grafos e avançaremos as descobertas demonstrando a intimicidade do problema de coloração mínima em grafos(r,l) e lista coloração em grafos(r,l), demonstraremos particulamente como a afirmação: Se lista coloração é NP-Completo para Grafos(r,l) então coloração mínima é NP-Completo para Grafos(r,l+1), é verdadeira.
+  
+  Ao final do trabalho mostramos que existe uma dicotomia clara para o problema de coloração mínima na classe dos grafos(r,l) e levantamos perguntas sobre suas características e possibilidade de resolução dos problemas NP-Completos no domínio parametrizado.
+\end{document}

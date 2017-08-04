@@ -132,21 +132,21 @@ Iremos demonstrar abaixo a complexidade para tais casos utilizando o seguinte te
       Coloração de Grafos$(1,2)$ é NP-Completo
     \end{teorema}
     \begin{proof}
-      A prova do teorema baseia-se em mostrar que uma solução de lista coloração para grafos$(r,l)$ implica em uma solução para o problema de coloração de um Grafo$(r,l+1)$ H, portanto para provarmos é preciso mostrar que
+      A prova do teorema baseia-se em mostrar que uma solução de lista coloração para grafos$(r,l)$ implica em uma solução para o problema de coloração de um Grafo$(r,l+1)$ $H_G$, portanto para provarmos é preciso mostrar que
       \begin{itemize}
-        \item Se um grafo G$(r,l)$ possui uma lista coloração própria então H é k-colorível para k=nº de cores nas listas (1)
-        \item Se H é k-colorível então G possui uma lista coloração própria (2)
+        \item Se um grafo G$(r,l)$ possui uma lista coloração própria então $H_G$ é k-colorível para k=nº de cores nas listas (1)
+        \item Se $H_G$ é k-colorível então G possui uma lista coloração própria (2)
       \end{itemize}
       (1):\newline
       
       Usaremos a seguinte construção:\newline
-      Considere G um grafo$(r,l)$ e que para cada vértice $v \in V(G)$ exista uma lista de cores $S_v$ referente a esse vértice, cada lista contém pelo menos uma cor do conjunto $C = \{c_1,c_2,c_3,...,c_k \}$, sendo G uma instância sim para o problema de lista coloração, criemos uma clique K onde cada vértice $k \in V(K)$ representa uma cor presente em $C$. Seja $H = G \cup K$ para todo vértice $v \in G$ e todo vértice $u_i \in K$ adicione uma aresta $(u_i,v)$ à H se e somente se v não possui a cor $c_i$ em sua lista coloração em G
+      Considere G um grafo$(r,l)$ e que para cada vértice $v \in V(G)$ exista uma lista de cores $S_v$ referente a esse vértice, cada lista contém pelo menos uma cor do conjunto $C = \{c_1,c_2,c_3,...,c_k \}$, sendo G uma instância sim para o problema de lista coloração, criemos uma clique K onde cada vértice $k \in V(K)$ representa uma cor presente em $C$. Seja $H_G = G \cup K$ para todo vértice $v \in G$ e todo vértice $u_i \in K$ adicione uma aresta $(u_i,v)$ à $H_G$ se e somente se v não possui a cor $c_i$ em sua lista coloração em G
       
       Podemos então generalizar da seguinte forma, dado um grafo$(r,l)$ $G$ onde cada vértice de $G$ possui uma lista de possíveis cores então o grafo $H_G$ obtido pela construção anterior possui uma k-coloração.
       
       Note que a clique K possui exatamente k vértices, consequentemente para colorirmos K precisaremos de k cores, sem perda de generalidade assumimos que $u_1$ será colorido com $c_1$, $u_2$ com $c_2$ e assim por diante.
       
-      Por construção uma aresta de $u_i$ só existe para $v_a$ em $H$ se e somente se, $v_a$ não possui $c_i$ em sua lista de cores, portanto a coloração atribuída à K não conflita com a com a lista coloração de G, e portanto para todo vértice perntecente a G podemos lhe atribuir a mesma cor que lhe foi atribuída no problema de lista coloração, obtendo uma coloração própria mínima para H
+      Por construção uma aresta de $u_i$ só existe para $v_a$ em $$H_G$$ se e somente se, $v_a$ não possui $c_i$ em sua lista de cores, portanto a coloração atribuída à K não conflita com a com a lista coloração de G, e portanto para todo vértice perntecente a G podemos lhe atribuir a mesma cor que lhe foi atribuída no problema de lista coloração, obtendo uma coloração própria mínima para $H_G$
       
       (2):\newline
       Suponha que o grafo $H_G$ possua uma K-coloração própria, onde k é o número de cores nas listas de G

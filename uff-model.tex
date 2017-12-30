@@ -1,48 +1,362 @@
-\documentclass[a4paper,11pt]{article}
-% packages --------------------------
-\usepackage[T1]{fontenc}
+\documentclass[a4paper,oneside,12pt]{book}
+%\documentclass[a4paper,oneside]{book}
+\pagestyle{myheadings}
+
+\setcounter{secnumdepth}{3}
+
+%%pacote para tabela
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage[normalem]{ulem}
+\useunder{\uline}{\ul}{}
+\usepackage{proof,bbm}
+\usepackage{stmaryrd}
+\usepackage{amsmath}
+\usepackage{esvect}
+
+%%pacote de c�digos
+\usepackage{listings}
+\lstdefinestyle{padrao}{
+	basicstyle=\ttfamily\scriptsize,
+	columns=fullflexible,
+	mathescape=true,
+	tabsize=2, linewidth=\textwidth, 
+	numbers=left,
+	numberstyle=\tiny,
+	stepnumber=1,
+	numbersep=5pt,
+	backgroundcolor=\color{gray!20},
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	frame=lines,
+	tabsize=2,
+	captionpos=b,
+	floatplacement={tbp},
+	breaklines=true,
+	breakatwhitespace=false,
+	escapeinside={\%*}{*)},
+	numberbychapter=false
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Pacotes para acentua��o %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Apenas para testar
+\usepackage{cmap}
+%Apenas para teste
+
 \usepackage[brazilian]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{ae}
+\usepackage{courier}
+
+
+%%%apendice
+\usepackage[titletoc]{appendix}
+
+%%%%define uma tabela muito longa
+\usepackage{longtable}
+
+%%cor para tabela
+\usepackage[table,xcdraw]{xcolor}
+
+%%%%%%%%%%%
+%\usepackage[brazilian]{babel}
+\usepackage{graphicx}
+\usepackage{placeins}
+\usepackage{tikz}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usetikzlibrary{arrows,shapes,decorations,automata,backgrounds}
 \usepackage{amsthm}
-\usepackage{diagbox} %tabelas com barras
-\usepackage{booktabs}
+\usepackage{hyperref}
+
+
+
+
+
+\usepackage{lmodern}			% Usa a fonte Latin Modern			
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{lastpage}			% Usado pela Ficha catalográfica
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}		% Controle das cores
 \usepackage{graphicx}			% Inclusão de gráficos
-% ------------------------------------
-% config
-\newtheorem{definição}{Definição}
+\usepackage{microtype} 			% para melhorias de justificação
+\usepackage{diagbox} %tabelas com barras
+% ---
+		
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+% ---
+\usepackage{lipsum}				% para geração de dummy text
+% ---
+
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+
+% --- 
+% Pacotes matemáticos
+% ---
+\usepackage{amsthm}
+
+
+% --- 
+% CONFIGURAÇÕES DE PACOTES
+% --- 
+\newtheorem{definition}{Definição}
 \newtheorem{teorema}{Teorema}
 \newtheorem{corolario}{Corolário}
-\graphicspath{{../figuras/}}
+\graphicspath{{figuras/}}
+% ---
+\newtheorem{axiom}{Axioma}
+
+
 \newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+%%%%%%%%%%%
+\linespread{1.5} % espaçamento entre linhas
+%%% Outros pacotes úteis - Igor - 05/11/2011
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Insira aqui os pacotes necess�rios
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{indentfirst}
+\usepackage{array}
 
-% ------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%              Formata��o da P�gina                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\title{Coloração de grafos(r,l)}
-\author{Matheus Souza D'Andrea Alves e Uéverton dos Santos Souza}
+% horizontal
+\setlength{\hoffset}{-1in}
+
+\setlength{\oddsidemargin}{3.0cm}
+
+\setlength{\textwidth}{160mm} % (210mm - 30mm - 20mm)
+
+\setlength{\parindent}{1.25cm} % identa��o de cada par�grafo
+
+% vertical
+\setlength{\voffset}{-1in}
+\addtolength{\voffset}{2.0cm}
+
+\setlength{\topmargin}{0.0cm}
+
+\setlength{\headheight}{5mm}
+\setlength{\headsep}{5mm}
+
+\setlength{\textheight}{247mm} % (297mm - 30mm - 20mm)
+
+%\setlength{\footskip}{0mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \begin{document}
 
-\maketitle
 
-\begin{abstract}
-    A intenção do trabalho aqui descrito é a de explorar e elaborar uma dicotomia para o problema de Coloração mínima em Grafos(r,l) (i.e. grafos que podem ser particionados em r conjuntos independentes e l cliques) quanto a sua complexidade. 
-\end{abstract}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                  Capa da Monografia                %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{titlepage}
+  \begin{center}
+    \Large{\textsc{Universidade Federal Fluminense} \\
+           \textsc{Instituto de Computação} \\
+           \textsc{Departamento de Ciência da Computação}
+          }
+    \par\vspace{3.0cm}
+    \LARGE{Matheus Souza D'Andrea Alves}
+%% Descomentar caso tenha outro aluno
+     \par\vspace{3.0cm}
+    \bigskip
+    \LARGE{COLORAÇÃO DE $GRAFOS(r,l)$}
+    \par\vfill
+    \Large{Niterói-RJ\\2017}
+  \end{center}
+\end{titlepage}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                Numeracao em romano                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagenumbering{roman}
+\setcounter{page}{2}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                   Folha de Rosto                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{center}
+Matheus Souza D'Andrea Alves
+
+
+\vfill
+
+COLORAÇÃO DE $GRAFOS(r,l)$
+
+\vspace{3.0cm}
+
+\begin{flushright}
+\begin{minipage}{0.50\textwidth}
+
+Trabalho submetido ao Curso de \linebreak Bacharelado em Ciência da
+Computação
+da Universidade Federal Fluminense como
+requisito parcial para a obtenção do título de Bacharel em Ciência da
+Computação.
+
+\end{minipage}
+\end{flushright}
+
+\vspace{3.0cm}
+
+\begin{flushleft}
+Orientador: Dr. Uéverton dos Santos Souza 
+\end{flushleft}
+
+\vfill
+
+Niterói-RJ\\2017
+
+\end{center}
+
+\newpage
+
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                  Dedicat�ria                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{flushright}
+\begin{minipage}{0.5\textwidth}
+
+\vspace{15.0cm}
+% espa�o do topo at� o in�cio da dedicat�ria
+
+
+
+\textit{"Ignorance more frequently begets confidence than does knowledge:\\
+		It is those who know little, and not those who know much,\\ who so positively assert that this or that problem\\ will never be solved by science.\\
+		Charles Darwin (The Descent of Man - pg 3)}
+\end{minipage}
+\end{flushright}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                 Agradecimentos                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter*{Agradecimentos}
+
+\thispagestyle{myheadings}
+
+\noindent
+
+[PLACE HOLDER]
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%            Resumo na l�ngua vern�cula            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter*{Resumo}
+\addcontentsline{toc}{chapter}{Resumo}
+
+\thispagestyle{myheadings}
+
+Um problema clássico na literatura é o problema de coloração própria de um grafo, isto é, encontrar uma q-coloração para um grafo G tal que todo vértice $v \in V(G)$ não possua nenhum vizinho da mesma cor e q seja mínimo. Esse problema é conhecido ser NP-Difícil para grafos gerais. O trabalho a seguir tem como proposta desvendar e catalogar a complexidade clássica e parametrizada de tal problema para a classe de Grafos(r,l), i.e. grafos particionáveis em r conjuntos independentes e l cliques; Identificando as características que tornam o problema difícil e a relação do problema de coloração com outros problemas, quando abordado pela perspectiva parametrizada.
+
+\bigskip
+%
+
+\noindent Palavras-chave: \textit{Complexidade parametrizada. Grafos(r,l). Partição de grafos. Coloração de Grafos}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                      Abstract                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+\thispagestyle{myheadings}
+\nocite{*}
+
+A classical problem in the literature is the problem of proper coloring a graph, i.e. to find a q-coloring for a graph G such that every vertex $ v \in V (G) $ does not have any neighbor of the same color and q is the smallest possible number, a problem known to be NP-Hard for a general graphs. The following work attempts to uncover and catalog the parametrized complexity of such problem for the class of graphs(r, l), i.e. partitionable graphs in r independent sets and l cliques; Identifying the characteristics that make the problem hard and the relation of the stated problem to other problems when approached by the parameterized perspective.
+
+\bigskip
+%
+
+\noindent Keywords: \textit{Parametrized Complexity. Graph(r,l). Graph Partitioning. Graph Coloring. }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                       Sum�rio                        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \tableofcontents
 
+\thispagestyle{myheadings}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                  Lista de Ilustra��es                %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\listoffigures
+\addcontentsline{toc}{chapter}{Lista de Figuras}
+
+\thispagestyle{myheadings}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                   Lista de Tabelas                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\listoftables
+\addcontentsline{toc}{chapter}{Lista de Tabelas}
+
+\thispagestyle{myheadings}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                Numeracao em arabico                %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagebreak
+\pagenumbering{arabic}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                       Texto                          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Separe cada cap�tulo em um arquivo separado
+%%% Os arquivos podem ter qualquer nome
+\chapter{Introdução} \label{cap:introducao}
+\chapter{Preparação da pesquisa}
+\chapter{Análise clássica para coloração em Grafos(r,l)}
 \section{Conceitos básicos}
     \subsection{Grafos(r,l)}
-     \begin{definição}
+     \begin{definition}
          Um Grafo dito Grafo(r,l) ou abreviadamente $G(r,l)$ é qualquer grafo pertencente á classe dos grafos que podem ser particionados em r conjuntos independentes e l cliques.
-     \end{definição}
+     \end{definition}
     \subsection{Coloração mínima de Grafos}
-     \begin{definição}
+     \begin{definition}
          Entrada: um Grafo $G$ e um inteiro $k$\\
   Questão: Cada vértice pertencente à $G$ pode ser colorido com uma entre $k$ cores
   de tal forma que dado quaisquer dois vértices adjacentes eles tenham cores distintas e $k$ seja o mínimo de cores possível?
-     \end{definição}
+     \end{definition}
 
 \section{Exploração do problema de coloração mínima em Grafos$(r,l)$}
     O problema de coloração aplicado a Grafos(r,l) é de fácil solução para algumas especificações,
@@ -101,7 +415,7 @@ Portanto agora nos é interessante abordar a complexidade para as classes na fro
       \end{proof}
 \end{itemize}
 
-É importante notar aqui que, todo Grafo(r,l) é simultaneamente um Grafo(r+1,l) já que podemos formar uma nova clique trivial utilizando qualquer vértice, e um Grafo(r,l+1) já que podemos formar um novo conjunto independente trivial a partir de qualquer vértice, portanto se o problema de coloração é NP-Completo para um Grafo(r,l) então ele é NP-Completo para qualquer Grafo(r+1,l) ou Grafo(r,l+1).
+É importante notar aqui que, todo $Grafo(r,l)$ é simultaneamente um $Grafo(r,l+1)$ já que podemos formar uma nova clique trivial utilizando qualquer vértice, e um $Grafo(r+1,l)$ já que podemos formar um novo conjunto independente trivial a partir de qualquer vértice, portanto se o problema de coloração é NP-Completo para um $Grafo(r,l)$ então ele é NP-Completo para qualquer $Grafo(r+1,l)$ ou $Grafo(r,l+1)$ .
 
 Esses resultados nos levam à preencher a dicotomia da seguinte forma
 %Segunda tabela de dicotomia
@@ -146,7 +460,7 @@ Iremos demonstrar abaixo a complexidade para tais casos utilizando o seguinte te
       
       Note que a clique K possui exatamente k vértices, consequentemente para colorirmos K precisaremos de k cores, sem perda de generalidade assumimos que $u_1$ será colorido com $c_1$, $u_2$ com $c_2$ e assim por diante.
       
-      Por construção uma aresta de $u_i$ só existe para $v_a$ em $$H_G$$ se e somente se, $v_a$ não possui $c_i$ em sua lista de cores, portanto a coloração atribuída à K não conflita com a com a lista coloração de G, e portanto para todo vértice perntecente a G podemos lhe atribuir a mesma cor que lhe foi atribuída no problema de lista coloração, obtendo uma coloração própria mínima para $H_G$
+      Por construção uma aresta de $u_i$ só existe para $v_a$ em $H_G$ se e somente se, $v_a$ não possui $c_i$ em sua lista de cores, portanto a coloração atribuída à K não conflita com a com a lista coloração de G, e portanto para todo vértice perntecente a G podemos lhe atribuir a mesma cor que lhe foi atribuída no problema de lista coloração, obtendo uma coloração própria mínima para $H_G$
       
       (2):\newline
       Suponha que o grafo $H_G$ possua uma K-coloração própria, onde k é o número de cores nas listas de G
@@ -236,15 +550,26 @@ Portanto podemos agora completar nossa tabela com:
   \caption{Dicotomia do problema de coloração em Grafos(r,l)}
   \label{tab:tabela_dictrl}%
 \end{table}%
+\chapter{Evolução do problema de coloração considerando o crescimento de r e l}
+\chapter{Análise parametrizada para coloração em Grafos(r,l)}
+\chapter{Análise parametrizada de problemas relacionados a coloração}
+\chapter{Resultados}
+\chapter{Conclusão}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                  Referencias Bibliograficas                   %  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Referências Bibliográficas}
+\bibliographystyle{IEEEtran}
+\bibliography{refs}%{} % arquivos fonte com a bibliografia
 
-\section{Conclusão}
-\subsection{Sobre a complexidade do problema}
+\appendix
+\include{apendice1}
+%\apendice
+%\cleardoublepage
+%\addcontentsline{toc}{chapter}{Ap\^endices}
+%\begin{appendices}
+%\chapter{Teste}
+%\end{appendices}
 
-Conseguimos mostrar através desse trabalho a complexidade para o problema de coloração em quaisquer grafos que sejam um Grafo(r,l), conseguimos também definir a intimicidade do problema de lista coloração em Grafos(r,l) com coloração mínima de Grafos(r,l+1).
-
-\subsection{Trabalhos futuros}
-
-Agora que conhecemos a dicotomia do Problema de coloração mínima em Grafos(r,l) uma pergunta surge naturalmente, quais são as características que tornam os casos fronteiriços mais complexos que seus pares de ordem inferior? seria possível determinar características que tornassem o problema parametrizávelmente resolvível?
-
-Sobre essas perguntas se basearão os trabalhos futuros, determinar se possível um algoritmo parametrizado para a resolução da coloração de Grafos(r,l) que sejam NP-Completos.
 \end{document}

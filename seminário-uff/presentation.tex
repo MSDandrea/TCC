@@ -13,11 +13,11 @@
 \usepackage{graphicx}			% Inclusão de gráficos
 
 \author{\textbf{Matheus S. D'Andrea Alves}, \textbf{Uéverton dos Santos Souza} } 
-\title{Minimum vertex coloring on Graphs(r,l)}
-%\subtitle{}
+\title{Parametrized Complexity on the Graph(r,l) class}
+\subtitle{Minimum vertex coloring on Graphs(r,l)}
 %\logo{}
 \institute{\textbf{Universidade Federal Fluminense}}
-\date{August 2017}
+\date{Ocotber 2017}
 %\subject{}
 %\setbeamercovered{transparent}
 %\setbeamertemplate{navigation symbols}{}
@@ -178,20 +178,20 @@
             n & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \ldots & \textit{NPc}\\
             \bottomrule
           \end{tabular}%
-          \caption{Partial dichotomy of the minimum coloring problem on Graph(r,l)}
+          \caption{Partial dichotomy of the minimum vertex coloring problem on Graph(r,l)}
           \label{tab:tabela_part2dictrl}%
         \end{table}%
     \end{frame}
     \begin{frame}[standout]
       How to proceed?
     \end{frame}
-    \section{The relation between list coloring and minimum coloring in Graph(r,l)}
-    \begin{frame}{The relation between list coloring and minimum coloring in Graph(r,l)}
+    \section{The relation between list coloring and minimum vertex coloring in Graph(r,l)}
+    \begin{frame}{The relation between list coloring and minimum vertex coloring in Graph(r,l)}
         \begin{theorem}
           Minimum vertex coloring is NP-Complete for Graph(r,l+1) if list coloring is NP-Complete for Graph(r,l)
         \end{theorem}
     \end{frame}
-    \begin{frame}{The relation between list coloring and minimum coloring in Graph(r,l)}
+    \begin{frame}{The relation between list coloring and minimum vertex coloring in Graph(r,l)}
         \textbf{Proof.}
         
         The proof consists in showing that a solution for the list coloring problem in a Graph(r,l) G, implies in a solution for the minimum color problem in a Graph(r,l+1) $H_G$.
@@ -202,7 +202,7 @@
         \item If $H_G$ is k-colorable then G has a proper list coloring (2).
       \end{itemize}
     \end{frame}
-    \begin{frame}{The relation between list coloring and minimum coloring in Graph(r,l)}
+    \begin{frame}{The relation between list coloring and minimum vertex coloring in Graph(r,l)}
       \textbf{(1):}
       
       Let G be a Graph(r,l) such that each vertex $v \in V(G)$ has a color list; 
@@ -225,7 +225,7 @@
       \end{center}   
       Using this construction, the coloring of K does not conflict with the color pattern solution found for G, implying in a minimum proper coloring of $H_G$. 
     \end{frame}
-    \begin{frame}{The relation between list coloring and minimum coloring in Graph(r,l)}
+    \begin{frame}{The relation between list coloring and minimum vertex coloring in Graph(r,l)}
       \textbf{(2):}
       
       We know that the graph $H_G$ is a Graph(r,l+1) and has a k-coloring. Let K be the maximal clique in $H_G$.
@@ -240,13 +240,16 @@
       With this result we can say that:
       \begin{itemize}
         \item Minimum proper coloring of Graph(1,2) is NP-Complete.\newline NP-Completeness of list coloring of split graphs was demonstrated by Jensen et al. at \textit{"Generalized coloring for tree-like graphs"}.
-        \item Minimum proper coloring of Graph(2,1) is NP-Complete.\newline NP-Completeness of list coloring of bipartide graphs was demonstrated by Fellows et al. at \textit{"List Coloring and Precoloring Extension are W[1]-hard parameterized by treewidth"}.
+        \item Minimum proper coloring of Graph(2,1) is NP-Complete\textbf{*}.\newline NP-Completeness of list coloring of bipartide graphs was demonstrated by Fellows et al. at \textit{"List Coloring and Precoloring Extension are W[1]-hard parameterized by treewidth"}.
         \item Minimum proper coloring of Graph(0,3) is NP-Complete.
         \newline NP-Completeness of list coloring of Graph(0,2) graphs was demonstrated by Jensen et al. at \textit{"Complexity results for the optimum cost chromatic partition problem"}.
       \end{itemize}
     \end{frame}
+    \begin{frame}{ Peculiarity of Graphs(2,1) }
+      It's trivial to see that the coloring problem for this specific class has a clear upper and lower bound (K+1 and K respectively), but beside the bounds it is still NP-Complete to determine which one it is.
+    \end{frame}
     \section{Final results}
-    \begin{frame}{Final result}
+    \begin{frame}{On minimum coloring}
         These results allow us to finish our dichotomy.
         
         \begin{table}[htb!]
@@ -264,13 +267,48 @@
             n & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \ldots & \textit{NPc}\\
             \bottomrule
           \end{tabular}%
-          \caption{Dichotomy of the minimum coloring problem on Graph(r,l)}
+          \caption{Dichotomy of the minimum vertex coloring problem on Graph(r,l)}
           \label{tab:tabela_dictrl}%
         \end{table}%
     \end{frame}
-    \section{Conclusion}
+    \begin{frame}{On clique cover}
+      Coloring of a Graph $G$ may be seen as \textit{Clique cover} of it's complement $G'$, impling in:
+      
+       \begin{table}[htb!]
+          \center
+          \begin{tabular}{l|*{7}c}
+            \toprule
+            \backslashbox{$r$}{$l$} & 0 & 1 & 2 & 3 & 4 & \ldots & n\\
+            \midrule
+            0 & \textit{P} & \textit{P} & \textit{P} & \textit{P} & \textit{NPc} & \ldots & \textit{NPc}\\
+            1 & \textit{P} & \textit{P} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \ldots & \textit{NPc}\\
+            2 & \textit{P} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \ldots & \textit{NPc}\\
+            3 & \textit{Npc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \ldots & \textit{NPc}\\
+            4 & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \ldots & \textit{NPc}\\
+            $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & \textit{NPc}\\
+            n & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \ldots & \textit{NPc}\\
+            \bottomrule
+          \end{tabular}%
+          \caption{Dichotomy of the clique cover problem on Graph(r,l)}
+          \label{tab:tabela_dictrl}%
+        \end{table}%
+    \end{frame}
+    \begin{frame}[standout]
+      Does the Minimum vertex coloring problem has a parametrized solution for Graph(r,l)?
+    \end{frame}
+    \begin{frame}{Graph(2,1)}
+      \large{Parametrized by the size of the smallest independent set}
+      \normalsize\newline\newline
+      We know the clique can be colored with k colors.
+      
+      We know that we can transform a minimun coloring problem into a list coloring problem.
+      
+      Fellows showed that the list coloring problem is w[1]-hard for bipartide graph when parametrized by the size of the smallest independent set.
+      
+      Minimal vertex coloring is w[1]-hard when parametrized by the smallest independet set in a Graph(2,1).
+    \end{frame}
     \begin{frame}{Conclusion}
-       We were sucessfull in answering our first questioning, and discovered a interesting relation between two coloring problems applied to the Graph(r,l) class.
+       We were sucessfull in building our foundation, answering our first question, and discovered a interesting relation between two coloring problems applied to the Graph(r,l) class.
        
        Future works:
        \begin{itemize}

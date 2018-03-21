@@ -1,0 +1,60 @@
+
+\begin{tikzpicture}[>=latex,line join=bevel,scale=0.5,transform shape]
+%%
+\begin{scope}
+  \pgfsetstrokecolor{black}
+  \definecolor{strokecol}{rgb}{1.0,1.0,1.0};
+  \pgfsetstrokecolor{strokecol}
+  \definecolor{fillcol}{rgb}{1.0,1.0,1.0};
+  \pgfsetfillcolor{fillcol}
+\end{scope}
+\begin{scope}
+  \pgfsetstrokecolor{black}
+  \definecolor{strokecol}{rgb}{1.0,1.0,1.0};
+  \pgfsetstrokecolor{strokecol}
+  \definecolor{fillcol}{rgb}{1.0,1.0,1.0};
+  \pgfsetfillcolor{fillcol}
+\end{scope}
+\begin{scope}
+  \pgfsetstrokecolor{black}
+  \definecolor{strokecol}{rgb}{1.0,1.0,1.0};
+  \pgfsetstrokecolor{strokecol}
+  \definecolor{fillcol}{rgb}{1.0,1.0,1.0};
+  \pgfsetfillcolor{fillcol}
+\end{scope}
+\begin{scope}
+  \pgfsetstrokecolor{black}
+  \definecolor{strokecol}{rgb}{1.0,1.0,1.0};
+  \pgfsetstrokecolor{strokecol}
+  \definecolor{fillcol}{rgb}{1.0,1.0,1.0};
+  \pgfsetfillcolor{fillcol}
+\end{scope}
+  \node (A) at (129.29bp,150.0bp) [draw,ellipse,circle] {$A$};
+  \node (C) at (129.29bp,34.0bp) [draw,ellipse,circle] {$C$};
+  \node (B) at (129.29bp,92.0bp) [draw,ellipse,circle] {$B$};
+  \node (E) at (256.29bp,114.0bp) [draw,ellipse,circle] {$E$};
+  \node (D) at (256.29bp,56.0bp) [draw,ellipse,circle] {$D$};
+  \node (F) at (256.29bp,172.0bp) [draw,ellipse,circle] {$F$};
+  \node (EList) at (352.44bp,114.0bp) [draw,ellipse,record] {$C1|C3$};
+  \node (DList) at (352.44bp,56.0bp) [draw,ellipse,record] {$C1|C2$};
+  \node (AList) at (33.147bp,150.0bp) [draw,ellipse,record] {$C1|C2$};
+  \node (FList) at (352.44bp,172.0bp) [draw,ellipse,record] {$C2|C3$};
+  \node (CList) at (33.147bp,34.0bp) [draw,ellipse,record] {$C2|C3$};
+  \node (BList) at (33.147bp,92.0bp) [draw,ellipse,record] {$C1|C3$};
+  \draw [line] (C) ..controls (168.01bp,76.066bp) and (217.34bp,129.67bp)  .. (F);
+  \draw [dotted] (D) ..controls (294.44bp,56.0bp) and (307.42bp,56.0bp)  .. (DList);
+  \draw [dotted] (F) ..controls (294.44bp,172.0bp) and (307.42bp,172.0bp)  .. (FList);
+  \draw [dotted] (AList) ..controls (78.112bp,150.0bp) and (90.985bp,150.0bp)  .. (A);
+  \draw [line] (B) ..controls (177.4bp,100.33bp) and (208.23bp,105.67bp)  .. (E);
+  \draw [dotted] (CList) ..controls (78.112bp,34.0bp) and (90.985bp,34.0bp)  .. (C);
+  \draw [line] (A) ..controls (177.4bp,158.33bp) and (208.23bp,163.67bp)  .. (F);
+  \draw [line] (A) ..controls (171.63bp,118.66bp) and (214.01bp,87.3bp)  .. (D);
+  \draw [dotted] (BList) ..controls (78.112bp,92.0bp) and (90.985bp,92.0bp)  .. (B);
+  \draw [line] (A) ..controls (176.65bp,136.58bp) and (209.01bp,127.4bp)  .. (E);
+  \draw [line] (B) ..controls (173.0bp,119.53bp) and (212.79bp,144.6bp)  .. (F);
+  \draw [line] (C) ..controls (177.4bp,42.334bp) and (208.23bp,47.673bp)  .. (D);
+  \draw [dotted] (E) ..controls (294.44bp,114.0bp) and (307.42bp,114.0bp)  .. (EList);
+  \draw [line] (C) ..controls (173.0bp,61.529bp) and (212.79bp,86.598bp)  .. (E);
+  \draw [line] (B) ..controls (176.65bp,78.576bp) and (209.01bp,69.404bp)  .. (D);
+%
+\end{tikzpicture}

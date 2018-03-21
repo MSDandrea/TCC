@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+	<graph id="G" edgeids="true" edgemode="undirected">
+		<attr name="overlap" kind="graph">
+			<string>false</string>
+		</attr>
+		<attr name="rankdir" kind="graph">
+			<string>LR</string>
+		</attr>
+		<attr name="splines" kind="graph">
+			<string>false</string>
+		</attr>
+		<attr name="node:fixedsize" kind="node">
+			<string>true</string>
+		</attr>
+		<attr name="node:height" kind="node">
+			<string>0.3</string>
+		</attr>
+		<attr name="node:label" kind="node">
+			<string>{C2|C3}</string>
+		</attr>
+		<attr name="node:shape" kind="node">
+			<string>record</string>
+		</attr>
+		<attr name="node:width" kind="node">
+			<string>0.6</string>
+		</attr>
+		<attr name="edge:style" kind="edge">
+			<string>dotted</string>
+		</attr>
+		<node id="N_0">
+			<graph id="G_2" edgeids="true" edgemode="undirected">
+				<attr name="name">
+					<string>%1</string>
+				</attr>
+				<node id="D">
+					<attr name="height">
+						<string>1.5</string>
+					</attr>
+					<attr name="shape">
+						<string>circle</string>
+					</attr>
+					<attr name="width">
+						<string>1.5</string>
+					</attr>
+				</node>
+				<node id="E">
+					<attr name="height">
+						<string>1.5</string>
+					</attr>
+					<attr name="shape">
+						<string>circle</string>
+					</attr>
+					<attr name="width">
+						<string>1.5</string>
+					</attr>
+				</node>
+				<node id="F">
+					<attr name="height">
+						<string>1.5</string>
+					</attr>
+					<attr name="shape">
+						<string>circle</string>
+					</attr>
+					<attr name="width">
+						<string>1.5</string>
+					</attr>
+				</node>
+			</graph>
+		</node>
+		<node id="N_1">
+			<graph id="G_2" edgeids="true" edgemode="undirected">
+				<attr name="name">
+					<string>%9</string>
+				</attr>
+			</graph>
+		</node>
+		<node id="N_2">
+			<graph id="G_2" edgeids="true" edgemode="undirected">
+				<attr name="name">
+					<string>%17</string>
+				</attr>
+			</graph>
+		</node>
+		<node id="A">
+			<attr name="height">
+				<string>1.5</string>
+			</attr>
+			<attr name="shape">
+				<string>circle</string>
+			</attr>
+			<attr name="width">
+				<string>1.5</string>
+			</attr>
+		</node>
+		<edge from="A" to="D" isdirected="false" id="A--D">
+		</edge>
+		<edge from="A" to="E" isdirected="false" id="A--E">
+		</edge>
+		<edge from="A" to="F" isdirected="false" id="A--F">
+		</edge>
+		<node id="B">
+			<attr name="height">
+				<string>1.5</string>
+			</attr>
+			<attr name="shape">
+				<string>circle</string>
+			</attr>
+			<attr name="width">
+				<string>1.5</string>
+			</attr>
+		</node>
+		<edge from="B" to="D" isdirected="false" id="B--D">
+		</edge>
+		<edge from="B" to="E" isdirected="false" id="B--E">
+		</edge>
+		<edge from="B" to="F" isdirected="false" id="B--F">
+		</edge>
+		<node id="C">
+			<attr name="height">
+				<string>1.5</string>
+			</attr>
+			<attr name="shape">
+				<string>circle</string>
+			</attr>
+			<attr name="width">
+				<string>1.5</string>
+			</attr>
+		</node>
+		<edge from="C" to="D" isdirected="false" id="C--D">
+		</edge>
+		<edge from="C" to="E" isdirected="false" id="C--E">
+		</edge>
+		<edge from="C" to="F" isdirected="false" id="C--F">
+		</edge>
+		<node id="AList">
+			<attr name="label">
+				<string>{C1|C2}</string>
+			</attr>
+		</node>
+		<edge from="AList" to="A" isdirected="false" id="AList--A">
+		</edge>
+		<node id="DList">
+			<attr name="label">
+				<string>{C1|C2}</string>
+			</attr>
+		</node>
+		<edge from="DList" to="D" isdirected="false" id="DList--D">
+		</edge>
+		<node id="BList">
+			<attr name="label">
+				<string>{C1|C3}</string>
+			</attr>
+		</node>
+		<edge from="BList" to="B" isdirected="false" id="BList--B">
+		</edge>
+		<node id="EList">
+			<attr name="label">
+				<string>{C1|C3}</string>
+			</attr>
+		</node>
+		<edge from="EList" to="E" isdirected="false" id="EList--E">
+		</edge>
+		<node id="CList">
+		</node>
+		<edge from="CList" to="C" isdirected="false" id="CList--C">
+		</edge>
+		<node id="FList">
+		</node>
+		<edge from="FList" to="F" isdirected="false" id="FList--F">
+		</edge>
+	</graph>
+

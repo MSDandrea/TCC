@@ -1,0 +1,47 @@
+graph G {
+
+    rankdir=LR;
+    splines=false;
+    ranksep=0.5;
+    nodesep=0.3;
+    subgraph cluster0 {
+      rankdir=LR;
+      style=invis;
+      node[style=circle] 
+      A; B; C; 
+    }
+    subgraph cluster1 {
+      rankdir=LR;
+      style=invis;
+      node[style=circle] 
+      D; E; F; 
+    }
+
+
+    node[style=record, label="C1|C2"] 
+    AList; DList;
+    node[style=record, label="C1|C3"] 
+    BList; EList;
+    node[style=record, label="C2|C3"] 
+    CList; FList;
+    
+    edge[style=line]
+    A -- {D E F} ;
+    B -- {D E F} ;
+    C -- {D E F} ;
+    
+    edge[style=dotted]
+    AList -- A;
+    CList -- C;
+    BList -- B;
+    D -- DList;
+    E -- EList;
+    F -- FList;  
+    
+    edge[style=invis]
+    A -- DList;
+    C -- FList;
+    
+    
+     
+  }

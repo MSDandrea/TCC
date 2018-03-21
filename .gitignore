@@ -210,3 +210,4 @@ TSWLatexianTemp*
 # expex forward references with \gathertags
 *-tags.tex
 # End of https://www.gitignore.io/api/latex
+.Rproj.user

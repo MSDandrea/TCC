@@ -1,0 +1,60 @@
+\documentclass[12pt]{article}
+%=====================================
+
+\usepackage{amssymb, amsmath, mathtools}
+\usepackage{xspace}
+
+\newcommand{\leaves}[1]{\ensuremath{\operatorname{leaves}(#1)}\xspace}
+
+\begin{document}
+\pagestyle{empty}
+%=====================================
+
+\begin{center}
+\Large
+
+{\bf The {Colourability} problem on Graphs(r,l) and a few parametrized solutions }\\[0.2in]
+
+\large
+%
+%
+%IMPORTANT: the asterisk * indicates the author who will present the work.
+%
+M. S. D. Alves$^{1,*}$\hspace{.2cm}
+U. S. Souza$^1$\hspace{.2cm}
+
+%
+$^1$ Universidade Federal Fluminense
+
+\end{center}
+%=======================================
+\normalsize
+\vspace{-2.0ex}
+
+%
+\noindent\line(1,0){390}\\
+%
+{\it Keywords: Colourability; Graph Coloring; Graph(r,l); Parametrized Complexity;}\\%; Computational complexity}\\
+%
+\line(1,0){390}\\
+\vspace{-2.0ex}
+%==========================================
+\sloppy
+
+A \emph{Graph(r,l)} $G(r,l)$ is a graph that can be partitioned in r independent sets and l cliques;
+The colourability problem can be defined as: Given a graph $G$ and a integer $n$, does each vertex of $G$ can be assigned one colour out of $n$ such that whenever two vertices are adjacent, they have different colours?
+
+ In this work, we describe a dichotomy for this problem aimed at Graphs($r$,$l$) as $r$ and $l$ varies, we unfold the boundaries of NP-completenes for it.
+ After determining for which value of r and l the problem becomes NP-Complete, we decided to approach the problem under the parametrized complexity perspective. 
+ 
+ In order to do so we used a strategy that uses a reduction of the colourability problem in a \emph{Graph(r,l)} to the list-coloring problem, leading to the discovery that in a \emph{Graph(2,1)} it's W[2]-hard when parametrized by the size of the smaller independet set, Para-NP when parametrized by the size of the clique, FPT when parametrized by the quantity of vertices not in the neighbourhood of the clique, and FPT when parametrized by the the size of both the clique and the smaller independent set.
+ 
+%=========================================
+\vspace{-2ex}
+%\renewcommand\refname{\footnotesize \bf References\vspace{-2ex}}
+%\begin{thebibliography}{4}
+%\itemsep=-1pt
+%\footnotesize
+% \bibitem{SBPOUeverton} Dourado C. M., Oliveira A. R., Protti, F., Souza, S. U.: Conex\~{a}o de terminais com n\'{u}mero restrito de roteadores e elos, Annals of XLVI SBPO, pp. 2965--2976, 2014.\vspace{-2ex}%
+%\end{thebibliography}
+\end{document}

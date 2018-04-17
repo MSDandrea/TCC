@@ -1,0 +1,56 @@
+\chapter{Análise parametrizada para coloração em Grafos(2,1)}
+Tendo mostrado a complexidade clássica nos é interessante agora que elucidemos quais caractéristicas dos grafos(r,l) se mostram propícias a abordagem parametrizada, a cardinalidade de suas partições se mostrou uma interesante característica.
+Decidimos abordar a classe (2,1), já que a mesma é a classe onde o problema é NP-Completo com o menor número de partições.
+
+Um Grafo(2,1) é um grafo particionado em 2 conjuntos independentes e 1 clique, portanto ele nos entrega 3 naturais candidatos a parametrização, o tamanho da clique $l$, o tamanho do menor conjunto independente $r_1$ e o tamanho do maior conjunto independente $r_2$.
+
+\section{Parametrização pelo tamanho do menor conjunto independente}
+Em \ref{Fellows07} Fellows (et. al) mostrou que o problema de lista coloração é $W[1]-difícil$ parametrizado pela treewidth através da transformação do problema da clique multicolorida parametrizada pelo tamanho da clique para tal, nos aproveitaremos dessa transformação para mostrar que:
+\begin{teorema}
+O problema de coloração em Grafos(2,1) é $W[1]-difícil$ quando parametrizado pelo tamanho do menor conjunto independente.
+\end{teorema}
+\begin{proof}
+Observe a seguinte transformação.
+
+O problema da clique multicolorida pode ser definido como: Dado um Grafo $G$ detentor de uma $k-coloração$ própria, existe uma clique de tamanho $k$ abrangendo todas as cores? Esse problema é conhecidamente $W[1]-difícil$.
+
+Portanto suponha tal $G$ proposto, temos como intenção montar um problema de lista coloração em um grafo $G'$ a partir dele, para tanto seguimos os seguintes passos:
+\begin{itemize}
+  \item Para cada cor $i$ presente em $G$ cria-se em $G'$ um vértice $v_i$ (os chamaremos de vértices-cor).
+  \item Para cada vértice $u$ em $G$ colorido com a cor $i$, adicionamos à lista do vértice-cor $v_i$ em $G'$ uma cor $c_u$ relacionada a esse vértice (as chamaremos de cores-vértice).
+  \item Para cada aresta $e(x,y) \notin E(G)$ onde $x,y \in V(G)$ cria-se em $G'$ um vértice $z_e$ adjacente ao vértice-cor $v_i$ onde $i$ representa as cores de $x$ e $y$, a lista coloração de $z_e$ será formada por $c_x$ e $c_y$.
+\end{itemize}
+É notável que a treewidth de $G'$ é dada por $k$, já que a remoção dos vértices-cor leva a um grafo sem arestas. Assim sendo se $G$ possui uma clique multicolorida podemos facilmente colorir $G'$ da seguinte forma:
+
+Ao vértice-cor $v_i$ atribua a cor-vértice $c_u$ onde $u$ é o vértice colorido com a cor $i$ em $G$. Dessa forma todos os vértices $z_e$ possuem ainda uma cor disponível para sua coloração já que ele representa uma não-aresta em $G$. 
+
+Para a volta observe que uma lista coloração válida em $G'$ implica em uma clique multicolorida em $G$, isso se dá pois dois vértices $x,y$ coloridos com cores diferentes em $G$ não aparecem em uma lista de algum $z_e$ em $G'$ se e somente se existe uma aresta $e(x,y) \in E(G)$, portanto as cores-vértices escolhidas para os vértices $v_i$ são uma respectivamente uma clique formadas por tais $i$ em $G$. Mostramos assim que lista coloração parametrizada por treewidth é $W[1]-difícil$.
+
+Sabemos que coloração em Grafos(2,1) é equivalente a lista coloração em um grafo bipartido, portanto nossa tentativa de parametrizar a coloração de (2,1) pelo tamanho do menor conjunto independente é equivalente a parametrizar lista-coloração em bipartidos pelo tamanho do menor conjunto independente, é de pouca dificuldade ver que a treewidth de um grafo bipartido existe em função do menor independente, mostrando assim que coloração em Grafos(2,1) parametrizada pelo tamanho do menor conjunto independente é $W[1]-difícil$. 
+
+\end{proof}
+
+\section{Parametrização pelo tamanho da clique}
+Para a demonstração da complexidade parametrizada utilizando $k=\#l$ nos voltamos novamente para transformação da clique em um Grafo(2,1) em listas coloração do restante bipartido, dessa forma nosso problema parametrizado original se torna um novo problema, lista coloração de bipartido parametrizado pelo tamanho da paleta de cores. 
+
+Mostraremos no entanto que essa parametrização não é proveitosa já que o problema se mostra equivalente à PreColoring Extension com limite de cores, mostrado ser NP-Completo para grafos bipartidos mesmo quando sua paleta é de tamanho 3\cite{Kratochvil94}.
+
+\begin{teorema}
+Lista coloração em bipartidos com listas de tamanho 1 é NP-Completo
+\end{teorema}
+\begin{proof}
+Suponha uma instância $P$ do problema PreColoring Extension e $G$ seu grafo de entrada, sabemos que $G$ possui uma paleta $C$ de cores de tamanho definido, e que existem $v \in V(G)$ que já estão coloridos com uma cor $c \in C$, podemos ver tal configuração como um grafo $G'$ onde os vértices $v$ possuem listas contendo apenas $c$, e os demais vértices possuem listas de tamanho $\#C$ contendo todas as cores, nos levando a um problema de lista coloração $Q$ que tem como entrada $G'$.
+
+Uma coloração possível para $P$ implica em uma coloração possível para $Q$, já que nos basta atribuir aos vértices em $G'$ as mesmas cores atribuídas em $G$. Da mesma forma uma lista coloração possível em $Q$ implica em uma coloração possível em $P$.
+\begin{proof}
+
+
+Apesar do tamanho da paleta não ter se mostrado uma escolha adequada, ele levanta novos parametros que são interessantes para o problema de lista coloração em bipartidos, observe pois que, sabemos que Precoloring extension é polinomial se todas as listas tem tamanho 1 ou 2 \cite{HUJTER93}, e NP-Completo se todas tem listas e tamanho 1 e 3 \cite{Kratochvil94}, isso levanta duas formas de se abordar o problema, o que acontece quando o número de vértices com listas de tamanho 1 e 2 varia, e o que acontece quando o número de vertices com listas de tamanho 3 varia.
+
+Mostraremos nas próximas seções como se dão tais comportamentos e como eles se relacionam a coloração de Grafos(r,l)
+\section{O problema de lista coloração em bipartidos com paleta de tamanho 3 parametrizado pela quantidade de vértices com listas de tamanho 1 ou 2}
+Subdiviremos essa seção abordando os casos em que existem apenas listas de tamanho 1, e onde existem listas de tamanho 2.
+\subsection{Apenas listas de tamanho 1}
+ <Não lembro como,> sabemos que precisamos de 6 vértices de tamaho 1 para que o problema se 
+\section{O problema de lista coloração em bipartidos com paleta de tamanho 3 parametrizado pela quantidade de vértices com listas de tamanho 3}
+Mostraremos que o problema é FPT utilizando o seguinte algoritmo de árvore de profundidade limitada.

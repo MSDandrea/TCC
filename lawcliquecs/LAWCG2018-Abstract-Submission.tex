@@ -13,7 +13,7 @@
 \begin{center}
 \Large
 
-{\bf The {Colourability} problem on Graphs(r,l) and a few parametrized solutions }\\[0.2in]
+{\bf The {Colorability} problem on ($r$,$\ell$)-graphs and a few parametrized solutions }\\[0.2in]
 
 \large
 %
@@ -34,20 +34,21 @@ $^1$ Universidade Federal Fluminense
 %
 \noindent\line(1,0){390}\\
 %
-{\it Keywords: Colourability; Graph Coloring; Graph(r,l); Parametrized Complexity;}\\%; Computational complexity}\\
+{\it Keywords: colorability; graph coloring; ($r$,$\ell$)-graph; list coloring; parametrized complexity}\\%; Computational complexity}\\
 %
 \line(1,0){390}\\
 \vspace{-2.0ex}
 %==========================================
 \sloppy
 
-A \emph{Graph(r,l)} $G(r,l)$ is a graph that can be partitioned in r independent sets and l cliques;
-The colourability problem can be defined as: Given a graph $G$ and a integer $n$, does each vertex of $G$ can be assigned one colour out of $n$ such that whenever two vertices are adjacent, they have different colours?
+An \emph{($r$,$\ell$)-graph} is a graph that can be partitioned into $r$ independent sets and $\ell$ cliques; In 
+the \textsc{$k$-Colorability} problem we are asked to determine whether a given graph $G$ admits a vertex coloring using at most $k$ colors such that adjacent vertices have different colors.
 
- In this work, we describe a dichotomy for this problem aimed at Graphs($r$,$l$) as $r$ and $l$ varies, we unfold the boundaries of NP-completenes for it.
- After determining for which value of r and l the problem becomes NP-Complete, we decided to approach the problem under the parametrized complexity perspective. 
+In this work, we describe a \emph{Poly vs NP-complete} dichotomy of this problem regarding to the parameter $r$ and $\ell$ of ($r,\ell$)-graphs, determining the boundaries of the NP-completenes for such a class. In addition, we analyze the complexity of the problem on ($r,\ell$)-graphs under the parametrized complexity perspective. 
  
- In order to do so we used a strategy that uses a reduction of the colourability problem in a \emph{Graph(r,l)} to the list-coloring problem, leading to the discovery that in a \emph{Graph(2,1)} it's W[2]-hard when parametrized by the size of the smaller independet set, Para-NP when parametrized by the size of the clique, FPT when parametrized by the quantity of vertices not in the neighbourhood of the clique, and FPT when parametrized by the the size of both the clique and the smaller independent set.
+A parameterized problem $(\Pi,k)$ is said \emph{fixed-parameter tractable} (FPT) if it can be solved in time $f(k)\times n^{O(1)}$, where $f$ is an arbitrary function, and $n$ is the size of the input. 
+ 
+Using a reduction from \textsc{$k$-Colourability} on ($r$,$\ell$)-raph to \textsc{List-Coloring} as strategy, we are able to discovery that given a (2,1)-partition of the input graph $G$, to finding an optimal coloring of $G$ is: W[1]-hard when parametrized by the size of the smallest independet part; Para-NP-complete when parametrized by the size of the complete part; FPT when parametrized by the number of vertices having no neighbors in the complete part; and FPT when the size of the complete part and the size of the smallest independent part are agregated parameters.
  
 %=========================================
 \vspace{-2ex}

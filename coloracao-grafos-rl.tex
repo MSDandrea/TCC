@@ -177,7 +177,7 @@
 %% Descomentar caso tenha outro aluno
      \par\vspace{3.0cm}
     \bigskip
-    \LARGE{COLORAÇÃO DE $GRAFOS(r,l)$}
+    \LARGE{COLORAÇÃO DE $GRAFOS(r,\ell)$}
     \par\vfill
     \Large{Niterói-RJ\\2017}
   \end{center}
@@ -204,7 +204,7 @@ Matheus Souza D'Andrea Alves
 
 \vfill
 
-COLORAÇÃO DE $GRAFOS(r,l)$
+COLORAÇÃO DE $GRAFOS(r,\ell)$
 
 \vspace{3.0cm}
 
@@ -278,12 +278,12 @@ Niterói-RJ\\2017
 
 \thispagestyle{myheadings}
 
-Um problema clássico na literatura é o problema de coloração própria de um grafo, isto é, encontrar uma q-coloração para um grafo G tal que todo vértice $v \in V(G)$ não possua nenhum vizinho da mesma cor e q seja mínimo. Esse problema é conhecido ser NP-Difícil para grafos gerais. O trabalho a seguir tem como proposta desvendar e catalogar a complexidade clássica e parametrizada de tal problema para a classe de Grafos(r,l), i.e. grafos particionáveis em r conjuntos independentes e l cliques; Identificando as características que tornam o problema difícil e a relação do problema de coloração com outros problemas, quando abordado pela perspectiva parametrizada.
+Um problema clássico na literatura é o problema de coloração própria de um grafo, isto é, encontrar uma q-coloração para um grafo G tal que todo vértice $v \in V(G)$ não possua nenhum vizinho da mesma cor e q seja mínimo. Esse problema é conhecido ser NP-Difícil para grafos gerais. O trabalho a seguir tem como proposta desvendar e catalogar a complexidade clássica e parametrizada de tal problema para a classe de Grafos$(r,\ell)$, i.e. grafos particionáveis em r conjuntos independentes e l cliques; Identificando as características que tornam o problema difícil e a relação do problema de coloração com outros problemas, quando abordado pela perspectiva parametrizada.
 
 \bigskip
 %
 
-\noindent Palavras-chave: \textit{Complexidade parametrizada. Grafos(r,l). Partição de grafos. Coloração de Grafos}
+\noindent Palavras-chave: \textit{Complexidade parametrizada. Grafos$(r,\ell)$. Partição de grafos. Coloração de Grafos}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                      Abstract                      %
@@ -295,12 +295,12 @@ Um problema clássico na literatura é o problema de coloração própria de um 
 \thispagestyle{myheadings}
 \nocite{*}
 
-A classical problem in the literature is the problem of proper coloring a graph, i.e. to find a q-coloring for a graph G such that every vertex $ v \in V (G) $ does not have any neighbor of the same color and q is the smallest possible number, a problem known to be NP-Hard for a general graphs. The following work attempts to uncover and catalog the parametrized complexity of such problem for the class of graphs(r, l), i.e. partitionable graphs in r independent sets and l cliques; Identifying the characteristics that make the problem hard and the relation of the stated problem to other problems when approached by the parameterized perspective.
+A classical problem in the literature is the problem of proper coloring a graph, i.e. to find a q-coloring for a graph G such that every vertex $ v \in V (G) $ does not have any neighbor of the same color and q is the smallest possible number, a problem known to be NP-Hard for a general graphs. The following work attempts to uncover and catalog the parametrized complexity of such problem for the class of graphs$(r, \ell)$, i.e. partitionable graphs in r independent sets and l cliques; Identifying the characteristics that make the problem hard and the relation of the stated problem to other problems when approached by the parameterized perspective.
 
 \bigskip
 %
 
-\noindent Keywords: \textit{Parametrized Complexity. Graph(r,l). Graph Partitioning. Graph Coloring. }
+\noindent Keywords: \textit{Parametrized Complexity. Graph$(r,\ell)$. Graph Partitioning. Graph Coloring. }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                       Sum�rio                        %
@@ -346,8 +346,7 @@ A classical problem in the literature is the problem of proper coloring a graph,
 
 %%% Separe cada cap�tulo em um arquivo separado
 %%% Os arquivos podem ter qualquer nome
-\chapter{Introdução} \label{cap:introducao}
-\chapter{Preparação da pesquisa}
+\chapter{Introdução} \label{cap:introducao}s
 \include{capitulos/analiseClassicaColoracao}
 \include{capitulos/analiseParametrizada}
 \chapter{Análise parametrizada de problemas relacionados a coloração}

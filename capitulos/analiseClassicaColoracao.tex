@@ -1,8 +1,8 @@
-\chapter{Análise clássica para coloração em Grafos(r,l)}
+\chapter{Análise clássica para coloração em Grafos$(r,\ell)$}
 \section{Conceitos básicos}
-    \subsection{Grafos(r,l)}
+    \subsection{Grafos$(r,\ell)$}
      \begin{definition}
-         Um Grafo dito Grafo(r,l) ou abreviadamente $G(r,l)$ é qualquer grafo pertencente á classe dos grafos que podem ser particionados em r conjuntos independentes e l cliques.
+         Um Grafo dito Grafo$(r,\ell)$ ou abreviadamente $G(r,\ell)$ é qualquer grafo pertencente á classe dos grafos que podem ser particionados em r conjuntos independentes e l cliques.
      \end{definition}
     \subsection{Coloração mínima de Grafos}
      \begin{definition}
@@ -11,8 +11,8 @@
   de tal forma que dado quaisquer dois vértices adjacentes eles tenham cores distintas e $k$ seja o mínimo de cores possível?
      \end{definition}
 
-\section{Exploração do problema de coloração mínima em Grafos$(r,l)$}
-    O problema de coloração aplicado a Grafos(r,l) é de fácil solução para algumas especificações,
+\section{Exploração do problema de coloração mínima em Grafos$(r,\ell)$}
+    O problema de coloração aplicado a Grafos$(r,\ell)$ é de fácil solução para algumas especificações,
 por exemplo um Grafo vazio, que é um Grafo(0,0) pode ser colorido com 0 cores, um Grafo disperso i.e um Grafo(1,0) é colorível com apenas uma cor, já que não existem arestas nesse grafo.
 
 Já um Grafo completo, ou seja um Grafo(0,1), é colorível com K cores onde K é a quantidade de vértices nesse grafo completo, em um Grafo split que é um Grafo(1,1) essa regra se repete, já que cada vértice do conjunto independete pode ser colorível com alguma cor já presente na clique.
@@ -37,7 +37,7 @@ Sabemos então que coloração é de solução polinomial para grafos completos,
     n & ? & ? & ? & ? & ? & \ldots & ?\\
     \bottomrule
   \end{tabular}%
-  \caption{1ª Dicotomia parcial do problema de coloração em Grafos(r,l)}
+  \caption{1ª Dicotomia parcial do problema de coloração em Grafos$(r,\ell)$}
   \label{tab:tabela_part1dictrl}%
 \end{table}%
 
@@ -64,11 +64,11 @@ Portanto agora nos é interessante abordar a complexidade para as classes na fro
         Coloração de Grafo(4,0) é NP-Completo.
       \end{teorema}
       \begin{proof}
-        Sabemos que todo grafo planar é 4-colorível, e que alguns Grafos(4,0) são planares, portanto sabemos que para qualquer Grafo G $\in$ subconjunto de planares de Grafos(4,0), sua quantidade máxima de cores é 4, nos resta saber se 4 também é sua quantidade mínima, porém 3-coloração de planar é NPc logo descobrir a coloração mínima de G é NPc e consequentemente coloração de Grafos(4,0) é NPc
+        Sabemos que todo grafo planar é 4-colorível, e que alguns Grafos(4,0) são planares, portanto sabemos que para qualquer Grafo G $\in$ subconjunto de planares de Grafos(4,0), sua quantidade máxima de cores é 4, nos resta saber se 4 também é sua quantidade mínima, porém 3-coloração de planar é NP-Completo logo descobrir a coloração mínima de G é NP-Completo e consequentemente coloração de Grafos(4,0) é NP-Completo
       \end{proof}
 \end{itemize}
 
-É importante notar aqui que, todo $Grafo(r,l)$ é simultaneamente um $Grafo(r,l+1)$ já que podemos formar uma nova clique trivial utilizando qualquer vértice, e um $Grafo(r+1,l)$ já que podemos formar um novo conjunto independente trivial a partir de qualquer vértice, portanto se o problema de coloração é NP-Completo para um $Grafo(r,l)$ então ele é NP-Completo para qualquer $Grafo(r+1,l)$ ou $Grafo(r,l+1)$ .
+É importante notar aqui que, todo $Grafo(r,\ell)$ é simultaneamente um $Grafo(r,\ell+1)$ já que podemos formar uma nova clique trivial utilizando qualquer vértice, e um $Grafo(r+1,\ell)$ já que podemos formar um novo conjunto independente trivial a partir de qualquer vértice, portanto se o problema de coloração é NP-Completo para um $Grafo(r,\ell)$ então ele é NP-Completo para qualquer $Grafo(r+1,\ell)$ ou $Grafo(r,\ell+1)$ .
 
 Esses resultados nos levam à preencher a dicotomia da seguinte forma
 %Segunda tabela de dicotomia
@@ -87,7 +87,7 @@ Esses resultados nos levam à preencher a dicotomia da seguinte forma
     n & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \ldots & \textit{NPc}\\
     \bottomrule
   \end{tabular}%
-  \caption{2ª Dicotomia parcial do problema de coloração em Grafos(r,l)}
+  \caption{2ª Dicotomia parcial do problema de coloração em Grafos$(r,\ell)$}
   \label{tab:tabela_part2dictrl}%
 \end{table}%
 
@@ -99,17 +99,17 @@ Iremos demonstrar abaixo a complexidade para tais casos utilizando o seguinte te
       Coloração de Grafos$(1,2)$ é NP-Completo
     \end{teorema}
     \begin{proof}
-      A prova do teorema baseia-se em mostrar que uma solução de lista coloração para grafos$(r,l)$ implica em uma solução para o problema de coloração de um Grafo$(r,l+1)$ $H_G$, portanto para provarmos é preciso mostrar que
+      A prova do teorema baseia-se em mostrar que uma solução de lista coloração para grafos$(r,\ell)$ implica em uma solução para o problema de coloração de um Grafo$(r,\ell+1)$ $H_G$, portanto para provarmos é preciso mostrar que
       \begin{itemize}
-        \item Se um grafo G$(r,l)$ possui uma lista coloração própria então $H_G$ é k-colorível para k=nº de cores nas listas (1)
+        \item Se um grafo G$(r,\ell)$ possui uma lista coloração própria então $H_G$ é k-colorível para k=nº de cores nas listas (1)
         \item Se $H_G$ é k-colorível então G possui uma lista coloração própria (2)
       \end{itemize}
       (1):\newline
       
       Usaremos a seguinte construção:\newline
-      Considere G um grafo$(r,l)$ e que para cada vértice $v \in V(G)$ exista uma lista de cores $S_v$ referente a esse vértice, cada lista contém pelo menos uma cor do conjunto $C = \{c_1,c_2,c_3,...,c_k \}$, sendo G uma instância sim para o problema de lista coloração, criemos uma clique K onde cada vértice $k \in V(K)$ representa uma cor presente em $C$. Seja $H_G = G \cup K$ para todo vértice $v \in G$ e todo vértice $u_i \in K$ adicione uma aresta $(u_i,v)$ à $H_G$ se e somente se v não possui a cor $c_i$ em sua lista coloração em G
+      Considere G um grafo$(r,\ell)$ e que para cada vértice $v \in V(G)$ exista uma lista de cores $S_v$ referente a esse vértice, cada lista contém pelo menos uma cor do conjunto $C = \{c_1,c_2,c_3,...,c_k \}$, sendo G uma instância sim para o problema de lista coloração, criemos uma clique K onde cada vértice $k \in V(K)$ representa uma cor presente em $C$. Seja $H_G = G \cup K$ para todo vértice $v \in G$ e todo vértice $u_i \in K$ adicione uma aresta $(u_i,v)$ à $H_G$ se e somente se v não possui a cor $c_i$ em sua lista coloração em G
       
-      Podemos então generalizar da seguinte forma, dado um grafo$(r,l)$ $G$ onde cada vértice de $G$ possui uma lista de possíveis cores então o grafo $H_G$ obtido pela construção anterior possui uma k-coloração.
+      Podemos então generalizar da seguinte forma, dado um grafo$(r,\ell)$ $G$ onde cada vértice de $G$ possui uma lista de possíveis cores então o grafo $H_G$ obtido pela construção anterior possui uma k-coloração.
       
       Note que a clique K possui exatamente k vértices, consequentemente para colorirmos K precisaremos de k cores, sem perda de generalidade assumimos que $u_1$ será colorido com $c_1$, $u_2$ com $c_2$ e assim por diante.
       
@@ -200,6 +200,6 @@ Portanto podemos agora completar nossa tabela com:
     n & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \ldots & \textit{NPc}\\
     \bottomrule
   \end{tabular}%
-  \caption{Dicotomia do problema de coloração em Grafos(r,l)}
+  \caption{Dicotomia do problema de coloração em Grafos$(r,\ell)$}
   \label{tab:tabela_dictrl}%
 \end{table}%

@@ -2,8 +2,6 @@
 %\documentclass[a4paper,oneside]{book}
 \pagestyle{myheadings}
 
-\setcounter{secnumdepth}{3}
-
 %%pacote para tabela
 \usepackage{booktabs}
 \usepackage{graphicx}
@@ -285,9 +283,7 @@ Um problema clássico na literatura é o problema de coloração própria de um 
 
 \noindent Palavras-chave: \textit{Complexidade parametrizada. Grafos$(r,\ell)$. Partição de grafos. Coloração de Grafos}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                      Abstract                      %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \chapter*{Abstract}
 \addcontentsline{toc}{chapter}{Abstract}
@@ -302,70 +298,31 @@ A classical problem in the literature is the problem of proper coloring a graph,
 
 \noindent Keywords: \textit{Parametrized Complexity. Graph$(r,\ell)$. Graph Partitioning. Graph Coloring. }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                       Sum�rio                        %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \tableofcontents
 
 \thispagestyle{myheadings}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                  Lista de Ilustra��es                %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \listoffigures
 \addcontentsline{toc}{chapter}{Lista de Figuras}
 
 \thispagestyle{myheadings}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                   Lista de Tabelas                   %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \listoftables
 \addcontentsline{toc}{chapter}{Lista de Tabelas}
 
 \thispagestyle{myheadings}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                Numeracao em arabico                %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \pagebreak
 \pagenumbering{arabic}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                       Texto                          %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-%%% Separe cada cap�tulo em um arquivo separado
-%%% Os arquivos podem ter qualquer nome
 \chapter{Introdução} \label{cap:introducao}s
 \include{capitulos/analiseClassicaColoracao}
 \include{capitulos/analiseParametrizada}
 \chapter{Análise parametrizada de problemas relacionados a coloração}
 \chapter{Resultados}
 \chapter{Conclusão}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                  Referencias Bibliograficas                   %  
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \cleardoublepage
 \addcontentsline{toc}{chapter}{Referências Bibliográficas}
-
-%\appendix
-%\include{apendice1}
-%\apendice
-%\cleardoublepage
-%\addcontentsline{toc}{chapter}{Ap\^endices}
-%\begin{appendices}
-%\chapter{Teste}
-%\end{appendices}
-\bibliographystyle{IEEEtran}
 \bibliography{references}%{} % arquivos fonte com a bibliografia
 \end{document}

@@ -1,0 +1,67 @@
+\chapter{Appendix A - Exemplo de execu��o}
+\label{apend}
+
+% Este ap�ndice apresenta informa��es complementares.
+
+	Para ilustrar esse processo de minera��o, foi realizado o seguinte exemplo de execu��o com a inst�ncia n20q10A, que possui 20 clientes e capacidade do ve�culo Q = 10. Primeiro, mostra-se o CE, composto pelas dez melhores solu��es obtidas na primeira etapa. Cada linha representa uma solu��o e cada n�mero representa um cliente. A ordem em que os clientes aparecem � a ordem de visita da solu��o. Em seguida, mostra-se as solu��es do CE mapeadas, com $id = ((i*n)+j)$. Por fim, s�o apresentados os padr�es obtidos, utilizando como par�metros $sup_{min} = 2$ e $maxIter = 200$.
+	
+Conjunto Elite de Solu��es (CE = 10)\\
+
+\noindent10 0 19 16 5 2 13 4 7 1 8 3 11 12 17 9 18 14 6 15 10  \\
+17 3 11 12 8 1 5 2 7 4 13 16 10 9 18 14 6 15 19 0 17  \\
+17 3 11 12 8 16 5 1 7 4 2 13 10 9 18 14 6 15 19 0 17  \\
+6 14 18 9 10 3 12 16 5 2 13 4 7 1 8 11 17 0 19 15 6   \\
+4 7 2 19 3 11 12 8 1 5 16 0 10 9 18 14 6 15 17 13 4 \\
+16 5 1 8 12 11 3 17 15 6 14 18 9 10 13 19 2 7 4 0 16 \\
+16 5 1 8 12 11 3 19 2 7 4 13 17 15 6 14 18 9 10 0 16 \\
+10 3 12 16 5 2 13 4 7 1 8 11 17 0 19 15 6 14 18 9 10 \\
+10 13 2 4 7 1 5 16 8 12 11 3 17 0 19 15 6 14 18 9 10 \\
+6 14 18 9 10 0 5 1 7 4 2 13 17 3 11 12 8 16 19 15 6 \\
+
+%Solu��es do formato de arestas\\
+%10$\rightarrow$0,0$\rightarrow$19,19$\rightarrow$16,16$\rightarrow$5,5$\rightarrow$2,2$\rightarrow$13,13$\rightarrow$4,4$\rightarrow$7,7$\rightarrow$1,1$\rightarrow$8,8$\rightarrow$3,3$\rightarrow$11,11$\rightarrow$12,12$\rightarrow$17,17$\rightarrow$9,9$\rightarrow$18,18$\rightarrow$14,14$\rightarrow$6,6$\rightarrow$15,15$\rightarrow$10 \\
+%17$\rightarrow$3,3$\rightarrow$11,11$\rightarrow$12,12$\rightarrow$8,8$\rightarrow$1,1$\rightarrow$5,5$\rightarrow$2,2$\rightarrow$7,7$\rightarrow$4,4$\rightarrow$13,13$\rightarrow$16,16$\rightarrow$10,10$\rightarrow$9,9$\rightarrow$18,18$\rightarrow$14,14$\rightarrow$6,6$\rightarrow$15,15$\rightarrow$19,19$\rightarrow$0,0$\rightarrow$17 \\
+%17$\rightarrow$3,3$\rightarrow$11,11$\rightarrow$12,12$\rightarrow$8,8$\rightarrow$16,16$\rightarrow$5,5$\rightarrow$1,1$\rightarrow$7,7$\rightarrow$4,4$\rightarrow$2,2$\rightarrow$13,13$\rightarrow$10,10$\rightarrow$9,9$\rightarrow$18,18$\rightarrow$14,14$\rightarrow$6,6$\rightarrow$15,15$\rightarrow$19,19$\rightarrow$0,0$\rightarrow$17 \\ 
+%6$\rightarrow$14,14$\rightarrow$18,18$\rightarrow$9,9$\rightarrow$10,10$\rightarrow$3,3$\rightarrow$12,12$\rightarrow$16,16$\rightarrow$5,5$\rightarrow$2,2$\rightarrow$13,13$\rightarrow$4,4$\rightarrow$7,7$\rightarrow$1,1$\rightarrow$8,8$\rightarrow$11,11$\rightarrow$17,17$\rightarrow$0,0$\rightarrow$19,19$\rightarrow$15,15$\rightarrow$6 \\ 
+%4$\rightarrow$7,7$\rightarrow$2,2$\rightarrow$19,19$\rightarrow$3,3$\rightarrow$11,11$\rightarrow$12,12$\rightarrow$8,8$\rightarrow$1,1$\rightarrow$5,5$\rightarrow$16,16$\rightarrow$0,0$\rightarrow$10,10$\rightarrow$9,9$\rightarrow$18,18$\rightarrow$14,14$\rightarrow$6,6$\rightarrow$15,15$\rightarrow$17,17$\rightarrow$13,13$\rightarrow$4 \\ 
+%16$\rightarrow$5,5$\rightarrow$1,1$\rightarrow$8,8$\rightarrow$12,12$\rightarrow$11,11$\rightarrow$3,3$\rightarrow$17,17$\rightarrow$15,15$\rightarrow$6,6$\rightarrow$14,14$\rightarrow$18,18$\rightarrow$9,9$\rightarrow$10,10$\rightarrow$13,13$\rightarrow$19,19$\rightarrow$2,2$\rightarrow$7,7$\rightarrow$4,4$\rightarrow$0,0$\rightarrow$16 \\ 
+%16$\rightarrow$5,5$\rightarrow$1,1$\rightarrow$8,8$\rightarrow$12,12$\rightarrow$11,11$\rightarrow$3,3$\rightarrow$19,19$\rightarrow$2,2$\rightarrow$7,7$\rightarrow$4,4$\rightarrow$13,13$\rightarrow$17,17$\rightarrow$15,15$\rightarrow$6,6$\rightarrow$14,14$\rightarrow$18,18$\rightarrow$9,9$\rightarrow$10,10$\rightarrow$0,0$\rightarrow$16 \\ 
+%10$\rightarrow$3,3$\rightarrow$12,12$\rightarrow$16,16$\rightarrow$5,5$\rightarrow$2,2$\rightarrow$13,13$\rightarrow$4,4$\rightarrow$7,7$\rightarrow$1,1$\rightarrow$8,8$\rightarrow$11,11$\rightarrow$17,17$\rightarrow$0,0$\rightarrow$19,19$\rightarrow$15,15$\rightarrow$6,6$\rightarrow$14,14$\rightarrow$18,18$\rightarrow$9,9$\rightarrow$10 \\ 
+%10$\rightarrow$13,13$\rightarrow$2,2$\rightarrow$4,4$\rightarrow$7,7$\rightarrow$1,1$\rightarrow$5,5$\rightarrow$16,16$\rightarrow$8,8$\rightarrow$12,12$\rightarrow$11,11$\rightarrow$3,3$\rightarrow$17,17$\rightarrow$0,0$\rightarrow$19,19$\rightarrow$15,15$\rightarrow$6,6$\rightarrow$14,14$\rightarrow$18,18$\rightarrow$9,9$\rightarrow$10 \\ 
+%6$\rightarrow$14,14$\rightarrow$18,18$\rightarrow$9,9$\rightarrow$10,10$\rightarrow$0,0$\rightarrow$5,5$\rightarrow$1,1$\rightarrow$7,7$\rightarrow$4,4$\rightarrow$2,2$\rightarrow$13,13$\rightarrow$17,17$\rightarrow$3,3$\rightarrow$11,11$\rightarrow$12,12$\rightarrow$8,8$\rightarrow$16,16$\rightarrow$19,19$\rightarrow$15,15$\rightarrow$6 \\ 
+
+Solu��es mapeadas ($(i * n) + j$)\\
+
+\noindent200 19 396 325 102 53 264 87 141 28 163 71 232 257 349 198 374 286 135 310 \\
+343 71 232 248 161 25 102 47 144 93 276 330 209 198 374 286 135 319 380 17 \\
+343 71 232 248 176 325 101 27 144 82 53 270 209 198 374 286 135 319 380 17 \\
+134 298 369 190 203 72 256 325 102 53 264 87 141 28 171 237 340 19 395 306 \\
+87 142 59 383 71 232 248 161 25 116 320 10 209 198 374 286 135 317 353 264 \\
+325 101 28 172 251 223 77 355 306 134 298 369 190 213 279 382 47 144 80 16 \\
+325 101 28 172 251 223 79 382 47 144 93 277 355 306 134 298 369 190 200 16 \\
+203 72 256 325 102 53 264 87 141 28 171 237 340 19 395 306 134 298 369 190 \\
+213 262 44 87 141 25 116 328 172 251 223 77 340 19 395 306 134 298 369 190 \\
+134 298 369 190 200 5 101 27 144 82 53 277 343 71 232 248 176 339 395 306 \\
+
+Padr�es obtidos (com arestas mapeadas)\\
+
+\noindent8;3;134 172 190 223 251 298 306 369\\
+8;3;19 28 53 87 102 141 264 325\\
+9;2;101 134 144 190 200 277 298 306 369\\
+10;2;77 134 172 190 213 223 251 298 306 369\\
+10;2;27 53 71 82 101 144 176 232 248 343\\
+10;2;25 71 135 161 198 209 232 248 286 374\\
+10;3;19 87 134 141 190 298 306 340 369 395\\
+13;2;17 71 135 144 198 209 232 248 286 319 343 374 380\\
+
+
+	 Padr�es obtidos\\
+
+\noindent8;3; 6$\mapsto$14,8$\mapsto$12,9$\mapsto$10,11$\mapsto$3,12$\mapsto$11,14$\mapsto$18,15$\mapsto$6,18$\mapsto$9\\
+8;3; 0$\mapsto$19,1$\mapsto$8,2$\mapsto$13,4$\mapsto$7,5$\mapsto$2,7$\mapsto$1,13$\mapsto$4,16$\mapsto$5\\
+9;2; 5$\mapsto$1,6$\mapsto$14,7$\mapsto$4,9$\mapsto$10,10$\mapsto$0,13$\mapsto$17,14$\mapsto$18,15$\mapsto$6,18$\mapsto$9\\
+10;2; 3$\mapsto$17,6$\mapsto$14,8$\mapsto$12,9$\mapsto$10,10$\mapsto$13,11$\mapsto$3,12$\mapsto$11,14$\mapsto$18,15$\mapsto$6,18$\mapsto$9\\
+10;2; 1$\mapsto$7,2$\mapsto$13,3$\mapsto$11,4$\mapsto$2,5$\mapsto$1,7$\mapsto$4,8$\mapsto$16,11$\mapsto$12,12$\mapsto$8,17$\mapsto$3\\
+10;2; 1$\mapsto$5,3$\mapsto$11,6$\mapsto$15,8$\mapsto$1,9$\mapsto$18,10$\mapsto$9,11$\mapsto$12,12$\mapsto$8,14$\mapsto$6,18$\mapsto$14\\
+10;3; 0$\mapsto$19,4$\mapsto$7,6$\mapsto$14,7$\mapsto$1,9$\mapsto$10,14$\mapsto$18,15$\mapsto$6,17$\mapsto$0,18$\mapsto$9,19$\mapsto$15 \\
+13;2;0$\mapsto$17,3$\mapsto$11,6$\mapsto$15,7$\mapsto$4,9$\mapsto$18,10$\mapsto$9,11$\mapsto$12,12$\mapsto$8,14$\mapsto$6,15$\mapsto$19,17$\mapsto$3,18$\mapsto$14,19$\mapsto$0\\

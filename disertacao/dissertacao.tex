@@ -1,0 +1,142 @@
+% Dissertação escrita em latex, utilizando a ferramenta abntex, para obtenção do Bachareu em Ciencia da Computação
+% pela Universidade Federal Fluminense.
+% Autor: Murilo Brugger Stockinger
+% Data: 02/11/2017
+
+\documentclass[ruledheader]{abnt_UFF}
+
+%---pacotes para hiphenizacao e acentuacao em portugues
+\usepackage[portuguese]{babel}
+\usepackage{lmodern}			% Usa a fonte Latin Modern			
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage[pdftex]{color,graphicx}
+
+%--- pacote para figuras
+\usepackage{epsf}
+\usepackage[dvips]{epsfig,graphicx}
+\usepackage{subfigure}
+
+%--- pacote de simbolos
+\usepackage{latexsym}
+\usepackage{textcomp}
+
+%--- simbolos matematicos
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+%--- pacote para gerar pseudo-codigo
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{float}
+
+%--- outros pacotes
+\usepackage{url}
+\usepackage{longtable}
+\usepackage{lscape}
+\usepackage{booktabs}
+%\usepackage{hyperref}%
+%Tabela Colorida
+\usepackage{colortbl}
+
+\usepackage{tabularx,lipsum,environ,amsmath,amssymb}
+\usepackage{diagbox}
+\usepackage{amsthm}
+
+\usepackage{mathtools}
+
+
+
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{rotating}
+
+\newcommand{\cclass}[1]{\mathcal{#1}}
+
+\renewcommand{\P}{\textit{P}}
+\newcommand{\NPc}{\textit{NPc}}
+
+
+\renewcommand{\algorithmicend}{\textbf{Fim}}
+\renewcommand{\algorithmicif}{\textbf{Se}}
+\renewcommand{\algorithmicthen}{\textbf{então}}
+\renewcommand{\algorithmicelse}{\textbf{senão}}
+\renewcommand{\algorithmicendif}{\textbf{Fim-se}}
+\renewcommand{\algorithmicfor}{\textbf{Para}}
+\renewcommand{\algorithmicforall}{\textbf{Para todos}}
+\renewcommand{\algorithmicdo}{\textbf{faça}}
+\renewcommand{\algorithmicendfor}{\textbf{Fim-para}}
+\renewcommand{\algorithmicwhile}{\textbf{Enquanto}}
+\renewcommand{\algorithmicendwhile}{\textbf{Fim-enquanto}}
+\renewcommand{\algorithmicloop}{\textbf{Laço}}
+\renewcommand{\algorithmicendloop}{\textbf{Fim-laço}}
+\renewcommand{\algorithmicrepeat}{\textbf{Repetir}}
+\renewcommand{\algorithmicuntil}{\textbf{até que}}
+\renewcommand{\algorithmictrue}{\textbf{Verdadeiro}}
+\renewcommand{\algorithmicfalse}{\textbf{Falso}}
+\renewcommand{\algorithmicreturn}{\textbf{Retorne}}
+
+\floatname{algorithm}{Algoritmo}
+\floatname{table}{Tabela}
+
+
+\hyphenation{
+a-de-qua-da-men-te 
+di-men-sio-na-men-to
+se-me-lhan-te
+}
+
+%---------usando tipo de fonte padrao
+\renewcommand{\ABNTchapterfont}{\bfseries\fontfamily{cmr}\fontseries{b}\selectfont}
+\renewcommand{\ABNTsectionfont}{\bfseries\fontfamily{cmr}}
+\newtheorem{definition}{Definição}
+\newtheorem{teorema}{Teorema}
+\newtheorem{corolario}{Corolário}
+\graphicspath{{../figuras/}}
+\newtheorem{axiom}{Axioma}
+
+
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+% --- -----------------------------------------------------------------
+% --- Documento Principal.
+% --- -----------------------------------------------------------------
+% \usepackage[pdftex]{hyperref}
+% \hypersetup{colorlinks, sitecolor=black, pdftex}
+\begin{document}
+
+% --- -----------------------------------------------------------------
+% --- Titulo, abstract, dedicatorias e agradecimentos.
+% --- Indice geral, lista de figuras e tabelas.
+% --- -----------------------------------------------------------------
+\include{cap0}
+
+% --- -----------------------------------------------------------------
+% --- Insercao dos capitulos.
+% --- -----------------------------------------------------------------
+%\pagestyle{ruledheader}
+%\setcounter{page}{1}
+%\pagenumbering{arabic}
+
+\include{cap1}
+\include{cap2}
+\include{cap3}
+\include{cap4}
+\include{cap5}
+
+% --- -----------------------------------------------------------------
+% --- Referencias Bibliograficas. (Obrigatorio)
+% --- -----------------------------------------------------------------
+\cleardoublepage
+\bibliographystyle{acm-2} % abbrv - abnt-num
+%\bibliographystyle{uff-ic}
+\bibliography{bibliografia} % arquivo fonte com a bibilografia
+
+% --- -----------------------------------------------------------------
+% --- Apendice.(Opcional)
+% --- -----------------------------------------------------------------
+%\cleardoublepage
+%\appendix
+%\include{appendixA}
+
+\end{document}

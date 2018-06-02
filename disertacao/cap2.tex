@@ -35,7 +35,7 @@ Sabemos então que coloração é de solução polinomial para grafos completos,
 		Coloração de Grafo(0,2) é Polinomial.
 	\end{teorema}
 	\begin{proof}
-		Um Grafo(0,2) é um grafo separável em 2 cliques, e que todo vértice faz parte de alguma das cliques, logo conhecer a clique máxima é simples e tendo a clique máxima sabemos que o numero mínimo de cores que pode ser usado para colorir o grafo é a cardinalidade da clique máxima.
+		Um Grafo(0,2) é um grafo separável em 2 cliques, e que todo vértice faz parte de alguma das cliques, logo conhecer a clique máxima é simples e tendo a clique máxima sabemos que o numero mínimo de cores que pode ser usado para colorir o grafo é igual a cardinalidade de tal clique.
 	\end{proof}
 
 	\begin{teorema}
@@ -80,18 +80,19 @@ Ainda nos falta mostrar a complexidade para alguns casos de fronteira, que neces
 
 Iremos demonstrar abaixo a complexidade para tais casos utilizando o seguinte teorema. 
 \begin{teorema}
-	Uma solução de lista coloração para um grafo$(r,\ell)$ $G$, implica em uma solução para o problema de coloração de um Grafo$(r,\ell+1)$ $H_G$
+\label{theorem:list-coloring}
+	Uma solução de lista coloração para um grafo $G(r,\ell)$, implica em uma solução para o problema de coloração de um grafo $H_G(r,\ell+1)$.
 \end{teorema}
 \begin{proof}
 	Para a demonstração é preciso mostrar que
 	\begin{itemize}
-		\item Se um grafo G$(r,\ell)$ possui uma lista coloração própria então $H_G$ é k-colorível para k do tamanho da paleta $P$ (1)
+		\item Se um grafo G$(r,\ell)$ possui uma lista coloração própria então $H_G$ é k-colorível para k do tamanho da paleta $C$ (1)
 		\item Se $H_G$ é k-colorível então G possui uma lista coloração própria (2)
 	\end{itemize}
 	(1):\newline
 	
 	Usaremos a seguinte construção:\newline
-	Considere G um grafo$(r,\ell)$ e que para cada vértice $v \in V(G)$ exista uma lista de cores $S_v$ referente a esse vértice, cada lista contém pelo menos uma cor do conjunto $C = \{c_1,c_2,c_3,...,c_k \}$, sendo G uma instância sim para o problema de lista coloração, criemos uma clique K onde cada vértice $k \in V(K)$ representa uma cor presente em $C$. Seja $H_G = G \cup K$ para todo vértice $v \in G$ e todo vértice $u_i \in K$ adicione uma aresta $(u_i,v)$ à $H_G$ se e somente se v não possui a cor $c_i$ em sua lista coloração em G
+	Considere G um grafo$(r,\ell)$ e que para cada vértice $v \in V(G)$ exista uma lista de cores $S_v$ referente a esse vértice, cada lista contém pelo menos uma cor da paleta $C = \{c_1,c_2,c_3,...,c_k \}$, sendo G uma instância sim para o problema de lista coloração, criemos uma clique K onde cada vértice $k \in V(K)$ representa uma cor presente em $C$. Seja $H_G = G \cup K$ para todo vértice $v \in G$ e todo vértice $u_i \in K$ adicione uma aresta $(u_i,v)$ à $H_G$ se e somente se v não possui a cor $c_i$ em sua lista coloração em G
 	
 	Podemos então generalizar da seguinte forma, dado um grafo$(r,\ell)$ $G$ onde cada vértice de $G$ possui uma lista de possíveis cores então o grafo $H_G$ obtido pela construção anterior possui uma k-coloração.
 	
@@ -100,7 +101,7 @@ Iremos demonstrar abaixo a complexidade para tais casos utilizando o seguinte te
 	Por construção uma aresta de $u_i$ só existe para $v_a$ em $H_G$ se e somente se, $v_a$ não possui $c_i$ em sua lista de cores, portanto a coloração atribuída à K não conflita com a com a lista coloração de G, e portanto para todo vértice perntecente a G podemos lhe atribuir a mesma cor que lhe foi atribuída no problema de lista coloração, obtendo uma coloração própria mínima para $H_G$
 	
 	(2):\newline
-	Suponha que o grafo $H_G$ possua uma K-coloração própria, onde k é o número de cores nas listas de G
+	Suponha que o grafo $H_G$ possua uma k-coloração própria, onde k é o número de cores nas listas de G
 	
 	Seja K a maior clique presente em $H_G$, por construção $H_G$ é colorível com k cores onde k é a cardinalidade de K, observe que a remoção de K não afeta a coloração de $H_G - K$
 	
@@ -110,29 +111,30 @@ Iremos demonstrar abaixo a complexidade para tais casos utilizando o seguinte te
 	
 	Logo a k-coloração atribuídas aos vértices em $H_G - K$ formam uma coloração para G onde todo vértice em $V(G)$ possui uma cor de sua lista. Portanto G é uma instância sim de lista coloração
 \end{proof}
+Portanto utilizando o teorema \ref{theorem:list-coloring}, derivamos os seguintes corolários:
 \begin{corolario}
-	Se lista coloração é NP-Completo para Grafos split então coloração é NP-Completo para Grafos$(1,2)$.
+	O problema de coloração é NP-Completo para Grafos$(1,2)$.
 	\begin{proof}
-		A NP-Completude de lista coloração em grafos split é demonstrado por Jensen et al.\cite{jansen1997}
+		A NP-Completude de lista coloração em grafos split i.e. grafos$(1,1)$ é demonstrado por Jensen et al. \cite{jansen1997}.
 	\end{proof}
 \end{corolario}
 \begin{corolario}
-	Se Lista coloração é NP-Completo em Grafos(2,0) então Coloração é NP-Completo em Grafos$(2,1)$.
+	O problema de coloração é NP-Completo em Grafos$(2,1)$.
 	\begin{proof}
-		A NP-Completude de lista coloração em grafos bipartido é demonstrado por Fellows et al. em "List Coloring and Precoloring Extension are W[1]-hard parameterized by treewidth"
+		A NP-Completude de lista coloração em grafos bipartido é demonstrado por Fellows et al. em \cite{fellows07}.
 	\end{proof}
 \end{corolario}    
 \begin{corolario}
 	Se lista coloração é NP-Completo para Grafos(0,2) então Coloração é NP-Completo em Grafos(0,3).
 	\begin{proof}
-		Para essa demonstração nos basearemos em um resultado obtido por Jensen em "Complexity results for the optimum cost chromatic partition problem". a demonstração se baseia em realizar uma redução do problema 3-SAT restrito para lista coloração de co-bipartido i.e. Grafo(0,2).
+		Para essa demonstração nos basearemos em um resultado obtido por Jensen em \cite{jansen1999}. a demonstração se baseia em realizar uma redução do problema 3-SAT restrito para lista coloração de co-bipartido i.e. Grafo(0,2).
 		Suponha o problema 3-SAT com as seguintes restrições:
 		\begin{itemize}
-			\item cada cláusula $c_i$ contém dois ou três literais.
-			\item cada literal ou sua negação aparece no máximo em 3 cláusulas
+			\item cada cláusula $c_i$ contém dois ou três terminais.
+			\item cada terminal ou sua negação aparece no máximo em 3 cláusulas
 		\end{itemize}
 		Construiremos agora uma instância de lista coloração da seguinte forma:\newline
-		Para cada varíavel $j$ crie seis vértices:
+		Para cada terminal $j$ crie seis vértices:
 		$a_j^{(1)}$, $a_j^{(2)}$, $a_j^{(3)}$;
 		$b_j^{(1)}$, $b_j^{(2)}$, $3_j^{(3)}$. Atribuindo a cada uma lista de cores da seguinte forma:\newline
 		$a_j^{(k)}$ <= \{$x_j^{(k)}$, $\overline{x_j}^{(k)}$ \}; $b_j^{(k)}$ <= \{$\overline{x_j}^{(k)}$,$x_j^{((k \Mod{3}) + 1 )}$ \}\newline
@@ -157,13 +159,14 @@ Iremos demonstrar abaixo a complexidade para tais casos utilizando o seguinte te
 		Nosso grafo tem portanto a seguinte configuração(considere $x'$ como $\overline{x}$):
 		\begin{figure}[!ht]
 			\centering
-			\includegraphics[width=0.6\textwidth]{3-SAT.png}
-			\caption{Grafo G: Transformaçao de 3-SAT em co-bipartido }
+			\includesvg{3-SAT.svg}
+			\caption{Grafo G: Transformaçao de 3-SAT em co-bipartido com foco na cláusula P }
 		\end{figure}
 		
-		Suponha a cláusula p, se p é falso então $a_p^{(1)},a_p^{(2)},a_p^{(3)}$ será colorido com $p^1,p^2,p^3$ respectivamente
+		Suponha a cláusula p, se p é verdadeiro então $a_p^{(1)},a_p^{(2)},a_p^{(3)}$ será colorido com $p'^1,p'^2,p'^3$, permitindo que a cor $p^x$ possa, e que a cor $p'^x$ não possa ser escolhidas para colorir uma cláusula.
 		
-		Dessa forma mostramos que o o grafo construído só tem solução para lista coloração se existe pelo menos um literal verdadeiro em todas as cláusulas
+		De tal forma, podemos facilmente notar que, expandindo a explicação anterior para os outros terminais uma resposta sim para o problema 3-SAT restrito nos leva a uma solução do problema de lista coloração em co-bipartido por exclusão das cores nas listas disponíveis. Para a volta a existência de uma lista coloração válida para o co-bipartido mostra uma solução para o 3-SAT restrito correspondente simplesmente descobrindo a representação em valor de terminal das cores escolhidas para as cláusulas. 
+		
 	\end{proof}
 \end{corolario}
 Portanto podemos agora completar nossa tabela com:

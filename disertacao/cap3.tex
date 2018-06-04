@@ -2,7 +2,7 @@
 Tendo mostrado a complexidade clássica nos é interessante agora que elucidemos quais caractéristicas dos grafos$(r,\ell)$ se mostram propícias a abordagem parametrizada, a cardinalidade de suas partições se mostrou uma interessante característica.
 Decidimos abordar a classe (2,1), já que a mesma é a classe onde o problema é NP-Completo com o menor número de partições.
 
-Um Grafo(2,1) é um grafo particionado em 2 conjuntos independentes e 1 clique, portanto ele nos entrega 3 naturais candidatos a parametrização, o tamanho da clique $l$, o tamanho do menor conjunto independente $r_1$ e o tamanho do maior conjunto independente $r_2$.
+Um Grafo(2,1) é um grafo particionado em 2 conjuntos independentes e 1 clique, portanto ele nos entrega 3 naturais candidatos a parametrização, o tamanho da clique $\ell$, o tamanho do menor conjunto independente $r_1$ e o tamanho do maior conjunto independente $r_2$.
 
 \section{Parametrização pelo tamanho do menor conjunto independente}
 Em \cite{fellows07} Fellows (et. al) mostrou que o problema de lista coloração é $W[1]-hard$ parametrizado pela treewidth através da transformação do problema da clique multicolorida parametrizada pelo tamanho da clique para tal, nos aproveitaremos dessa transformação para mostrar que:
@@ -42,13 +42,14 @@ Em \cite{fellows07} Fellows (et. al) mostrou que o problema de lista coloração
 
 \section{Parametrização pelo tamanho da clique}
 
-Para a demonstração da complexidade parametrizada utilizando $k=\#l$ nos voltamos novamente para transformação da clique em um Grafo(2,1) em listas coloração do restante bipartido, dessa forma nosso problema parametrizado original se torna um novo problema, lista coloração de bipartido parametrizado pelo tamanho da paleta de cores. 
+Para a demonstração da complexidade parametrizada utilizando $k=\#\ell$ nos voltamos novamente para transformação da clique em um Grafo(2,1) em listas coloração do restante bipartido, dessa forma nosso problema parametrizado original se torna um novo problema, lista coloração de bipartido parametrizado pelo tamanho da paleta de cores. 
 
 Mostraremos no entanto que essa parametrização não é proveitosa já que o problema se mostra equivalente à PreColoring Extension com limite de cores, mostrado ser NP-Completo para grafos bipartidos mesmo quando sua paleta é de tamanho 3\cite{kratochvil94}.
 
 \begin{teorema}
-	Lista coloração em bipartidos com listas de tamanho 1 é NP-Completo
+	Lista coloração em bipartidos é NP-Completo
 \end{teorema}
+\label{theorem:list-coloring-bipartide}
 \begin{proof}
 	Suponha uma instância $P$ do problema PreColoring Extension e $G$ seu grafo de entrada, sabemos que $G$ possui uma paleta $C$ de cores de tamanho definido, e que existem $v \in V(G)$ que já estão coloridos com uma cor $c \in C$, podemos ver tal configuração como um grafo $G'$ onde os vértices $v$ possuem listas contendo apenas $c$, e os demais vértices possuem listas de tamanho $\#C$ contendo todas as cores, nos levando a um problema de lista coloração $Q$ que tem como entrada $G'$.
 	
@@ -56,13 +57,28 @@ Mostraremos no entanto que essa parametrização não é proveitosa já que o pr
 \end{proof}
 
 
-Apesar do tamanho da paleta não ter se mostrado uma escolha adequada, ele levanta novos parametros que são interessantes para o problema de lista coloração em bipartidos, observe pois que, sabemos que Precoloring extension é polinomial se todas as listas tem tamanho 1 ou 2 \cite{hujter93}, e NP-Completo se todas tem listas e tamanho 1 e 3 \cite{kratochvil94}, isso levanta duas formas de se abordar o problema, o que acontece quando o número de vértices com listas de tamanho 1 e 2 varia, e o que acontece quando o número de vertices com listas de tamanho 3 varia.
+Apesar do tamanho da paleta não ter se mostrado uma escolha adequada, ele levanta novos parametros que são interessantes para o problema de lista coloração em bipartidos, observe pois que, sabemos que Precoloring extension é polinomial se todas as listas tem tamanho 1 ou 2 \cite{hujter93}, e NP-Completo se todas tem listas e tamanho 1 à 3 \cite{kratochvil94}, isso levanta duas formas de se abordar o problema, o que acontece quando o número de vértices com listas de tamanho 1 e 2 varia, e o que acontece quando o número de vertices com listas de tamanho 3 varia.
 
 Mostraremos nas próximas seções como se dão tais comportamentos e como eles se relacionam a coloração de Grafos$(r,\ell)$
 
 \section{Parametrizado pela quantidade de vértices vizinhos à clique}
-Subdiviremos essa seção abordando os casos em que existem apenas listas de tamanho 1, e onde existem listas de tamanho 2.
-\subsection{Apenas listas de tamanho 1}
-<Não lembro como,> sabemos que precisamos de 6 vértices de tamaho 1 para que o problema se 
-\section{O problema de lista coloração em bipartidos com paleta de tamanho 3 parametrizado pela quantidade de vértices com listas de tamanho 3}
-Mostraremos que o problema é FPT utilizando o seguinte algoritmo de árvore de profundidade limitada.
+Nos focaremos nessa seção em grafos(2,1) cuja a clique tenha tamanho 3, já mostrada ser o menor tamanho necessário para que o problema de seja NP-Completo mostrado no teorema \ref{theorem:list-coloring-bipartide} e em \cite{kratochvil94}. Portanto um vértice que é vizinho da clique tem necessariamente uma lista contendo uma ou duas cores, já que um vértice não pertencente a clique que tenha lista de tamanho zero deveria fazer parte da clique, em contrapartida um vértice com lista tamanho 3 é um vértice não vizinho a clique. 
+
+Portanto essa seção será dividida em 2 casos, um contendo vértices de listas tamanho um, outro contendo vértices com listas de tamanhos dois, e finalizado contendo listas de tamanho 1 e 2.
+\subsection{Apenas vértices com listas tamanho um}
+Os seguintes teoremas estabelecem a base para a resolução do problema envolvendo os vizinhos da clique. 
+\begin{teorema}
+  Seis vértices com lista de tamanho um são necessários para que lista coloração em bipartido seja Para-NP-completo. 
+\end{teorema}
+\begin{proof}
+\end{proof}
+\begin{teorema}
+  Três vértices com lista de tamanho 3 são suficientes para que lista coloração em bipartido seja Para-NP-completo.
+\end{teorema}
+\begin{proof}
+\end{proof}
+ Dado os resultados mostrados nessa seção mostramos que vértices com listas tamanho um não é um parâmetro viável para uma solução FPT. 
+\subsection{Vértices com listas de tamanho dois}
+Mostraremos nessa seção que vértices com listas tamanho dois não são suficientes para que um algoritmo FPT seja extraído
+
+\subsection{Vértices com listas de tamanho um e dois}

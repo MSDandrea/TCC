@@ -7,7 +7,7 @@ Um Grafo(2,1) é um grafo particionado em 2 conjuntos independentes e 1 clique, 
 \section{Parametrização pelo tamanho do menor conjunto independente}
 Em \cite{fellows07} Fellows (et. al) mostrou que o problema de lista coloração é $W[1]-hard$ parametrizado pela treewidth através da transformação do problema da clique multicolorida parametrizada pelo tamanho da clique para tal, nos aproveitaremos dessa transformação para mostrar que:
 \begin{teorema}
-	O problema de coloração em Grafos(2,1) é $W[1]-hard$ quando parametrizado pelo tamanho do menor conjunto independente.
+	Coloração em Grafos(2,1) é $W[1]-hard$ quando parametrizado pelo tamanho do menor conjunto independente.
 \end{teorema}
 \begin{proof}
 	Observe a seguinte transformação.
@@ -31,6 +31,14 @@ Em \cite{fellows07} Fellows (et. al) mostrou que o problema de lista coloração
 \end{proof}
 
 \section{Parametrização pelo tamanho do maior independente}
+
+ Sabemos agora que a parametrização pelo menor independente não nos traz um algoritmo FTP, porém ao analisarmos o comportamento do problema quando parametrizado pelo maior independente vemos que a limitação do tamanho de $r2$ também limita $r1$; Tendo tal limitação a utilização do método de árvore de altura limitada se mostra uma abordagem válida, como mostra o seguinte teorema.
+\begin{teorema}
+  Coloração de Grafos(2,1) é FTP quando parametrizado pelo tamanho do maior conjunto independente.
+\end{teorema}
+\begin{proof}
+ Observe primeiramente que em um grafo(2,1) o número de cores necessárias para o colorir é sempre ou do tamanho da clique ou uma cor a a mais que o tamanho da clique (no caso em que existem vétices vizinhos entre $r1$ e $r2$ que são vizinhos de todos os vértices da clique exceto um). --- Perguntar uéverton ---
+\end{proof}
 
 \section{Parametrização pelo tamanho da clique}
 

@@ -76,12 +76,20 @@ Portanto essa seção será dividida em três casos, um contendo vértices de li
 \end{teorema}
 \begin{proof}
  Sabemos que em nosso problema temos dois conjuntos independentes, $r1$ e $r2$, também é verdade que exceto pelos citados seis vértices todos os outros vértices tem listas de tamanho três, os vértices de $r1$ podem estar ligados arbitrariamente aos vértices de $r2$. 
-\begin{figure}[!ht]
+ 
+ Observe a disposição da figura \ref{fig:seis-vertices-lista-um}
+ 
+\begin{figure}[H]
 		\centering
-		\includesvg{seis-vertices-lista-um.svg}
-		\caption{Stuff }
+		\includesvg[scale=0.6]{seis-vertices-lista-um.svg}
+		\caption{Uma possível instância formada por 6 vértices com listas tamanho 1. }
+		\label{fig:seis-vertices-lista-um}
 \end{figure}
+
+Observe como a presença de um vértice com uma lista de tamanho um influencia em sua vizinhança, esse vértice implica na remoção de sua cor das listas de seus vizinhos, 
+
 \end{proof}
+
 \begin{teorema}
   Três vértices com lista de tamanho 3 são suficientes para que lista coloração em bipartido seja Para-NP-completo.
 \end{teorema}
@@ -92,3 +100,14 @@ Portanto essa seção será dividida em três casos, um contendo vértices de li
 Mostraremos nessa seção que vértices com listas tamanho dois não são suficientes para que um algoritmo FPT seja extraído
 
 \subsection{Vértices com listas de tamanho um e dois}
+
+\section{Parametrizado pela quantidade de vértices não vizinhos a clique}
+Como visto na seção anterior, os vértices que não são vizinhos a clique, quando transformados em vértices do problema de lista coloração se transformam em vértices com listas tamanho três, portanto nosso desejo é resolver lista coloração em bipartidos com listas de tamanho um a três parametrizado pela quantidade de vértices com lista de tamanho três, a solução deriva do seguinte teorema.
+
+\begin{teorema}
+ Lista coloração em bipartidos com listas de tamanho um a três é FPT quando parametrizado pela quantidade de vértices com lista de tamanho três
+\end{teorema}
+\begin{proof}
+ Dado que temos $k$ vértices com 3 escolhas cada é possível montar um algoritmo de busca em árvore de altura limitada de tamanho $3^k$, e então executar o algoritmo linear proposto em \cite{hujter93} obtendo um algoritmo $\mathcal{O}(3^kn)$
+ 
+\end{proof}

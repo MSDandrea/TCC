@@ -50,57 +50,9 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.81818182)%
+  \begin{picture}(1,0.79958678)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{seis-vertices-lista-um_svg-tex.pdf}}%
-    \put(0.06404959,0.63652975){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}a\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=2]{seis-vertices-lista-um_svg-tex.pdf}}%
-    \put(0.06404959,0.38859587){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}b\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=3]{seis-vertices-lista-um_svg-tex.pdf}}%
-    \put(0.06198347,0.14066198){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}c\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=4]{seis-vertices-lista-um_svg-tex.pdf}}%
-    \put(0.93801653,0.63652975){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}a\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=5]{seis-vertices-lista-um_svg-tex.pdf}}%
-    \put(0.93801653,0.38859587){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}b\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=6]{seis-vertices-lista-um_svg-tex.pdf}}%
-    \put(0.93595041,0.18181818){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}c\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=7]{seis-vertices-lista-um_svg-tex.pdf}}%
-    \put(0.62059112,0.75136529){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}a\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=8]{seis-vertices-lista-um_svg-tex.pdf}}%
-    \put(0.62059112,0.70591281){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}b\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=9]{seis-vertices-lista-um_svg-tex.pdf}}%
-    \put(0.61907603,0.66046033){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}c\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=10]{seis-vertices-lista-um_svg-tex.pdf}}%
-    \put(0.38092169,0.75136529){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}a\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=11]{seis-vertices-lista-um_svg-tex.pdf}}%
-    \put(0.38092169,0.70591281){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}b\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=12]{seis-vertices-lista-um_svg-tex.pdf}}%
-    \put(0.37940661,0.66046033){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}c\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=13]{seis-vertices-lista-um_svg-tex.pdf}}%
-    \put(0.62059112,0.4846719){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}a\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=14]{seis-vertices-lista-um_svg-tex.pdf}}%
-    \put(0.62059112,0.43921942){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}b\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=15]{seis-vertices-lista-um_svg-tex.pdf}}%
-    \put(0.61907603,0.39376694){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}c\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=16]{seis-vertices-lista-um_svg-tex.pdf}}%
-    \put(0.38092169,0.4846719){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}a\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=17]{seis-vertices-lista-um_svg-tex.pdf}}%
-    \put(0.38092169,0.43921942){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}b\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=18]{seis-vertices-lista-um_svg-tex.pdf}}%
-    \put(0.37940661,0.39376694){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}c\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=19]{seis-vertices-lista-um_svg-tex.pdf}}%
-    \put(0.38092169,0.23673802){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}a\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=20]{seis-vertices-lista-um_svg-tex.pdf}}%
-    \put(0.38092169,0.19128554){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}b\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=21]{seis-vertices-lista-um_svg-tex.pdf}}%
-    \put(0.37940661,0.14583306){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}c\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=22]{seis-vertices-lista-um_svg-tex.pdf}}%
-    \put(0.62059112,0.23673802){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}a\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=23]{seis-vertices-lista-um_svg-tex.pdf}}%
-    \put(0.62059112,0.19128554){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}b\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=24]{seis-vertices-lista-um_svg-tex.pdf}}%
-    \put(0.61907603,0.14583306){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}c\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=25]{seis-vertices-lista-um_svg-tex.pdf}}%
   \end{picture}%
 \endgroup%

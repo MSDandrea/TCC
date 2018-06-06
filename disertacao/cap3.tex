@@ -37,7 +37,9 @@ Em \cite{fellows07} Fellows (et. al) mostrou que o problema de lista coloração
   Coloração de Grafos(2,1) é FTP quando parametrizado pelo tamanho do maior conjunto independente.
 \end{teorema}
 \begin{proof}
- Observe primeiramente que em um grafo(2,1) o número de cores necessárias para o colorir é sempre ou do tamanho da clique ou uma cor a a mais que o tamanho da clique (no caso em que existem vétices vizinhos entre $r1$ e $r2$ que são vizinhos de todos os vértices da clique exceto um). --- Perguntar uéverton ---
+  Para tal demonstração onde $k$ é o tamanho de $r2$, observe que são necessárias pelo menos $t$ cores, onde $t$ é a cardinalidade da clique para colorir tal grafo, novamente usaremos a estratégia de transformar coloração de (2,1) em lista coloração de bipartido.
+  
+  Em uma lista coloração de bipartido, se um vértice possui uma lista com mais cores do que o tamanho de sua vizinhança, ele sempre terá disponível uma cor para sua coloração, podemos portanto remover esse vértice do grafo sem alterar sua coloração, ao chegarmos ao ponto onde todo vértice com tal configuração foi removido temos que $t$ está limitado em função de $k$, portanto rodar um algoritmo de força bruta para encontrar a coloração se mostra FTP.     
 \end{proof}
 
 \section{Parametrização pelo tamanho da clique}
@@ -53,7 +55,7 @@ Mostraremos no entanto que essa parametrização não é proveitosa já que o pr
 \begin{proof}
 	Suponha uma instância $P$ do problema PreColoring Extension e $G$ seu grafo de entrada, sabemos que $G$ possui uma paleta $C$ de cores de tamanho definido, e que existem $v \in V(G)$ que já estão coloridos com uma cor $c \in C$, podemos ver tal configuração como um grafo $G'$ onde os vértices $v$ possuem listas contendo apenas $c$, e os demais vértices possuem listas de tamanho $\#C$ contendo todas as cores, nos levando a um problema de lista coloração $Q$ que tem como entrada $G'$.
 	
-	Uma coloração possível para $P$ implica em uma coloração possível para $Q$, já que nos basta atribuir aos vértices em $G'$ as mesmas cores atribuídas em $G$. Da mesma forma uma lista coloração possível em $Q$ implica em uma coloração possível em $P$.
+	Uma coloração possível para $G$ implica em uma coloração possível para $G'$, já que nos basta atribuir aos vértices em $G'$ as mesmas cores atribuídas em $G$. De forma análoga, uma lista coloração possível em $G'$ implica em uma coloração possível em $G$.
 \end{proof}
 
 
@@ -64,13 +66,21 @@ Mostraremos nas próximas seções como se dão tais comportamentos e como eles 
 \section{Parametrizado pela quantidade de vértices vizinhos à clique}
 Nos focaremos nessa seção em grafos(2,1) cuja a clique tenha tamanho 3, já mostrada ser o menor tamanho necessário para que o problema de seja NP-Completo mostrado no teorema \ref{theorem:list-coloring-bipartide} e em \cite{kratochvil94}. Portanto um vértice que é vizinho da clique tem necessariamente uma lista contendo uma ou duas cores, já que um vértice não pertencente a clique que tenha lista de tamanho zero deveria fazer parte da clique, em contrapartida um vértice com lista tamanho 3 é um vértice não vizinho a clique. 
 
-Portanto essa seção será dividida em 2 casos, um contendo vértices de listas tamanho um, outro contendo vértices com listas de tamanhos dois, e finalizado contendo listas de tamanho 1 e 2.
+Mostraremos que mesmo quando parametrizado pela quantidade de vértices com listas de tamanho um, dois, ou um e dois o problema é Para-Np-completo. Para tanto é necessário encontrar uma instância do problema já parametrizado cuja solução permanece igualmente difícil.
+
+Portanto essa seção será dividida em três casos, um contendo vértices de listas tamanho um, outro contendo vértices com listas de tamanhos dois, e finalmente contendo listas de tamanho um e dois.
 \subsection{Apenas vértices com listas tamanho um}
-Os seguintes teoremas estabelecem a base para a resolução do problema envolvendo os vizinhos da clique. 
+É importante ressaltar que os seguintes teoremas estabelecem a base para a resolução do problema envolvendo os vizinhos da clique. 
 \begin{teorema}
   Seis vértices com lista de tamanho um são necessários para que lista coloração em bipartido seja Para-NP-completo. 
 \end{teorema}
 \begin{proof}
+ Sabemos que em nosso problema temos dois conjuntos independentes, $r1$ e $r2$, também é verdade que exceto pelos citados seis vértices todos os outros vértices tem listas de tamanho três, os vértices de $r1$ podem estar ligados arbitrariamente aos vértices de $r2$. 
+\begin{figure}[!ht]
+		\centering
+		\includesvg{seis-vertices-lista-um.svg}
+		\caption{Stuff }
+\end{figure}
 \end{proof}
 \begin{teorema}
   Três vértices com lista de tamanho 3 são suficientes para que lista coloração em bipartido seja Para-NP-completo.

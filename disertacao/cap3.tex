@@ -72,6 +72,7 @@ Portanto essa seção será dividida em três casos, um contendo vértices de li
 \subsection{Apenas vértices com listas tamanho um}
 É importante ressaltar que os seguintes teoremas estabelecem a base para a resolução do problema envolvendo os vizinhos da clique. 
 \begin{teorema}
+ \label{teorema:6-v-np}
   Seis vértices com lista de tamanho um são necessários para que lista coloração em bipartido seja Para-NP-completo. 
 \end{teorema}
 \begin{proof}
@@ -86,18 +87,65 @@ Portanto essa seção será dividida em três casos, um contendo vértices de li
 		\label{fig:seis-vertices-lista-um}
 \end{figure}
 
-Observe como a presença de um vértice com uma lista de tamanho um influencia em sua vizinhança, esse vértice implica na remoção de sua cor das listas de seus vizinhos, 
+Observe como a presença de um vértice com uma lista de tamanho um influencia em sua vizinhança; a existência desse vértice implica na remoção de sua única possível cor das listas de seus vizinhos, a estrutura mostrada na figura \ref{fig:seis-vertices-lista-um} mantém a coloração do restante NP-Completo ao restringir a cor dos vizinhos sem ter o controle da estrutura resultante perdendo portanto o viés parametrizado.
 
+\end{proof}
+
+Interessantemente o problema é de trivial solução quando o número de vértices com listas tamanho um é zero, já que se torna o problema de 3-coloração em bipartidos, mas NP-Completo com 6 vértices, queremos portanto notar qual é o menor número de vértices no qual o problema é NP-Completo, e consequentemente Para-NP-Completo para nossa parametrização.
+
+\begin{teorema}
+\label{lemma:1-col-P}
+ Lista coloração em bipartido é de solução trival quando há apenas um vértice de lista tamanho um.
+\end{teorema}
+\begin{proof}
+ Sabemos que além do vértice citado todos os outros vértices têm listas de tamanho três dessa forma basta que o conjunto independente no qual tal vértice está inserido seja colorido com a única cor escolhida para o vértice e o conjunto independente sobrante pode ser colorido com qualquer cor.
 \end{proof}
 
 \begin{teorema}
-  Três vértices com lista de tamanho 3 são suficientes para que lista coloração em bipartido seja Para-NP-completo.
+ Lista coloração em bipartido é de solução linear quando existem dois vértices de lista tamanho um.
 \end{teorema}
 \begin{proof}
+ Para essa demonstração é necessária a observação em que existem duas possíveis configurações para essa instância:
+ \begin{itemize}
+   \item Ambos os vértices pertencem ao mesmo conjunto independente.
+   \item Os vértices pertencem a conjuntos distintos.
+ \end{itemize} 
+ No primeiro caso a estratégia usada no lema \ref{lemma:1-col-P} pode ser adaptada para a solução. Para tanto basta colorir tais vértices com suas cores disponíveis e o conjunto independente ao qual pertencem com a cor de algum deles, e o conjunto sobressalente com a cor restante.
+ 
+ No segundo caso, a coloração também é simples. Se tais vértices tem cores distintas basta colorir seus respectivos conjuntos com a mesma cor. Se não, como temos três cores podemos colorir os vértices com a cor 1, um conjunto com a cor 2 e os demais vértices com a cor 3.  
 \end{proof}
- Dado os resultados mostrados nessa seção mostramos que vértices com listas tamanho um não é um parâmetro viável para uma solução FPT. 
+
+\begin{teorema}
+  Três vértices com lista de tamanho um são suficientes para que lista coloração em bipartido seja NP-completo.
+\end{teorema}
+\begin{proof}
+  Mostraremos aqui como que três vértices são suficientes para que o problema seja NP-Completo, esse resultado se dá pois é possível reproduzir a estrutura do teorema \ref{teorema:6-v-np} utilizando os ditos 3 vértices, para tanto basta que notar o seguinte \emph{gadget}:
+  
+\begin{figure}[H]
+  \begin{subfigure}
+    \centering
+		\includesvg[scale=0.6]{gadget-1.svg}
+  \end{subfigure}
+  \begin{subfigure}
+    \centering
+		\includesvg[scale=0.6]{gadget-2.svg}
+  \end{subfigure}
+  \begin{subfigure}
+    \centering
+		\includesvg[scale=0.6]{gadget-3.svg}
+  \end{subfigure}
+  \caption{Gadget com vértices de lista um reproduzindo vértice de lista um em vértice de lista três}
+\end{figure}
+
+Usando tal gadget usando dois vértices com lista um em um vértice com lista três é possível reproduzir um vértice de cor um, sendo assim tendo três vértices de lista um é possível obter seis vértices de lista um e reproduzir a estratégia mostrada no teorema \ref{teorema:6-v-np}, que nos mostra a NP-Completude desse problema.
+  
+\end{proof}
+ Dado os resultados apresentados nessa seção mostramos portanto que o numéro de vértices vizinhos a dois dos três vértices pertencentes a clique não é um parâmetro viável para uma solução FPT.
+  
 \subsection{Vértices com listas de tamanho dois}
-Mostraremos nessa seção que vértices com listas tamanho dois não são suficientes para que um algoritmo FPT seja extraído
+Mostraremos nessa seção que vértices com listas tamanho dois não são suficientes para que um algoritmo FPT seja extraído.
+
+Como já visto o problema é de trivial solução quando todos os vértices tem listas de tamanho três, portanto precisamos ainda encontrar qual número de vértices de tamanho 
 
 \subsection{Vértices com listas de tamanho um e dois}
 

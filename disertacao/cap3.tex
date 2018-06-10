@@ -5,14 +5,14 @@ Decidimos abordar a classe (2,1), já que a mesma é a classe onde o problema é
 Um Grafo(2,1) é um grafo particionado em 2 conjuntos independentes e 1 clique, portanto ele nos entrega 3 naturais candidatos a parametrização, o tamanho da clique $\ell$, o tamanho do menor conjunto independente $r_1$ e o tamanho do maior conjunto independente $r_2$.
 
 \section{Parametrização pelo tamanho do menor conjunto independente}
-Em \cite{fellows07} Fellows (et. al) mostrou que o problema de lista coloração é $W[1]-hard$ parametrizado pela treewidth através da transformação do problema da clique multicolorida parametrizada pelo tamanho da clique para tal, nos aproveitaremos dessa transformação para mostrar que:
+Em \cite{fellows07} Fellows (et. al) mostrou que o problema de lista coloração é $W[1]-difícil$ parametrizado pela treewidth através da transformação do problema da clique multicolorida parametrizada pelo tamanho da clique para tal, nos aproveitaremos dessa transformação para mostrar que:
 \begin{teorema}
-	Coloração em Grafos(2,1) é $W[1]-hard$ quando parametrizado pelo tamanho do menor conjunto independente.
+	Coloração em Grafos(2,1) é $W[1]-difícil$ quando parametrizado pelo tamanho do menor conjunto independente.
 \end{teorema}
 \begin{proof}
 	Observe a seguinte transformação.
 	
-	O problema da clique multicolorida é conhecidamente $W[1]-hard$.
+	O problema da clique multicolorida é conhecidamente $W[1]-difícil$\cite{fellows07}.
 	
 	Portanto suponha tal $G$ proposto ao problema de clique multicolorida, temos como intenção montar um problema de lista coloração em um grafo $G'$ a partir dele, para tanto seguimos os seguintes passos:
 	\begin{itemize}
@@ -24,22 +24,22 @@ Em \cite{fellows07} Fellows (et. al) mostrou que o problema de lista coloração
 	
 	Ao vértice-cor $v_i$ atribua a cor-vértice $c_u$ onde $u$ é o vértice colorido com a cor $i$ em $G$. Dessa forma todos os vértices $z_e$ possuem ainda uma cor disponível para sua coloração já que ele representa uma não-aresta em $G$. 
 	
-	Para a volta observe que uma lista coloração válida em $G'$ implica em uma clique multicolorida em $G$, isso se dá pois dois vértices $x,y$ coloridos com cores diferentes em $G$ não aparecem em uma lista de algum $z_e$ em $G'$ se e somente se existe uma aresta $e(x,y) \in E(G)$, portanto as cores-vértices escolhidas para os vértices $v_i$ são uma respectivamente uma clique formadas por tais $i$ em $G$. Mostramos assim que lista coloração parametrizada por treewidth é $W[1]-hard$.
+	Para a volta observe que uma lista coloração válida em $G'$ implica em uma clique multicolorida em $G$, isso se dá pois dois vértices $x,y$ coloridos com cores diferentes em $G$ não aparecem em uma lista de algum $z_e$ em $G'$ se e somente se existe uma aresta $e(x,y) \in E(G)$, portanto as cores-vértices escolhidas para os vértices $v_i$ são uma respectivamente uma clique formadas por tais $i$ em $G$. Mostramos assim que lista coloração parametrizada por treewidth é $W[1]-difícil$.
 	
-	Sabemos que coloração em Grafos(2,1) é equivalente a lista coloração em um grafo bipartido, portanto nossa tentativa de parametrizar a coloração de (2,1) pelo tamanho do menor conjunto independente é equivalente a parametrizar lista-coloração em bipartidos pelo tamanho do menor conjunto independente, é de pouca dificuldade ver que a treewidth de um grafo bipartido existe em função do menor independente, mostrando assim que coloração em Grafos(2,1) parametrizada pelo tamanho do menor conjunto independente é $W[1]-hard$. 
+	Sabemos que coloração em Grafos(2,1) é equivalente a lista coloração em um grafo bipartido, portanto nossa tentativa de parametrizar a coloração de (2,1) pelo tamanho do menor conjunto independente é equivalente a parametrizar lista-coloração em bipartidos pelo tamanho do menor conjunto independente, é de pouca dificuldade ver que a treewidth de um grafo bipartido existe em função do menor independente, mostrando assim que coloração em Grafos(2,1) parametrizada pelo tamanho do menor conjunto independente é $W[1]-difícil$. 
 	
 \end{proof}
 
 \section{Parametrização pelo tamanho do maior independente}
 
- Sabemos agora que a parametrização pelo menor independente não nos traz um algoritmo FTP, porém ao analisarmos o comportamento do problema quando parametrizado pelo maior independente vemos que a limitação do tamanho de $r2$ também limita $r1$; Tendo tal limitação a utilização do método de árvore de altura limitada se mostra uma abordagem válida, como mostra o seguinte teorema.
+ Sabemos agora que a parametrização pelo menor independente não nos traz um algoritmo FPT, porém ao analisarmos o comportamento do problema quando parametrizado pelo maior independente vemos que a limitação do tamanho de $r2$ também limita $r1$; Tendo tal limitação a utilização de um método força bruta se mostra uma abordagem válida, como mostrado o seguinte teorema.
 \begin{teorema}
-  Coloração de Grafos(2,1) é FTP quando parametrizado pelo tamanho do maior conjunto independente.
+  Coloração de Grafos(2,1) é FPT quando parametrizado pelo tamanho do maior conjunto independente.
 \end{teorema}
 \begin{proof}
   Para tal demonstração onde $k$ é o tamanho de $r2$, observe que são necessárias pelo menos $t$ cores, onde $t$ é a cardinalidade da clique para colorir tal grafo, novamente usaremos a estratégia de transformar coloração de (2,1) em lista coloração de bipartido.
   
-  Em uma lista coloração de bipartido, se um vértice possui uma lista com mais cores do que o tamanho de sua vizinhança, ele sempre terá disponível uma cor para sua coloração, podemos portanto remover esse vértice do grafo sem alterar sua coloração, ao chegarmos ao ponto onde todo vértice com tal configuração foi removido temos que $t$ está limitado em função de $k$, portanto rodar um algoritmo de força bruta para encontrar a coloração se mostra FTP.     
+  Em uma lista coloração de bipartido, se um vértice possui uma lista com mais cores do que o tamanho de sua vizinhança, ele sempre terá disponível uma cor para sua coloração, podemos portanto remover esse vértice do grafo sem alterar sua coloração, ao chegarmos ao ponto onde todo vértice com tal configuração foi removido temos que $t$ está limitado em função de $k$, portanto rodar um algoritmo de força bruta para encontrar a coloração se mostra FPT.     
 \end{proof}
 
 \section{Parametrização pelo tamanho da clique}
@@ -145,9 +145,33 @@ Usando tal gadget usando dois vértices com lista um em um vértice com lista tr
 \subsection{Vértices com listas de tamanho dois}
 Mostraremos nessa seção que vértices com listas tamanho dois não são suficientes para que um algoritmo FPT seja extraído.
 
-Como já visto o problema é de trivial solução quando todos os vértices tem listas de tamanho três, portanto precisamos ainda encontrar qual número de vértices de tamanho 
+Como já visto o problema é de trivial solução quando todos os vértices tem listas de tamanho três, portanto precisamos ainda encontrar qual número de vértices de tamanho dois onde o problema se torna NP-Completo.
+
+\begin{teorema}
+ Seis vértices com listas tamanho 2 são necessários e suficientes para que lista-coloração em bipartido seja NP-Completo.
+\end{teorema}
+\begin{proof}
+ Para mostrarmos que qualquer número de vértices abaixo de 6 é insuficiente, mostraremos que a menos que existam pelo menos 3 vértices com lista tamanho dois em cada conjunto independente, a coloração é simples de ser feita. 
+ 
+ Se um conjunto independete contém apenas dois vértices com listas tamanho dois, podemos afirmar que todos os vértices nesse conjunto compartilham uma cor em suas listas, podendo colorir tal conjunto com essa cor, todos os outros vértices ainda têm pelo menos uma cor disponível para sua coloração podendo ser colorido com ela.
+ 
+ Para completar nossa demonstração basta encontrar uma configuração onde o problema de lista coloração permanece NP-Completo.
+ observaremos agora a vizinhança dos vértices com lista dois, iremos isolar as instâncias em alguns casos, separando sem perda de generalidade um vértice.
+ \begin{itemize}
+   \item Vizinhança de tamanho um.
+   Nesse caso podemos notar que independentemente do vértice e seu vizinho eles sempre compartilharão uma cor, colorimos o vértice de $r2$ com tal cor, além disso como conheçemos a vizinhança sabemos que nenhum outro vértice é vizinho deste, podemos então colorir os restantes vértices de $r2$ com a cor remanescente, dessa forma uma das três cores ainda resta e podemos a usar para colorir o restante do $r1$.
+   \begin{figure}[H]
+     \centering
+     \fontsize{6}{10}
+     \includesvg[scale=0.5]{1-edge.svg}
+     \caption{Demonstração de coloração para vizinhança de tamanho 1.}
+   \end{figure}
+ \end{itemize}
+\end{proof}
 
 \subsection{Vértices com listas de tamanho um e dois}
+
+Para o acontecimento de haver vértices com listas tamanho um e dois, basta notar que podemos pintar aqueles que contém listas de tamanho um, que propagará a remoção de sua cor aos vizinhos, e ao realizar isso iterativamente, acabaremos com um caso em que todos os vértices terão ou listas de tamanho dois ou três, caindo em algm dos casos supracitados.
 
 \section{Parametrizado pela quantidade de vértices não vizinhos a clique}
 Como visto na seção anterior, os vértices que não são vizinhos a clique, quando transformados em vértices do problema de lista coloração se transformam em vértices com listas tamanho três, portanto nosso desejo é resolver lista coloração em bipartidos com listas de tamanho um a três parametrizado pela quantidade de vértices com lista de tamanho três, a solução deriva do seguinte teorema.

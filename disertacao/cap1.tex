@@ -1,6 +1,6 @@
 \chapter{Introdução} \label{cap:intro}
 
-\section{Conceitos básicos}
+\section{Problemas mencionados}
 
 \subsection{Grafos$(r,\ell)$}
 \begin{definition}
@@ -30,4 +30,48 @@
 \begin{definition}
  Entrada: Um grafo $G$ onde alguns vértices já possuem uma coloração definida com cores escolhidas dentre $k$ possíveis cores.
  Questão: É possível extender a coloração já existente para todo o grafo sem que dois vértices adjacentes possuam a mesma cor? 
+\end{definition}
+
+\subsection{Satisfabilidade Ponderada em Circuitos de Entrelaçamento $t$ e Profundidade $h$ \emph{WCS(t,h)}}
+\begin{definition}
+ Entrada um circuito de decisão $C$ de entrelaçamento $t$ e profundidade $h$\\
+ Questão: $C$ possui uma atribuição satisfatível?
+\end{definition}
+
+\section{Complexidade clássica}
+\subsection{Tratabilidade de tempo polinomial}
+Um algoritmo de tempo polinomial é definido como um algoritmo cuja sua função de complexidade de tempo é $\mathcal{O}(p(n))$, para alguma função polinomial $p$, onde $n$ é usado para denotar o tamanho da entrada.
+
+Um problema $\Pi$ pertence à classe $\P$ se e somente se $\Pi$ pode ser solucionado em tempo polinomial por algum algoritmo determinístico.
+
+Um problema $\Pi$ pertence à classe $\textit{Np}$ se e somente se para um dado certificado há um algoritmo polinomial que o verifica sua validade.
+
+\subsection{Reduções}
+Dados dois problemas $\Pi$ e $\Pi'$ dizemos que $\Pi \propto \Pi'$ ($\Pi$ se reduz à $\Pi'$ em tempo polinomial) se existe um algoritmo capaz de construir uma instância $J$ de $\Pi'$ a partir de uma instância $I$ de $\Pi$ em tempo polinomial, tal que a partir de uma resposta para $J$ uma resposta para $I$ possa ser construída em tempo polinomial. 
+
+\subsection{NP-Completude}
+Um problema $\Pi'$ é dito $NP-Difícil$ se todo problema $\Pi \in NP$ se reduz à $\Pi'$, se $\Pi' \in NP$ então $\Pi'$ é $NP-Completo$.
+
+\section{Complexidade parametrizada}
+
+\subsection{Tratabilidade Parametrizada}
+\begin{definition}
+Dado um problema $\Pi$ e um conjunto de aspectos de $\Pi$ chamado $S = \{s_1,s_2,s_3,...,s_n\}$ denotamos por $\Pi(S)$ o problema $\Pi$ parametrizado por $S$.
+\end{definition}
+\begin{definition}
+Dado um problema parametrizado $\Pi(S)$ dizemos que o mesmo é FPT(\emph{Fixed parameter tractable} (Tratado por parâmetro fixo)) se existe um algoritmo capaz de resolver $\Pi$ em $\mathcal{O}(f(S)\times n^c)$ onde $f(S)$ é uma função arbritária e $c$ uma função $\mathcal{O}(1)$.
+\end{definition}
+
+\subsection{Intratabilidade Parametrizada}
+Esta seção irá sumarizar as definições de $W-Hierarquia$ estabelecida por Downey e Fellows, para tanto observe as seguintes definições.
+\begin{definition}
+ Sejam $\Pi(k)$ e $\Pi'(k')$ onde $k' \leq g(k)$. Chamamos de FPT-redução de $\Pi(k)$ para $\Pi'(k')$ é uma transformação $R$ quando:
+ \begin{itemize}
+   \item $\forall x, x \in \Pi(k) \iff R(k) \in \Pi'(k')$
+   \item $R$ é computável por um FPT-Algoritmo, com relação a $k$
+ \end{itemize}
+\end{definition}
+
+\begin{definition}
+ Um problema parametrizado $\Pi(k)$ pertence a classe $W[t]$ se e somente se existe uma FPT-Redução de tal problema para $WCS(t,h)$ para algum $h$ constante. Logo devido a transitividade de FPT-Redução, se existe uma FPT-Redução de qualquer problema $\Pi'(k')$ para $\Pi(k)$ então $\Pi(k) \in W[t]$
 \end{definition}

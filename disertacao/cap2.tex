@@ -6,7 +6,7 @@ por exemplo um Grafo vazio, que é um Grafo(0,0) pode ser colorido com 0 cores, 
 
 Já um Grafo completo, ou seja um Grafo(0,1), é colorível com K cores onde K é a quantidade de vértices nesse grafo completo, em um Grafo split que é um Grafo(1,1) essa regra se repete, já que cada vértice do conjunto independete pode ser colorível com alguma cor já presente na clique.
 
-%primeira tabela de dicotomia
+%primeira tabela de Dicotomia $\P/\NPc$
 \begin{table}[!htb]
 	\center
 	\begin{tabular}{l|*{7}c}
@@ -22,7 +22,7 @@ Já um Grafo completo, ou seja um Grafo(0,1), é colorível com K cores onde K �
 		n & ? & ? & ? & ? & ? & \ldots & ?\\
 		\bottomrule
 	\end{tabular}%
-	\caption{1ª Dicotomia parcial do problema de coloração em Grafos$(r,\ell)$}
+	\caption{1ª Dicotomia $\P/\NPc$ parcial do problema de coloração em Grafos$(r,\ell)$}
 	\label{tab:tabela_part1dictrl}%
 \end{table}%
 
@@ -54,8 +54,8 @@ Sabemos então que coloração é de solução polinomial para grafos completos,
 
 É importante notar aqui que, todo $Grafo(r,\ell)$ é simultaneamente um $Grafo(r,\ell+1)$ já que podemos formar uma nova clique trivial utilizando qualquer vértice, e um $Grafo(r+1,\ell)$ já que podemos formar um novo conjunto independente trivial a partir de qualquer vértice, portanto se o problema de coloração é NP-Completo para um $Grafo(r,\ell)$ então ele é NP-Completo para qualquer $Grafo(r+1,\ell)$ ou $Grafo(r,\ell+1)$ .
 
-Esses resultados nos levam à preencher a dicotomia da forma mostrada na Tabela \ref{tab:tabela_part2dictrl}
-%Segunda tabela de dicotomia
+Esses resultados nos levam à preencher a Dicotomia $\P/\NPc$ da forma mostrada na Tabela \ref{tab:tabela_part2dictrl}
+%Segunda tabela de Dicotomia $\P/\NPc$
 \begin{table}[htb!]
 	\center
 	\begin{tabular}{l|*{7}c}
@@ -71,7 +71,7 @@ Esses resultados nos levam à preencher a dicotomia da forma mostrada na Tabela 
 		n & \NPc & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
 		\bottomrule
 	\end{tabular}%
-	\caption{2ª Dicotomia parcial do problema de coloração em Grafos$(r,\ell)$}
+	\caption{2ª Dicotomia $\P/\NPc$ parcial do problema de coloração em Grafos$(r,\ell)$}
 	\label{tab:tabela_part2dictrl}%
 \end{table}%
 
@@ -81,7 +81,7 @@ Ainda nos falta mostrar a complexidade para alguns casos de fronteira, que neces
 Iremos demonstrar abaixo a complexidade para tais casos utilizando o seguinte teorema. 
 \begin{teorema}
 \label{theorem:list-coloring}
-	Uma solução de lista coloração para um grafo $G(r,\ell)$, implica em uma solução para o problema de coloração de um grafo $H_G(r,\ell+1)$.
+	O problema de lista coloração para um grafo $G(r,\ell)$, é equivalente ao problema de coloração própria de um grafo $H_G(r,\ell+1)$.
 \end{teorema}
 \begin{proof}
 	Para a demonstração é preciso mostrar que
@@ -115,7 +115,7 @@ Portanto utilizando o teorema \ref{theorem:list-coloring}, derivamos os seguinte
 \begin{corolario}
 	O problema de coloração é NP-Completo para Grafos$(1,2)$.
 	\begin{proof}
-		A NP-Completude de lista coloração em grafos split i.e. grafos$(1,1)$ é demonstrado por Jensen et al. \cite{jansen1997}.
+		A NP-Completude de lista coloração em grafos split i.e. grafos$(1,1)$ é demonstrado por Jensen et al. em \cite{jansen1997}.
 	\end{proof}
 \end{corolario}
 \begin{corolario}
@@ -127,7 +127,7 @@ Portanto utilizando o teorema \ref{theorem:list-coloring}, derivamos os seguinte
 \begin{corolario}
 	Se lista coloração é NP-Completo para Grafos(0,2) então Coloração é NP-Completo em Grafos(0,3).
 	\begin{proof}
-		Para essa demonstração nos basearemos em um resultado obtido por Jensen em \cite{jansen1999}. a demonstração se baseia em realizar uma redução do problema 3-SAT restrito para lista coloração de co-bipartido i.e. Grafo(0,2).
+		Para essa demonstração nos basearemos em um resultado obtido por Jensen em \cite{jansen1999}. A demonstração se baseia em realizar uma redução do problema 3-SAT restrito para lista coloração de co-bipartido i.e. Grafo(0,2).
 		Suponha o problema 3-SAT com as seguintes restrições:
 		\begin{itemize}
 			\item cada cláusula $c_i$ contém dois ou três terminais.
@@ -136,7 +136,7 @@ Portanto utilizando o teorema \ref{theorem:list-coloring}, derivamos os seguinte
 		Construiremos agora uma instância de lista coloração da seguinte forma:\newline
 		Para cada terminal $j$ crie seis vértices:
 		$a_j^{(1)}$, $a_j^{(2)}$, $a_j^{(3)}$;
-		$b_j^{(1)}$, $b_j^{(2)}$, $3_j^{(3)}$. Atribuindo a cada uma lista de cores da seguinte forma:\newline
+		$b_j^{(1)}$, $b_j^{(2)}$, $3_j^{(3)}$. Atribuindo a cada um uma lista de cores da seguinte forma:\newline
 		$a_j^{(k)}$ <= \{$x_j^{(k)}$, $\overline{x_j}^{(k)}$ \}; $b_j^{(k)}$ <= \{$\overline{x_j}^{(k)}$,$x_j^{((k \Mod{3}) + 1 )}$ \}\newline
 		Definimos como A o conjunto de todos os $a_j^{(k)}$ e B o conjunto de todos os $b_j^{(k)}$ e construímos uma clique com os vértices de A e B. Observe que só existem duas maneiras de se colorir este grafo:
 		\begin{itemize}
@@ -186,6 +186,6 @@ Portanto podemos agora completar nossa tabela com:
 		n & \NPc & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
 		\bottomrule
 	\end{tabular}%
-	\caption{Dicotomia do problema de coloração em Grafos$(r,\ell)$}
+	\caption{Dicotomia $\P/\NPc$ do problema de coloração em Grafos$(r,\ell)$}
 	\label{tab:tabela_dictrl}%
 \end{table}%

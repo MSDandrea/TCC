@@ -182,7 +182,7 @@ Como já visto o problema é de trivial solução quando todos os vértices tem 
    \item Todo vértice tem vizinhança de tamanho dois e nenhuma vizinhança possui uma cor em comum:\\
    Observe que esse caso tem suas restrições derivadas dos casos acima, aqui mostraremos como PreColoring extension se reduz a esse caso, mostrando finalmente sua Np-Completude.
    
-   As restrições impostas a esse caso nos levam a uma única possível estrutura $\Gamma$ onde suas duas possíveis colorações são intercambiáveis, vide figura \ref{fig:2-edge-b}. Portanto se mostra verdade que podemos excitar uma cor qualquer em outro vértice de lista tamanho três se o ligarmos a dois dos três vértices presentes em $r_2$ e sem ferir a bipartição do grafo.
+   As restrições impostas a esse caso nos levam a uma única possível estrutura $\Gamma$ onde suas duas possíveis colorações são intercambiáveis, vide figura \ref{fig:2-edge-b}. Portanto se mostra verdade que podemos excitar uma cor qualquer em outro vértice de lista tamanho três se o ligarmos a dois dos três vértices presentes no independente oposto sem ferir a bipartição do grafo.
    \begin{figure}[H]
      \centering
      \fontsize{6}{10}
@@ -203,7 +203,7 @@ Para o acontecimento de haver vértices com listas tamanho um e dois, basta nota
 Como visto na seção anterior, os vértices que não são vizinhos a clique, quando transformados em vértices do problema de lista coloração se transformam em vértices com listas tamanho três, portanto nosso desejo é resolver lista coloração em bipartidos com listas de tamanho um a três parametrizado pela quantidade de vértices com lista de tamanho três, a solução deriva do seguinte teorema.
 
 \begin{teorema}
- Lista coloração em bipartidos com listas de tamanho um a três é FPT quando parametrizado pela quantidade de vértices com lista de tamanho três
+ Lista coloração em bipartidos com listas de tamanho um a três é FPT quando parametrizado pela quantidade de vértices com lista de tamanho três.
 \end{teorema}
 \begin{proof}
  Dado que temos $k$ vértices com 3 escolhas cada é possível montar um algoritmo de busca em árvore de altura limitada de tamanho $3^k$, e então executar o algoritmo linear proposto em \cite{hujter93} obtendo um algoritmo $\mathcal{O}(3^kn)$

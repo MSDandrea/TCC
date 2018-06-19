@@ -10,7 +10,7 @@ Em \cite{fellows07} Fellows (et. al) mostrou que o problema de lista coloração
 	Coloração em Grafos(2,1) é $W[1]-difícil$ quando parametrizado pelo tamanho do menor conjunto independente.
 \end{teorema}
 \begin{proof}
-	Observe a seguinte transformação.
+	Observe a seguinte construção.
 	
 	O problema da clique multicolorida é conhecidamente $W[1]-difícil$\cite{fellows07}.
 	
@@ -61,12 +61,16 @@ Mostraremos no entanto que essa parametrização não é proveitosa já que o pr
 \end{proof}
 
 
-Apesar do tamanho da paleta não ter se mostrado uma escolha adequada, ele levanta novos parametros que são interessantes para o problema de lista coloração em bipartidos, observe pois que, sabemos que lista coloração é polinomial se todos os vértices tem lista tamanho ou três (3-coloração), ou dois (2-coloração) ou um, e NP-Completo se tem listas de tamanho 1 à 3 \cite{kratochvil94}, isso levanta duas formas de se abordar o problema, o que acontece quando o número de vértices com listas de tamanho 1 e 2 varia, e o que acontece quando o número de vertices com listas de tamanho 3 varia.
+Apesar do tamanho da paleta não ter se mostrado uma escolha adequada, ele levanta novos parâmetros que são interessantes para o problema de lista coloração em bipartidos, sabemos que lista coloração é polinomial se todos os vértices tem lista tamanho ou três (3-coloração), ou dois (2-coloração) ou um, e NP-Completo se tem listas de tamanho 1 à 3 \cite{kratochvil94}, isso levanta duas formas de se abordar o problema
+\begin{itemize}
+	\item O que acontece quando o número de vértices com listas de tamanho 1 e 2 varia?
+	\item O que acontece quando o número de vértices com listas de tamanho 3 varia?
+\end{itemize}
 
 Mostraremos nas próximas seções como se dão tais comportamentos e como eles se relacionam a coloração de Grafos$(r,\ell)$
 
 \section{Parametrizado pela quantidade de vértices vizinhos à clique}
-Nos focaremos nessa seção em grafos(2,1) cuja a clique tenha tamanho 3, já mostrada ser o menor tamanho necessário para que o problema de PreColoring Extension seja NP-Completo mostrado no teorema \ref{theorem:list-coloring-bipartide} e em \cite{kratochvil94,hujter93}. Portanto um vértice que é vizinho da clique tem necessariamente uma lista contendo uma ou duas cores, já que um vértice não pertencente a clique que tenha lista de tamanho zero deveria fazer parte da clique, em contrapartida um vértice com lista tamanho 3 é um vértice não vizinho a clique. 
+Nos focaremos nessa seção em grafos(2,1) cuja a clique tenha tamanho 3, já mostrada ser o menor necessário para que o problema de PreColoring Extension seja NP-Completo mostrado no teorema \ref{theorem:list-coloring-bipartide} e em \cite{kratochvil94,hujter93}. Portanto um vértice que é vizinho da clique tem necessariamente uma lista contendo uma ou duas cores, já que um vértice não pertencente a clique que tenha lista de tamanho zero deveria fazer parte da clique, em contrapartida um vértice com lista tamanho 3 é um vértice não vizinho a clique. 
 
 Mostraremos que mesmo quando parametrizado pela quantidade de vértices com listas de tamanho um, dois, ou um e dois o problema é Para-Np-completo. Para tanto é necessário encontrar uma instância do problema já parametrizado cuja solução permanece igualmente difícil.
 
@@ -78,7 +82,7 @@ Portanto essa seção será dividida em três casos, um contendo vértices de li
   Seis vértices com lista de tamanho um são suficientes para que lista coloração em bipartido seja Para-NP-completo. 
 \end{teorema}
 \begin{proof}
- Sabemos que em nosso problema temos dois conjuntos independentes, $r_1$ e $r_2$, também é verdade que exceto pelos citados seis vértices todos os outros vértices tem listas de tamanho três, os vértices de $r_1$ podem estar ligados arbitrariamente aos vértices de $r_2$. 
+ Sabemos que em nosso problema temos dois conjuntos independentes, $r_1$ e $r_2$, também é verdade que exceto pelos citados seis vértices todos os outros tem listas de tamanho três, os vértices de $r_1$ podem estar ligados arbitrariamente aos de $r_2$. 
  
  Observe a disposição da figura \ref{fig:seis-vertices-lista-um}
  
@@ -99,7 +103,7 @@ Interessantemente o problema é de trivial solução quando o número de vértic
 
 \begin{teorema}
 \label{lemma:1-col-P}
- Lista coloração em bipartido é de solução trival quando há apenas um vértice de lista tamanho um.
+ Lista coloração em bipartido é de solução trivial quando há apenas um vértice de lista tamanho um.
 \end{teorema}
 \begin{proof}
  Sabemos que além do vértice citado todos os outros vértices têm listas de tamanho três dessa forma basta que o conjunto independente no qual tal vértice está inserido seja colorido com a única cor escolhida para o vértice e o conjunto independente sobrante pode ser colorido com qualquer cor.
@@ -138,13 +142,14 @@ Interessantemente o problema é de trivial solução quando o número de vértic
     \centering
 		\includesvg[scale=0.6]{gadget-3.svg}
   \end{subfigure}
+  \label{fig:gadget}
   \caption{Gadget com vértices de lista um reproduzindo vértice de lista um em vértice de lista três}
 \end{figure}
 
 Usando tal gadget, dois vértices $v$ com lista um em um vértice $u$ com lista três são capazes de reproduzir um vértice de lista um através da retirada da lista de $u$ as únicas possíveis cores para $v$, sendo assim tendo três vértices de distintas listas tamanho um, é possível obter seis vértices de lista um (com três listas distintas de cada lado) e reproduzir a estratégia mostrada no teorema \ref{teorema:6-v-np}, que nos mostra a NP-Completude desse problema.
   
 \end{proof}
- Dado os resultados apresentados nessa seção mostramos portanto que o numéro de vértices vizinhos a dois dos três vértices pertencentes a clique não é um parâmetro viável para uma solução FPT.
+ Dado os resultados apresentados nessa seção mostramos portanto que o número de vértices vizinhos a dois dos três vértices pertencentes a clique não é um parâmetro viável para uma solução FPT.
   
 \subsection{Vértices com listas de tamanho dois}
 Mostraremos nessa seção que vértices com listas tamanho dois não são suficientes para que um algoritmo FPT seja extraído.
@@ -157,14 +162,14 @@ Como já visto o problema é de trivial solução quando todos os vértices tem 
 \begin{proof}
  Para mostrarmos que qualquer número de vértices abaixo de 6 é insuficiente, mostraremos que a menos que existam pelo menos 3 vértices com distintas listas tamanho dois em cada conjunto independente, a coloração é simples de ser feita. 
  
- Se um conjunto independete contém apenas dois vértices com listas tamanho dois, podemos afirmar que todos os vértices nesse conjunto compartilham uma cor em suas listas, podendo colorir tal conjunto com essa cor, todos os outros vértices ainda têm pelo menos uma cor disponível para sua coloração podendo ser colorido com ela. É fácil notar que o argumento se extende para o caso onde alguma lista se repete dentro de qualquer $r$, já que dessa forma existe uma cor em comum entre todas as listas de tal $r$.
+ Se um conjunto independente contém apenas dois vértices com listas tamanho dois, podemos afirmar que todos os vértices nesse conjunto compartilham uma cor em suas listas, podendo colorir tal conjunto com essa cor, todos os outros vértices ainda têm pelo menos uma cor disponível para sua coloração podendo ser colorido com ela. É fácil notar que o argumento se estende para o caso onde alguma lista se repete dentro de qualquer $r$, já que dessa forma existe uma cor em comum entre todas as listas de tal $r$.
  
  Para completar nossa demonstração basta portanto, encontrar uma configuração onde o problema de lista coloração permanece NP-Completo.
  
  Para tanto nos é interessante agora a vizinhança entre os vértices com lista dois, iremos isolar as instâncias em alguns casos.
  \begin{itemize}
    \item Vizinhança de algum vértice é tamanho um:\\
-   Nesse caso podemos notar que independentemente do vértice $v \in r_1$ e seu vizinho $u \in r_2$, eles sempre compartilharão uma cor, colorimos o vértice de $u$ com tal cor, além disso como conheçemos a vizinhança de $v$ sabemos que nenhum outro vértice é vizinho deste, podemos então colorir os restantes vértices de $r_2$ com a cor de $v$, dessa forma uma das três cores ainda resta e podemos a usar para colorir o restante do $r_1$, independente das ligações entre os demais vértices de $r_1$ e $r_2$.
+   Nesse caso podemos notar que independentemente do vértice $v \in r_1$ e seu vizinho $u \in r_2$, eles sempre compartilharão uma cor, colorimos o vértice de $u$ com tal cor, além disso como conhecemos a vizinhança de $v$ sabemos que nenhum outro vértice é vizinho deste, podemos então colorir os restantes vértices de $r_2$ com a cor de $v$, dessa forma uma das três cores ainda resta e podemos a usar para colorir o restante do $r_1$, independente das ligações entre os demais vértices de $r_1$ e $r_2$.
    \begin{figure}[H]
      \centering
      \fontsize{6}{10}
@@ -191,7 +196,11 @@ Como já visto o problema é de trivial solução quando todos os vértices tem 
      \caption{Estrutura $\Gamma$ e suas possíveis colorações.}
    \end{figure}
    
-   Assim sendo para reduzir um problema de PreColoring extension em bipartido $\Pi$ ao nosso problema $\Pi'$ basta que para todo vértice pré-colorido $v \in V(\Pi)$ cria-se um paralelo $u \in V(\Pi')$ com lista de tamanho três e liga-o aos vértices de $\Gamma$ a fim de excitar sua cor, os demais vértices de $V(\Pi)$ são construidos mantendo suas vizinhanças e com lista de tamanho três, é de pouca dificuldade compreender como uma resposta para $\Pi'$ implica em uma resposta para $\Pi$, já que se $\Pi'$ é lista colorível indiferentemente as cores escolhidas, devido intercambialidade das cores em $\Gamma$, então $\Pi$ é colorível respeitando a pré-coloração, para a demonstração da volta basta escolher as mesmas cores escolhidas em $\Pi$ para seus respectivos em $\Pi'$ que implicará em uma coloração para $\Gamma$ inofensiva ao resultado. 
+   Assim sendo para reduzir um problema de PreColoring extension em bipartido $\Pi$ ao nosso problema $\Pi'$ basta que para todo vértice pré-colorido $v_{c_j} \in V(\Pi) | c_j \in C$ cria-se um paralelo $u \in V(\Pi')$ com lista de tamanho três e liga-o aos vértices de $\Gamma$ a fim de excitar sua cor da seguinte forma: 
+   
+   Escolha sem perda de generalidade um vértice $v \in r1$ pré-colorido com a cor $c_j$, observe que $\Gamma$ possui dois conjuntos de ligações capazes de excitar $c_j$ em $u$ utilizando o gadget da Figura \ref{fig:gadget}, escolha um desses conjuntos. Portanto $\forall v_{c_j} | j \neq i$ basta realizar a ligação com $\Gamma$ respeitando o conjunto de ligações já escolhido.
+   
+    Os demais vértices de $V(\Pi)$ são construídos mantendo suas respectivas vizinhanças em $\Pi'$ e com lista de tamanho três, é de pouca dificuldade compreender como uma resposta para $\Pi'$ implica em uma resposta para $\Pi$, pois se $\Pi'$ é lista colorível, então $\Pi$ é colorível respeitando a pré-coloração, já que a coloração de $\Gamma$ é indiferente para os vértices não vizinhos à ela e sempre respeita a coloração de sua vizinhança, para a demonstração da volta basta escolher as mesmas cores escolhidas em $\Pi$ para seus respectivos em $\Pi'$ que implicará em uma coloração para $\Gamma$ inofensiva ao resultado. 
  \end{itemize}
 \end{proof}
 

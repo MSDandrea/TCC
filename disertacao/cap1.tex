@@ -51,13 +51,13 @@ Uma clique $\ell \subseteq G$ é uma partição de $G$ tal que: $ \{v,u\} \subse
 \subsection{PreColoring extension}
 \begin{definition}
  Entrada: Um grafo $G$ onde alguns vértices já possuem uma coloração definida com cores escolhidas dentre $k$ possíveis cores.
- Questão: É possível extender a coloração já existente para todo o grafo sem que dois vértices adjacentes possuam a mesma cor? 
+ Questão: É possível estender a coloração já existente para todo o grafo sem que dois vértices adjacentes possuam a mesma cor? 
 \end{definition}
 
 \subsection{Satisfabilidade Ponderada em Circuitos de Entrelaçamento $t$ e Profundidade $h$ \emph{WCS(t,h)}}
 \begin{definition}
- Entrada um circuito de decisão $C$ de entrelaçamento $t$ e profundidade $h$\\
- Questão: $C$ possui uma atribuição satisfatível?
+ Entrada um circuito de decisão $C$ com entrelaçamento $t$ e profundidade $h$\\
+ Questão: $C$ possui uma atribuição satisfazível?
 \end{definition}
 
 \section{Complexidade clássica}
@@ -81,11 +81,11 @@ Um problema $\Pi'$ é dito $NP-Difícil$ se todo problema $\Pi \in NP$ se reduz 
 Dado um problema $\Pi$ e um conjunto de aspectos de $\Pi$ chamado $S = \{s_1,s_2,s_3,...,s_n\}$ denotamos por $\Pi(S)$ o problema $\Pi$ parametrizado por $S$.
 \end{definition}
 \begin{definition}
-Dado um problema parametrizado $\Pi(S)$ dizemos que o mesmo é FPT(\emph{Fixed parameter tractable} (Tratado por parâmetro fixo)) se existe um algoritmo capaz de resolver $\Pi$ em $\mathcal{O}(f(S)\times n^c)$ onde $f(S)$ é uma função arbritária e $c$ uma função $\mathcal{O}(1)$.
+Dado um problema parametrizado $\Pi(S)$ dizemos que o mesmo é FPT(\emph{Fixed parameter tractable} (Tratado por parâmetro fixo)) se existe um algoritmo capaz de resolver $\Pi$ em $\mathcal{O}(f(S)\times n^c)$ onde $f(S)$ é uma função arbitrária e $c$ uma função $\mathcal{O}(1)$.
 \end{definition}
 
 \subsection{Intratabilidade Parametrizada}
-Esta seção irá sumarizar as definições de $W-Hierarquia$ estabelecida por Downey e Fellows, para tanto observe as seguintes definições.
+Esta seção irá sumarizar as definições de $W-Hierarquia$ estabelecida por Downey et al.\cite{downey98}, para tanto observe as seguintes definições.
 \begin{definition}
  Sejam $\Pi(k)$ e $\Pi'(k')$ onde $k' \leq g(k)$. Chamamos de FPT-redução de $\Pi(k)$ para $\Pi'(k')$ é uma transformação $R$ quando:
  \begin{itemize}
@@ -102,6 +102,6 @@ Esta seção irá sumarizar as definições de $W-Hierarquia$ estabelecida por D
  Um problema pertence a classe $Para-NP$ se existe um algoritmo $\mathcal{O}(f(k)g(n))$ onde $g(n)$ é uma função não-determinística.
 \end{definition}
 
-\begin{lema}
+\begin{corolario}
 
-\end{lema}
+\end{corolario}

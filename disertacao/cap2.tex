@@ -4,7 +4,7 @@
 O problema de coloração aplicado a Grafos$(r,\ell)$ é de fácil solução para algumas especificações,
 por exemplo um Grafo vazio, que é um Grafo(0,0) pode ser colorido com 0 cores, um Grafo disperso i.e um Grafo(1,0) é colorível com apenas uma cor, já que não existem arestas nesse grafo.
 
-Já um Grafo completo, ou seja um Grafo(0,1), é colorível com K cores onde K é a quantidade de vértices nesse grafo completo, em um Grafo split que é um Grafo(1,1) essa regra se repete, já que cada vértice do conjunto independete pode ser colorível com alguma cor já presente na clique.
+Já um Grafo completo, ou seja um Grafo(0,1), é colorível com K cores onde K é a quantidade de vértices nesse grafo completo, em um Grafo split que é um Grafo(1,1) essa regra se repete, já que cada vértice do conjunto independente pode ser colorível com alguma cor já presente na clique.
 
 %primeira tabela de Dicotomia $\P/\NPc$
 \begin{table}[!htb]
@@ -98,7 +98,7 @@ Iremos demonstrar abaixo a complexidade para tais casos utilizando o seguinte te
 	
 	Note que a clique K possui exatamente k vértices, consequentemente para colorirmos K precisaremos de k cores, sem perda de generalidade assumimos que $u_1$ será colorido com $c_1$, $u_2$ com $c_2$ e assim por diante.
 	
-	Por construção uma aresta de $u_i$ só existe para $v_a$ em $H_G$ se e somente se, $v_a$ não possui $c_i$ em sua lista de cores, portanto a coloração atribuída à K não conflita com a com a lista coloração de G, e portanto para todo vértice perntecente a G podemos lhe atribuir a mesma cor que lhe foi atribuída no problema de lista coloração, obtendo uma coloração própria mínima para $H_G$
+	Por construção uma aresta de $u_i$ só existe para $v_a$ em $H_G$ se e somente se, $v_a$ não possui $c_i$ em sua lista de cores, portanto a coloração atribuída à K não conflita com a com a lista coloração de G, e portanto para todo vértice pertencente a G podemos lhe atribuir a mesma cor que lhe foi atribuída no problema de lista coloração, obtendo uma coloração própria mínima para $H_G$
 	
 	(2):\newline
 	Suponha que o grafo $H_G$ possua uma k-coloração própria, onde k é o número de cores nas listas de G
@@ -115,19 +115,19 @@ Portanto utilizando o teorema \ref{theorem:list-coloring}, derivamos os seguinte
 \begin{corolario}
 	O problema de coloração é NP-Completo para Grafos$(1,2)$.
 	\begin{proof}
-		A NP-Completude de lista coloração em grafos split i.e. grafos$(1,1)$ é demonstrado por Jensen et al. em \cite{jansen1997}.
+		A NP-Completude de lista coloração em grafos split i.e. Grafos$(1,1)$ é demonstrado por Jansen et al.\cite{jansen1997}.
 	\end{proof}
 \end{corolario}
 \begin{corolario}
 	O problema de coloração é NP-Completo em Grafos$(2,1)$.
 	\begin{proof}
-		A NP-Completude de lista coloração em grafos bipartido é demonstrado por Fellows et al. em \cite{fellows07}.
+		A NP-Completude de lista coloração em grafos bipartido é demonstrado por Fellows et al.\cite{fellows07}.
 	\end{proof}
 \end{corolario}    
 \begin{corolario}
-	Se lista coloração é NP-Completo para Grafos(0,2) então Coloração é NP-Completo em Grafos(0,3).
+	Se lista coloração é NP-Completo para Grafos(0,2) então coloração é NP-Completo em Grafos(0,3).
 	\begin{proof}
-		Para essa demonstração nos basearemos em um resultado obtido por Jensen em \cite{jansen1999}. A demonstração se baseia em realizar uma redução do problema 3-SAT restrito para lista coloração de co-bipartido i.e. Grafo(0,2).
+		Para essa demonstração nos basearemos em um resultado obtido por Jansen\cite{jansen1999}. A demonstração se baseia em realizar uma redução do problema 3-SAT restrito para lista coloração de co-bipartido i.e. Grafo(0,2).
 		Suponha o problema 3-SAT com as seguintes restrições:
 		\begin{itemize}
 			\item cada cláusula $c_i$ contém dois ou três terminais.
@@ -143,7 +143,7 @@ Portanto utilizando o teorema \ref{theorem:list-coloring}, derivamos os seguinte
 			\item (1)  $f(a_j^{(k)}) = x_j^{(k)} => b_j^{(k)} = \overline{x_j}^{(k)}$
 			\item (2)  $f(a_j^{(k)}) = \overline{x_j}^{(k)} => b_j^{(k)} = x_j^{((k \Mod{3}) + 1 )}$
 		\end{itemize}
-		Agora, para cada cláusula definimos um vértice $c_i$ e sua lista de cores da seguinte forma: para cada literal $j$ ou sua negação $\overline{j}$ presente na cláusula adicionamos à lista de $c_i$ o $x_j^{(k)}$ onde k é o indice de ocorrência do literal ou de sua negação.
+		Agora, para cada cláusula definimos um vértice $c_i$ e sua lista de cores da seguinte forma: para cada literal $j$ ou sua negação $\overline{j}$ presente na cláusula adicionamos à lista de $c_i$ o $x_j^{(k)}$ onde k é o índice de ocorrência do literal ou de sua negação.
 		
 		Por exemplo, suponha o seguinte 3-SAT:
 		
@@ -160,7 +160,7 @@ Portanto utilizando o teorema \ref{theorem:list-coloring}, derivamos os seguinte
 		\begin{figure}[!ht]
 			\centering
 			\includesvg{3-SAT.svg}
-			\caption{Grafo G: Transformaçao de 3-SAT em co-bipartido com foco na cláusula P }
+			\caption{Grafo G: Transformação de 3-SAT em co-bipartido com foco na cláusula P }
 		\end{figure}
 		
 		Suponha a cláusula p, se p é verdadeiro então $a_p^{(1)},a_p^{(2)},a_p^{(3)}$ será colorido com $p'^1,p'^2,p'^3$, permitindo que a cor $p^x$ possa, e que a cor $p'^x$ não possa ser escolhidas para colorir uma cláusula.

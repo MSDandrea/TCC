@@ -79,23 +79,43 @@ Portanto essa seção será dividida em três casos, um contendo vértices de li
 É importante ressaltar que os seguintes teoremas estabelecem a base para a resolução do problema envolvendo os vizinhos da clique. 
 \begin{teorema}
  \label{teorema:6-v-np}
-  Seis vértices com lista de tamanho um são suficientes para que lista coloração em bipartido seja Para-NP-completo. 
+  Seis vértices com lista de tamanho um são suficientes para que lista coloração em bipartido seja NP-completo. 
 \end{teorema}
 \begin{proof}
- Sabemos que em nosso problema temos dois conjuntos independentes, $r_1$ e $r_2$, também é verdade que exceto pelos citados seis vértices todos os outros tem listas de tamanho três, os vértices de $r_1$ podem estar ligados arbitrariamente aos de $r_2$. 
- 
- Observe a disposição da figura \ref{fig:seis-vertices-lista-um}
+ Sabemos que em nosso problema temos dois conjuntos independentes, $r_1$ e $r_2$, também é verdade que exceto pelos citados seis vértices todos os outros tem listas de tamanho três, os vértices de $r_1$ podem estar ligados arbitrariamente aos de $r_2$. Observe a disposição de tais vértices na figura \ref{fig:seis-vertices-lista-um}, chamaremos tal esquema de $\mathcal{N}$.
  
 \begin{figure}[H]
 		\centering
+		\fontsize{8}{10}
 		\includesvg[scale=0.6]{seis-vertices-lista-um.svg}
 		\caption{Esquema de vizinhança formado por 6 vértices com distintas listas tamanho 1. }
 		\label{fig:seis-vertices-lista-um}
 \end{figure}
 
-Observe como a presença de três vértices com distintas listas de tamanho um influencia na coloração do conjunto independente ao qual não pertence; a existência desses vértices implica que não é possível aplicar uma coloração geral a algum $r$ já que certamente tal estratégia causaria conflitos com um dos vértices citados.
+Agora, através do gadget da figura \ref{fig:gadget} mostraremos como a presença de vértices com distintas listas de tamanho um influencia na coloração de sua vizinhança comum.
 
-Dessa forma mostramos que com seis vértices com distintas listas tamanho um, é necessário resolver o problema de PreColoring para encontrar a solução da coloração, portanto encontrar uma lista coloração para tal instância Np-Completo. 
+\begin{figure}[H]
+  \begin{subfigure}
+    \centering
+		\includesvg[scale=0.6]{gadget-1.svg}
+  \end{subfigure}
+  \begin{subfigure}
+    \centering
+		\includesvg[scale=0.6]{gadget-2.svg}
+  \end{subfigure}
+  \begin{subfigure}
+    \centering
+		\includesvg[scale=0.6]{gadget-3.svg}
+  \end{subfigure}
+  \caption{Gadget com vértices de lista um reproduzindo vértice de lista um em vértice de lista três}
+  \label{fig:gadget}
+\end{figure}
+
+Com o gadget apresentado é possível conduzir à escolha de uma cor para um vértice com lista tamanho três dado que a única coloração possível para o gadget é a coloração aonde a cor desejada ocorre.
+
+Utilizando esse gadget é possível transformar uma instância de PreColoring Extension em bipartidos em uma de lista coloração em bipartido, basta para tanto pegarmos os vértices do Grafo $G$ que estão pré-coloridos e criar um vértice equivalente em um grafo $G'$ com listas tamanho três, os ligando aos vértices de $\mathcal{N}$ e mantendo a bipartição de forma a excitar a cor que este vértice possuia em $G$, os demais vértices são mapeados para vértices com listas tamanho três, mantendo sua vizinhança equivalente a em $G$.
+
+Assim se a lista coloração for possível em $G'$ basta escolher as mesmas cores para colorir $G$, o mesmo se aplica a contraparte da demonstração. Dessa forma mostramos que com seis vértices com distintas listas tamanho um, encontrar uma lista coloração para tal grafo é Np-Completo. 
 
 \end{proof}
 
@@ -127,24 +147,7 @@ Interessantemente o problema é de trivial solução quando o número de vértic
   Três vértices com lista de tamanho um são suficientes e necessários para que lista coloração em bipartido seja NP-completo.
 \end{teorema}
 \begin{proof}
-  Mostraremos aqui como que três vértices são suficientes para que o problema seja NP-Completo, esse resultado se dá pois é possível reproduzir a estrutura do teorema \ref{teorema:6-v-np} utilizando os ditos 3 vértices, para tanto basta notar o seguinte \emph{gadget}:
-  
-\begin{figure}[H]
-  \begin{subfigure}
-    \centering
-		\includesvg[scale=0.6]{gadget-1.svg}
-  \end{subfigure}
-  \begin{subfigure}
-    \centering
-		\includesvg[scale=0.6]{gadget-2.svg}
-  \end{subfigure}
-  \begin{subfigure}
-    \centering
-		\includesvg[scale=0.6]{gadget-3.svg}
-  \end{subfigure}
-  \label{fig:gadget}
-  \caption{Gadget com vértices de lista um reproduzindo vértice de lista um em vértice de lista três}
-\end{figure}
+  Mostraremos aqui como que três vértices são suficientes para que o problema seja NP-Completo, esse resultado se dá pois é possível reproduzir a estrutura do teorema \ref{teorema:6-v-np} utilizando os ditos 3 vértices, para tanto usaremos o gadget mostrado na figura \ref{fig:gadget}.
 
 Usando tal gadget, dois vértices $v$ com lista um em um vértice $u$ com lista três são capazes de reproduzir um vértice de lista um através da retirada da lista de $u$ as únicas possíveis cores para $v$, sendo assim tendo três vértices de distintas listas tamanho um, é possível obter seis vértices de lista um (com três listas distintas de cada lado) e reproduzir a estratégia mostrada no teorema \ref{teorema:6-v-np}, que nos mostra a NP-Completude desse problema.
   
@@ -169,7 +172,7 @@ Como já visto o problema é de trivial solução quando todos os vértices tem 
  Para tanto nos é interessante agora a vizinhança entre os vértices com lista dois, iremos isolar as instâncias em alguns casos.
  \begin{itemize}
    \item Vizinhança de algum vértice é tamanho um:\\
-   Nesse caso podemos notar que independentemente do vértice $v \in r_1$ e seu vizinho $u \in r_2$, eles sempre compartilharão uma cor, colorimos o vértice de $u$ com tal cor, além disso como conhecemos a vizinhança de $v$ sabemos que nenhum outro vértice é vizinho deste, podemos então colorir os restantes vértices de $r_2$ com a cor de $v$, dessa forma uma das três cores ainda resta e podemos a usar para colorir o restante do $r_1$, independente das ligações entre os demais vértices de $r_1$ e $r_2$.
+   Nesse caso podemos notar que independentemente do vértice $v \in r_1$ e seu vizinho $u \in r_2$, eles sempre compartilharão uma cor, colorimos o vértice $u$ com tal cor, além disso como conhecemos a vizinhança de $v$ sabemos que nenhum outro vértice é vizinho deste, podemos então colorir os restantes vértices de $r_2$ com a cor de $v$, dessa forma uma das três cores ainda resta e podemos a usar para colorir o restante do $r_1$, independente das ligações entre os demais vértices de $r_1$ e $r_2$.
    \begin{figure}[H]
      \centering
      \fontsize{6}{10}
@@ -192,8 +195,8 @@ Como já visto o problema é de trivial solução quando todos os vértices tem 
      \centering
      \fontsize{6}{10}
      \includesvg[scale=0.5]{2-edge-b.svg}
-     \label{fig:2-edge-b}
      \caption{Estrutura $\Gamma$ e suas possíveis colorações.}
+     \label{fig:2-edge-b}
    \end{figure}
    
    Assim sendo para reduzir um problema de PreColoring extension em bipartido $\Pi$ ao nosso problema $\Pi'$ basta que para todo vértice pré-colorido $v_{c_j} \in V(\Pi) | c_j \in C$ cria-se um paralelo $u \in V(\Pi')$ com lista de tamanho três e liga-o aos vértices de $\Gamma$ a fim de excitar sua cor da seguinte forma: 
@@ -206,7 +209,7 @@ Como já visto o problema é de trivial solução quando todos os vértices tem 
 
 \subsection{Vértices com listas de tamanho um e dois}
 
-Para o acontecimento de haver vértices com listas tamanho um e dois, basta notar que podemos pintar aqueles que contém listas de tamanho um, que propagará a remoção de sua cor aos vizinhos, e ao realizar isso iterativamente, acabaremos com um caso em que todos os vértices terão ou listas de tamanho dois ou três, caindo em algum dos casos supracitados.
+Para o acontecimento de haver vértices com listas tamanho um e dois, basta notar que podemos remover aqueles que contém listas de tamanho um, que propagará a remoção de sua cor às listas de vértices vizinhos, e ao realizar isso iterativamente, acabaremos com um caso em que todos os vértices terão ou listas de tamanho dois ou três, caindo em algum dos casos supracitados.
 
 \section{Parametrizado pela quantidade de vértices não vizinhos a clique}
 Como visto na seção anterior, os vértices que não são vizinhos a clique, quando transformados em vértices do problema de lista coloração se transformam em vértices com listas tamanho três, portanto nosso desejo é resolver lista coloração em bipartidos com listas de tamanho um a três parametrizado pela quantidade de vértices com lista de tamanho três, a solução deriva do seguinte teorema.

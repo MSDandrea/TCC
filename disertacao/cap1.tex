@@ -1,20 +1,26 @@
 \chapter{Introdução} \label{cap:intro}
 
+O intuito do trabalho apresentado aqui é o de desvendar o desenvolvimento e especificações da dificuldade do problema de coloração em Grafos$(r,\ell)$. Ao nos aprofundar na investigação mostraremos ainda a proficuidade dos tamanhos das partições para a extração de um algoritmo FPT. 
+
+O capítulo sobre analíse clássica se propõe a demonstrar uma dicotomia \emph{Polinomial / NP-Completo} para o problema abordando a quantidade de partições. Uma vez definida tal dicotomia o capitúlo de análise parametrizada busca através de parâmetros revelados encontrar algoritmos tratáveis por parâmetro fixo para solucionar o problema em questão. Concluiremos o escrito sumarizando nossas descobertas e esclarecendo as repercursões de nosso trabalho e os novos desafios que nos pode trazer.
+
+As seções mostradas a seguir se propõem a esclarecer as estruturas, problemas e ferramental utilizado durante o trabalho.
+
 \section{Estruturas básicas}
 
 \subsection{Grafos}
 \begin{definition}
- Um Grafo $G$ é uma estrutura que contém um conjunto de vértices $V(G) = \{v_1,v_2,...,v_n\}$ e um conjunto de arestas $E(G)=\{e(v,j)\} | \{v,j\} \subset V(G)$, dizemos que o vértice $v$ pertence ao grafo $G$ se $v \in V(G)$, e que existe uma aresta entre $v$ e $u$ se $e(u,v) \in E(G)$, nesse trabalho usaremos apenas grafos não direcionados, dessa forma $e(u,v) \equiv e(v,u)$
+ Um Grafo $G$ é uma estrutura que contém um conjunto de vértices $V(G) = \{v_1,v_2,...,v_n\}$ e um conjunto de arestas $E(G)=\{(v,j)\} | \{v,j\} \subset V(G)$, dizemos que o vértice $v$ pertence ao grafo $G$ se $v \in V(G)$, e que existe uma aresta entre $v$ e $u$ se $e(u,v) \in E(G)$, nesse trabalho usaremos apenas grafos não direcionados, dessa forma $(u,v) \equiv e(v,u)$
 \end{definition}
 
 \subsection{Conjunto independente}
 \begin{definition}
-Um conjunto independente $r \subseteq G$ é uma partição de $G$ tal que: $ \{v,u\} \subset V(r) \implies \nexists e(v,u) \in E(r)$
+Um conjunto independente $r \subseteq G$ é uma partição de $G$ tal que: $ \{v,u\} \subset V(r) \implies \nexists (v,u) \in E(r)$
 \end{definition}
 
 \subsection{Clique}
 \begin{definition}
-Uma clique $\ell \subseteq G$ é uma partição de $G$ tal que: $ \{v,u\} \subset V(\ell) \implies \exists e(v,u) \in E(\ell)$
+Uma clique $\ell \subseteq G$ é uma partição de $G$ tal que: $ \{v,u\} \subset V(\ell) \implies \exists (v,u) \in E(\ell)$
 \end{definition}
 
 \subsection{Grafos$(r,\ell)$}
@@ -101,7 +107,3 @@ Esta seção irá sumarizar as definições de $W-Hierarquia$ estabelecida por D
 \begin{definition}
  Um problema pertence a classe $Para-NP$ se existe um algoritmo $\mathcal{O}(f(k)g(n))$ onde $g(n)$ é uma função não-determinística.
 \end{definition}
-
-\begin{corolario}
-
-\end{corolario}

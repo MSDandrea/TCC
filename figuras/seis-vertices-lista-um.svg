@@ -5,9 +5,8 @@
     <g fill="white" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="translate(-220,-59)" stroke="white">
       <rect x="220" width="271" height="398" y="59" clip-path="url(#clipPath2)" stroke="none"/>
     </g>
-    <g fill="rgb(245,245,245)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-220,-59)" stroke="rgb(245,245,245)">
-      <rect x="235.5" y="74.9586" clip-path="url(#clipPath2)" width="105" rx="4" ry="4" height="366.4609" stroke="none"/>
-      <rect x="235.5" y="74.9586" clip-path="url(#clipPath2)" fill="rgb(235,235,235)" width="105" height="21.4609" stroke="none"/>
+    <g fill="rgb(235,235,235)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-220,-59)" stroke="rgb(235,235,235)">
+      <rect x="235.5" width="105" height="21.4609" y="74.9586" clip-path="url(#clipPath2)" stroke="none"/>
     </g>
     <g font-size="15px" stroke-linecap="butt" transform="matrix(1,0,0,1,-220,-59)" text-rendering="geometricPrecision" font-family="sans-serif" shape-rendering="geometricPrecision" stroke-miterlimit="1.45">
       <text x="322.7896" xml:space="preserve" y="90.882" clip-path="url(#clipPath2)" stroke="none">r1</text>
@@ -98,9 +97,8 @@
 </svg>
       </g>
     </g>
-    <g fill="rgb(245,245,245)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-220,-59)" stroke="rgb(245,245,245)">
-      <rect x="370.5" y="74.9586" clip-path="url(#clipPath2)" width="105" rx="4" ry="4" height="366.4609" stroke="none"/>
-      <rect x="370.5" y="74.9586" clip-path="url(#clipPath2)" fill="rgb(235,235,235)" width="105" height="21.4609" stroke="none"/>
+    <g fill="rgb(235,235,235)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-220,-59)" stroke="rgb(235,235,235)">
+      <rect x="370.5" width="105" height="21.4609" y="74.9586" clip-path="url(#clipPath2)" stroke="none"/>
     </g>
     <g font-size="15px" stroke-linecap="butt" transform="matrix(1,0,0,1,-220,-59)" text-rendering="geometricPrecision" font-family="sans-serif" shape-rendering="geometricPrecision" stroke-miterlimit="1.45">
       <text x="457.7896" xml:space="preserve" y="90.882" clip-path="url(#clipPath2)" stroke="none">r2</text>

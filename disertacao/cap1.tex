@@ -1,84 +1,64 @@
 \chapter{Introdução} \label{cap:intro}
 
-O intuito do trabalho apresentado aqui é o de desvendar o desenvolvimento e especificações da dificuldade do problema de coloração em Grafos$(r,\ell)$. Ao nos aprofundar na investigação mostraremos ainda a proficuidade dos tamanhos das partições para a extração de um algoritmo FPT. 
+Uma das principais motivações do estudo de classes de grafos é o fato de que diversos problemas, que são difíceis para grafos em geral, tornam-se tratáveis quando restritos a classes especiais de grafos. Assim, busca-se delimitar a partir de que ponto um determinado problema pode ser resolvido de forma eficiente. 
+Particularmente, o problema de particionamento em grafos tem despertado muito interesse devido às pesquisas de grafos perfeito e também pela procura de algoritmos eficientes para o reconhecimento de determinadas classes de grafos.
+O problema de partição de grafos pode ser descrito como tendo por objetivo particionar o conjunto dos vértices de um grafo em subconjuntos $V_1,V_2, 
+\ldots, V_k$ onde $V_1 \cup V_2 \cup \ldots \cup V_k = V$ e $V_i \cap V_j = \emptyset$, $i \neq j$, $1 \leq i \leq k$ e $1 \leq j \leq k$, exigindo-se, porém, algumas propriedades sobre estes subconjuntos de vértices. Estas propriedades podem ser \textit{internas}, como por exemplo exigir que os vértices de cada subconjunto $V_i$ sejam dois-a-dois adjacentes (isto é, $V_i$ seja uma clique) ou dois-a-dois não-adjacentes (isto é, $V_i$ seja um conjunto independente), ou \textit{externas}, onde as exigências são feitas sobre os pares de $V_i\times V_j$, podem ser adjacentes ou não-adjacentes entre si. 
 
-O capítulo sobre analíse clássica se propõe a demonstrar uma dicotomia \emph{Polinomial / NP-Completo} para o problema abordando a quantidade de partições. Uma vez definida tal dicotomia o capitúlo de análise parametrizada busca através de parâmetros revelados encontrar algoritmos tratáveis por parâmetro fixo para solucionar o problema em questão. Concluiremos o escrito sumarizando nossas descobertas e esclarecendo as repercursões de nosso trabalho e os novos desafios que nos pode trazer.
+Em outra perspectiva o problema de coloração de vértices de um grafo também é de grande interesse, tendo suas aplicações em diversas áreas; \emph{Pattern matching}, escalonamento em esportes e no trânsito, e resolução de problemas de \emph{Sudoku} são alguns exemplos de problemas onde a coloração de grafos pode ser empregada\cite{lewis15}. O problema de coloração mínima dos vértices de um grafo chamado também de coloração própria de um grafo é descrito como a atribuição de cores em um grafo $G$ de forma que seja possível atribuir a cada um dos vértices de $G$ uma entre $k$ cores de forma que, dado quaisquer dois vértices vizinhos em $G$ eles não compartilhem uma mesma cor e $k$ seja o menor número onde tal restrição é atingida.
+
+
+O intuito deste trabalho é o de desvendar e classificar a dificuldade do problema de coloração em Grafos$(r,\ell)$. Ao nos aprofundar na investigação mostraremos ainda a proficuidade dos tamanhos das partições para a extração de um algoritmo FPT. 
+
+O capítulo sobre análise computacional clássica se propõe a demonstrar uma dicotomia \emph{Polinomial / NP-Completo} para o problema abordando a quantidade de partições. Uma vez definida tal dicotomia o capitúlo de análise parametrizada busca através de parâmetros encontrar algoritmos tratáveis por parâmetro fixo para solucionar o problema em questão. Concluiremos o escrito sumarizando nossas descobertas e esclarecendo as repercursões de nosso trabalho e os novos desafios que nos pode trazer.
 
 As seções mostradas a seguir se propõem a esclarecer as estruturas, problemas e ferramental utilizado durante o trabalho.
 
 \section{Estruturas básicas}
 
-\subsection{Grafos}
-\begin{definition}
- Um Grafo $G$ é uma estrutura que contém um conjunto de vértices $V(G) = \{v_1,v_2,...,v_n\}$ e um conjunto de arestas $E(G)=\{(v,j)\} | \{v,j\} \subset V(G)$, dizemos que o vértice $v$ pertence ao grafo $G$ se $v \in V(G)$, e que existe uma aresta entre $v$ e $u$ se $e(u,v) \in E(G)$, nesse trabalho usaremos apenas grafos não direcionados, dessa forma $(u,v) \equiv e(v,u)$
-\end{definition}
+ Um Grafo $G$ é uma estrutura que contém um conjunto de vértices $V(G) = \{v_1,v_2,...,v_n\}$ e um conjunto de arestas $E(G)=\{(v,j)\} | \{v,j\} \subset V(G)$, dizemos que o vértice $v$ pertence ao grafo $G$ se $v \in V(G)$, e que existe uma aresta entre $v$ e $u$ se $(u,v) \in E(G)$, nesse trabalho usaremos apenas grafos não direcionados, dessa forma $(u,v) \equiv (v,u)$. Um Grafo dito Grafo$(r,\ell)$ ou abreviadamente $G(r,\ell)$ é qualquer grafo pertencente à classe dos grafos que podem ser particionados em $r$ conjuntos independentes e $\ell$ cliques.
+ 
 
-\subsection{Conjunto independente}
-\begin{definition}
-Um conjunto independente $r \subseteq G$ é uma partição de $G$ tal que: $ \{v,u\} \subset V(r) \implies \nexists (v,u) \in E(r)$
-\end{definition}
+Um conjunto independente $r \subseteq G$ é uma partição de $G$ tal que: $ \{v,u\} \subset V(r) \implies \nexists (v,u) \in E(r)$. Já uma clique $\ell \subseteq G$ é uma partição de $G$ tal que: $ \{v,u\} \subset V(\ell) \implies \exists (v,u) \in E(\ell)$. Dizemos que um grafo $G$ possui uma bipartição quando todos os seus vértices podem ser divididos entre dois conjuntos independentes disjuntos.
 
-\subsection{Clique}
-\begin{definition}
-Uma clique $\ell \subseteq G$ é uma partição de $G$ tal que: $ \{v,u\} \subset V(\ell) \implies \exists (v,u) \in E(\ell)$
-\end{definition}
+\section{Problemas abordados}
 
-\subsection{Grafos$(r,\ell)$}
-\begin{definition}
-	Um Grafo dito Grafo$(r,\ell)$ ou abreviadamente $G(r,\ell)$ é qualquer grafo pertencente à classe dos grafos que podem ser particionados em r conjuntos independentes e l cliques.
-\end{definition}
 
-\subsection{Bipartição}
 \begin{definition}
- Dizemos que um grafo $G$ possui uma bipartição quando todos os seus vértices podem ser divididos entre dois conjuntos independentes disjuntos.
-\end{definition}
-
-\section{Problemas mencionados}
-
-\subsection{Coloração mínima de Grafos}
-\begin{definition}
-	Entrada: um Grafo $G$ e um inteiro $k$\\
-	Questão: Cada vértice pertencente à $G$ pode ser colorido com uma entre $k$ cores
+	Coloração mínima de Grafos.\\
+	\par\addvspace{.1\baselineskip}
+	\noindent
+	\begin{tabularx}{\textwidth}{@{\hspace{\parindent}} l X c}
+		\textbf{Entrada:} & um Grafo $G$ e um inteiro $k$.\\% Input
+		\textbf{Pergunta:} & $C$ Cada vértice pertencente à $G$ pode ser colorido com uma entre $k$ cores
 	de tal forma que dado quaisquer dois vértices adjacentes eles tenham cores distintas e $k$ seja o mínimo de cores possível?
+	\end{tabularx}
+	\par\addvspace{.5\baselineskip}
 \end{definition}
+\pagebreak
 
-\subsection{Lista coloração de Grafos}
 \begin{definition}
-  Entrada: Uma paleta de cores $P$ e um Grafo $G$ onde todo $v \in V(G)$ pode ser colorido com um subconjunto $P(v) \subset P$\\
-  Questão: É possível escolher uma cor dentro das de $P(v)$ para todo vértice $v$ de forma que dado quaisquer dois vértices adjacentes eles tenham cores distintas?
+	Lista coloração de Grafos.\\
+	\par\addvspace{.1\baselineskip}
+	\noindent
+	\begin{tabularx}{\textwidth}{@{\hspace{\parindent}} l X c}
+		\textbf{Entrada:} & Uma paleta de cores $P$ e um Grafo $G$ onde todo $v \in V(G)$ pode ser colorido com um subconjunto $P(v) \subset P$.\\% Input
+		\textbf{Pergunta:} & É possível escolher uma cor dentro das de $P(v)$ para todo vértice $v$ de forma que dado quaisquer dois vértices adjacentes eles tenham cores distintas?
+	\end{tabularx}
+	\par\addvspace{.5\baselineskip}
 \end{definition}
 
-\subsection{Clique multicolorida}
-\begin{definition}
- Entrada: Um Grafo $G$ com uma k-coloração própria\\
- Questão: Existe em $G$ uma clique que contenha todas as k cores?
-\end{definition}
 
-\subsection{PreColoring extension}
-\begin{definition}
- Entrada: Um grafo $G$ onde alguns vértices já possuem uma coloração definida com cores escolhidas dentre $k$ possíveis cores.
- Questão: É possível estender a coloração já existente para todo o grafo sem que dois vértices adjacentes possuam a mesma cor? 
-\end{definition}
+\section{Complexidade computacional}
 
-\subsection{Satisfabilidade Ponderada em Circuitos de Entrelaçamento $t$ e Profundidade $h$ \emph{WCS(t,h)}}
-\begin{definition}
- Entrada um circuito de decisão $C$ com entrelaçamento $t$ e profundidade $h$\\
- Questão: $C$ possui uma atribuição satisfazível?
-\end{definition}
-
-\section{Complexidade clássica}
-\subsection{Tratabilidade de tempo polinomial}
 Um algoritmo de tempo polinomial é definido como um algoritmo cuja sua função de complexidade de tempo é $\mathcal{O}(p(n))$, para alguma função polinomial $p$, onde $n$ é usado para denotar o tamanho da entrada.
 
-Um problema $\Pi$ pertence à classe $\P$ se e somente se $\Pi$ pode ser solucionado em tempo polinomial por algum algoritmo determinístico.
+Um problema $\Pi$ pertence à classe $\P$ se e somente se $\Pi$ pode ser solucionado em tempo polinomial por algum algoritmo determinístico. Um problema $\Pi$ pertence à classe $\textit{NP}$ se e somente se para um dado certificado há um algoritmo que verifica sua validade em tempo polinomial.
 
-Um problema $\Pi$ pertence à classe $\textit{Np}$ se e somente se para um dado certificado há um algoritmo polinomial que o verifica sua validade.
-
-\subsection{Reduções}
 Dados dois problemas $\Pi$ e $\Pi'$ dizemos que $\Pi \propto \Pi'$ ($\Pi$ se reduz à $\Pi'$ em tempo polinomial) se existe um algoritmo capaz de construir uma instância $J$ de $\Pi'$ a partir de uma instância $I$ de $\Pi$ em tempo polinomial, tal que a partir de uma resposta para $J$ uma resposta para $I$ possa ser construída em tempo polinomial. 
 
 \subsection{NP-Completude}
-Um problema $\Pi'$ é dito $NP-Difícil$ se todo problema $\Pi \in NP$ se reduz à $\Pi'$, se $\Pi' \in NP$ então $\Pi'$ é $NP-Completo$.
+Um problema $\Pi'$ é dito $NP-Difícil$ se todo problema $\Pi \in NP$ se reduz à $\Pi'$. Se $\Pi' \in NP$ então $\Pi'$ é $NP-Completo$.
 
 \section{Complexidade parametrizada}
 
@@ -87,12 +67,14 @@ Um problema $\Pi'$ é dito $NP-Difícil$ se todo problema $\Pi \in NP$ se reduz 
 Dado um problema $\Pi$ e um conjunto de aspectos de $\Pi$ chamado $S = \{s_1,s_2,s_3,...,s_n\}$ denotamos por $\Pi(S)$ o problema $\Pi$ parametrizado por $S$.
 \end{definition}
 \begin{definition}
-Dado um problema parametrizado $\Pi(S)$ dizemos que o mesmo é FPT(\emph{Fixed parameter tractable} (Tratado por parâmetro fixo)) se existe um algoritmo capaz de resolver $\Pi$ em $\mathcal{O}(f(S)\times n^c)$ onde $f(S)$ é uma função arbitrária e $c$ uma função $\mathcal{O}(1)$.
+Dado um problema parametrizado $\Pi(S)$ dizemos que o mesmo é FPT (\emph{Fixed parameter tractable} (Tratável por parâmetro fixo)) se existe um algoritmo capaz de resolver $\Pi$ em $\mathcal{O}(f(S)\times n^c)$ onde $f(S)$ é uma função arbitrária e $c$ uma função $\mathcal{O}(1)$.
 \end{definition}
 
 \subsection{Intratabilidade Parametrizada}
-Esta seção irá sumarizar as definições de $W-Hierarquia$ estabelecida por Downey et al.\cite{downey98}, para tanto observe as seguintes definições.
-\begin{definition}
+
+Esta seção irá sumarizar as definições de $W-hierarquia$ estabelecida por Downey et al.\cite{downey98}, para tanto observe as seguintes definições.
+
+\begin{definition}\label{def:fpt-red}
  Sejam $\Pi(k)$ e $\Pi'(k')$ onde $k' \leq g(k)$. Chamamos de FPT-redução de $\Pi(k)$ para $\Pi'(k')$ é uma transformação $R$ quando:
  \begin{itemize}
    \item $\forall x, x \in \Pi(k) \iff R(k) \in \Pi'(k')$
@@ -100,10 +82,20 @@ Esta seção irá sumarizar as definições de $W-Hierarquia$ estabelecida por D
  \end{itemize}
 \end{definition}
 
+\begin{definition}\label{def:wcs}
+	Satisfabilidade Ponderada em circuitos de entrelaçamento $t$ e profundidade $h$ $WCS(t,h)$.\\
+	\noindent
+	\begin{tabularx}{\textwidth}{@{\hspace{\parindent}} l X c}
+		\textbf{Entrada:} & um circuito de decisão $C$ com entrelaçamento $t$ e profundidade $h$.\\% Input
+		\textbf{Pergunta:} & $C$ possui uma atribuição satisfazível?
+	\end{tabularx}
+	\par\addvspace{.5\baselineskip}
+\end{definition}
+
+Usando as definições \ref{def:fpt-red} e \ref{def:wcs} definiremos então a pertinência de um problema à classe $W[t]$.
+
 \begin{definition}
  Um problema parametrizado $\Pi(k)$ pertence a classe $W[t]$ se e somente se existe uma FPT-Redução de tal problema para $WCS(t,h)$ para algum $h$ constante. Logo devido a transitividade de FPT-Redução, se existe uma FPT-Redução de qualquer problema $\Pi'(k')$ para $\Pi(k)$ então $\Pi(k) \in W[t]$
 \end{definition}
 
-\begin{definition}
- Um problema pertence a classe $Para-NP$ se existe um algoritmo $\mathcal{O}(f(k)g(n))$ onde $g(n)$ é uma função não-determinística.
-\end{definition}
+

@@ -5,9 +5,8 @@
     <g fill="white" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="translate(-183,-8)" stroke="white">
       <rect x="183" width="526" height="626" y="8" clip-path="url(#clipPath2)" stroke="none"/>
     </g>
-    <g fill="rgb(245,245,245)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-183,-8)" stroke="rgb(245,245,245)">
-      <rect x="303.5" y="23.5391" clip-path="url(#clipPath2)" width="99" rx="4" ry="4" height="306.4609" stroke="none"/>
-      <rect x="303.5" y="23.5391" clip-path="url(#clipPath2)" fill="rgb(235,235,235)" width="99" height="21.4609" stroke="none"/>
+    <g fill="rgb(235,235,235)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-183,-8)" stroke="rgb(235,235,235)">
+      <rect x="303.5" width="99" height="21.4609" y="23.5391" clip-path="url(#clipPath2)" stroke="none"/>
     </g>
     <g font-size="15px" stroke-linecap="butt" transform="matrix(1,0,0,1,-183,-8)" text-rendering="geometricPrecision" font-family="sans-serif" shape-rendering="geometricPrecision" stroke-miterlimit="1.45">
       <text x="384.7896" xml:space="preserve" y="39.4624" clip-path="url(#clipPath2)" stroke="none">r1</text>
@@ -101,9 +100,8 @@
 </svg>
       </g>
     </g>
-    <g fill="rgb(245,245,245)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-183,-8)" stroke="rgb(245,245,245)">
-      <rect x="480.5" y="23.5391" clip-path="url(#clipPath2)" width="99" rx="4" ry="4" height="306.4609" stroke="none"/>
-      <rect x="480.5" y="23.5391" clip-path="url(#clipPath2)" fill="rgb(235,235,235)" width="99" height="21.4609" stroke="none"/>
+    <g fill="rgb(235,235,235)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-183,-8)" stroke="rgb(235,235,235)">
+      <rect x="480.5" width="99" height="21.4609" y="23.5391" clip-path="url(#clipPath2)" stroke="none"/>
     </g>
     <g font-size="15px" stroke-linecap="butt" transform="matrix(1,0,0,1,-183,-8)" text-rendering="geometricPrecision" font-family="sans-serif" shape-rendering="geometricPrecision" stroke-miterlimit="1.45">
       <text x="561.7896" xml:space="preserve" y="39.4624" clip-path="url(#clipPath2)" stroke="none">r2</text>
@@ -180,9 +178,8 @@
       <path fill="none" d="M380.2986 143.9985 L502.7014 276.0015" clip-path="url(#clipPath2)"/>
       <path fill="none" d="M387.5 292.5 L495.5 292.5" clip-path="url(#clipPath2)"/>
     </g>
-    <g fill="rgb(245,245,245)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-183,-8)" stroke="rgb(245,245,245)">
-      <rect x="198.5" y="345" clip-path="url(#clipPath2)" width="75" rx="4" ry="4" height="273.9609" stroke="none"/>
-      <rect x="198.5" y="345" clip-path="url(#clipPath2)" fill="rgb(235,235,235)" width="75" height="21.4609" stroke="none"/>
+    <g fill="rgb(235,235,235)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-183,-8)" stroke="rgb(235,235,235)">
+      <rect x="198.5" width="75" height="21.4609" y="345" clip-path="url(#clipPath2)" stroke="none"/>
     </g>
     <g font-size="15px" stroke-linecap="butt" transform="matrix(1,0,0,1,-183,-8)" text-rendering="geometricPrecision" font-family="sans-serif" shape-rendering="geometricPrecision" stroke-miterlimit="1.45">
       <text x="255.7896" xml:space="preserve" y="360.9233" clip-path="url(#clipPath2)" stroke="none">r1</text>
@@ -192,7 +189,6 @@
       <circle r="22.5" clip-path="url(#clipPath2)" cx="236" cy="415.7305" stroke="none"/>
       <circle fill="rgb(151,21,40)" r="22.5" clip-path="url(#clipPath2)" cx="236" cy="498.2305" stroke="none"/>
       <circle fill="rgb(226,203,73)" r="22.5" clip-path="url(#clipPath2)" cx="236" cy="580.7305" stroke="none"/>
-      <rect x="351.5" y="345" clip-path="url(#clipPath2)" fill="rgb(245,245,245)" width="75" rx="4" ry="4" height="273.9609" stroke="none"/>
       <rect x="351.5" y="345" clip-path="url(#clipPath2)" fill="rgb(235,235,235)" width="75" height="21.4609" stroke="none"/>
     </g>
     <g font-size="15px" stroke-linecap="butt" transform="matrix(1,0,0,1,-183,-8)" text-rendering="geometricPrecision" font-family="sans-serif" shape-rendering="geometricPrecision" stroke-miterlimit="1.45">
@@ -212,9 +208,8 @@
       <path fill="none" d="M251.2986 432.229 L373.7014 564.2319" clip-path="url(#clipPath2)"/>
       <path fill="none" d="M258.5 580.7305 L366.5 580.7305" clip-path="url(#clipPath2)"/>
     </g>
-    <g fill="rgb(245,245,245)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-183,-8)" stroke="rgb(245,245,245)">
-      <rect x="465.5" y="345" clip-path="url(#clipPath2)" width="75" rx="4" ry="4" height="273.9609" stroke="none"/>
-      <rect x="465.5" y="345" clip-path="url(#clipPath2)" fill="rgb(235,235,235)" width="75" height="21.4609" stroke="none"/>
+    <g fill="rgb(235,235,235)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-183,-8)" stroke="rgb(235,235,235)">
+      <rect x="465.5" width="75" height="21.4609" y="345" clip-path="url(#clipPath2)" stroke="none"/>
     </g>
     <g font-size="15px" stroke-linecap="butt" transform="matrix(1,0,0,1,-183,-8)" text-rendering="geometricPrecision" font-family="sans-serif" shape-rendering="geometricPrecision" stroke-miterlimit="1.45">
       <text x="522.7896" xml:space="preserve" y="360.9233" clip-path="url(#clipPath2)" stroke="none">r1</text>
@@ -224,7 +219,6 @@
       <circle r="22.5" clip-path="url(#clipPath2)" cx="503" cy="415.7305" stroke="none"/>
       <circle fill="rgb(226,203,73)" r="22.5" clip-path="url(#clipPath2)" cx="503" cy="498.2305" stroke="none"/>
       <circle fill="rgb(56,180,70)" r="22.5" clip-path="url(#clipPath2)" cx="503" cy="580.7305" stroke="none"/>
-      <rect x="618.5" y="345" clip-path="url(#clipPath2)" fill="rgb(245,245,245)" width="75" rx="4" ry="4" height="273.9609" stroke="none"/>
       <rect x="618.5" y="345" clip-path="url(#clipPath2)" fill="rgb(235,235,235)" width="75" height="21.4609" stroke="none"/>
     </g>
     <g font-size="15px" stroke-linecap="butt" transform="matrix(1,0,0,1,-183,-8)" text-rendering="geometricPrecision" font-family="sans-serif" shape-rendering="geometricPrecision" stroke-miterlimit="1.45">

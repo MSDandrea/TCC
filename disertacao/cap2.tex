@@ -1,6 +1,5 @@
 \chapter{Análise clássica para coloração em Grafos$(r,\ell)$}
 
-\section{Exploração do problema de coloração mínima em Grafos$(r,\ell)$}
 O problema de coloração aplicado a Grafos$(r,\ell)$ é de fácil solução para algumas especificações,
 por exemplo um Grafo vazio, que é um Grafo(0,0) pode ser colorido com 0 cores, um Grafo disperso i.e um Grafo(1,0) é colorível com apenas uma cor, já que não existem arestas nesse grafo.
 
@@ -35,7 +34,7 @@ Sabemos então que coloração é de solução polinomial para grafos completos,
 		Coloração de Grafo(0,2) é Polinomial.
 	\end{teorema}
 	\begin{proof}
-		Um Grafo(0,2) é um grafo separável em 2 cliques, e que todo vértice faz parte de alguma das cliques, logo conhecer a clique máxima é simples e tendo a clique máxima sabemos que o numero mínimo de cores que pode ser usado para colorir o grafo é igual a cardinalidade de tal clique.
+		Um Grafo(0,2) $G$, também chamado de grafo co-bipartido, é um grafo separável em 2 cliques em que todo vértice faz parte de alguma das cliques. A partir da literatura \cite{bollo98} sabemos que um grafo co-bipartido é perfeito, isso é, seu número cromático é igual ao de sua clique máxima, observe que conhecer a clique máxima é equivalente a conhecer o conjunto independente máximo do complemento de $G$, que por sua vez é resolvível encontrando a menor cobertura por vértices do mesmo, mostrado ser resolvível em tempo polinomial \cite{konig31,zing12}. Portanto ao encontrar a cobertura por vértices mínima para o complemento de $G$ encontramos a clique máxima de $G$, e como $G$ é um grafo perfeito, sabemos resolver o problema de coloração em tempo polinomial.
 	\end{proof}
 
 	\begin{teorema}
@@ -81,7 +80,7 @@ Ainda nos falta mostrar a complexidade para alguns casos de fronteira, que neces
 Iremos demonstrar abaixo a complexidade para tais casos utilizando o seguinte teorema. 
 \begin{teorema}
 \label{theorem:list-coloring}
-	O problema de lista coloração para um grafo $G(r,\ell)$, é equivalente ao problema de coloração própria de um grafo $H_G(r,\ell+1)$.
+	O problema de lista coloração para um grafo $G(r,\ell)$, se reduz ao problema de coloração própria de um grafo $(r,\ell+1)$.
 \end{teorema}
 \begin{proof}
 	Para a demonstração é preciso mostrar que
@@ -115,17 +114,18 @@ Portanto utilizando o teorema \ref{theorem:list-coloring}, derivamos os seguinte
 \begin{corolario}
 	O problema de coloração é NP-Completo para Grafos$(1,2)$.
 	\begin{proof}
-		A NP-Completude de lista coloração em grafos split i.e. Grafos$(1,1)$ é demonstrado por Jansen et al.\cite{jansen1997}.
+		Segue da NP-Completude de lista coloração em Grafos$(1,1)$, demonstrado por Jansen et al.\cite{jansen1997}.
 	\end{proof}
 \end{corolario}
 \begin{corolario}
 	O problema de coloração é NP-Completo em Grafos$(2,1)$.
 	\begin{proof}
-		A NP-Completude de lista coloração em grafos bipartido é demonstrado por Fellows et al.\cite{fellows07}.
+		Segue da NP-Completude de lista coloração em grafos bipartido demonstrado por Fellows et al.\cite{fellows07}.
 	\end{proof}
 \end{corolario}    
-\begin{corolario}
-	Se lista coloração é NP-Completo para Grafos(0,2) então coloração é NP-Completo em Grafos(0,3).
+\begin{teorema}
+  \label{teorema:lista-2}
+	Lista coloração é NP-Completo para Grafos(0,2).
 	\begin{proof}
 		Para essa demonstração nos basearemos em um resultado obtido por Jansen\cite{jansen1999}. A demonstração se baseia em realizar uma redução do problema 3-SAT restrito para lista coloração de co-bipartido i.e. Grafo(0,2).
 		Suponha o problema 3-SAT com as seguintes restrições:
@@ -168,9 +168,16 @@ Portanto utilizando o teorema \ref{theorem:list-coloring}, derivamos os seguinte
 		De tal forma, podemos facilmente notar que, expandindo a explicação anterior para os outros terminais uma resposta sim para o problema 3-SAT restrito nos leva a uma solução do problema de lista coloração em co-bipartido por exclusão das cores nas listas disponíveis. Para a volta a existência de uma lista coloração válida para o co-bipartido mostra uma solução para o 3-SAT restrito correspondente simplesmente descobrindo a representação em valor de terminal das cores escolhidas para as cláusulas. 
 		
 	\end{proof}
+\end{teorema}
+\newpage
+\begin{corolario}
+ O problema de coloração é NP-Completo em Grafos$(0,3)$.
+ \begin{proof}
+   Se da pela prova dos Teoremas \ref{theorem:list-coloring} e \ref{teorema:lista-2}.
+ \end{proof}
 \end{corolario}
 Portanto podemos agora completar nossa tabela com:
-\newpage
+
 \begin{table}[!htb]
 	\center
 	\begin{tabular}{l|*{7}c}

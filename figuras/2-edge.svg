@@ -5,9 +5,8 @@
     <g fill="white" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="translate(-279,-8)" stroke="white">
       <rect x="279" width="598" height="666" y="8" clip-path="url(#clipPath2)" stroke="none"/>
     </g>
-    <g fill="rgb(245,245,245)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-279,-8)" stroke="rgb(245,245,245)">
-      <rect x="294.5" y="23.5391" clip-path="url(#clipPath2)" width="99" rx="4" ry="4" height="306.4609" stroke="none"/>
-      <rect x="294.5" y="23.5391" clip-path="url(#clipPath2)" fill="rgb(235,235,235)" width="99" height="21.4609" stroke="none"/>
+    <g fill="rgb(235,235,235)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-279,-8)" stroke="rgb(235,235,235)">
+      <rect x="294.5" width="99" height="21.4609" y="23.5391" clip-path="url(#clipPath2)" stroke="none"/>
     </g>
     <g font-size="15px" stroke-linecap="butt" transform="matrix(1,0,0,1,-279,-8)" text-rendering="geometricPrecision" font-family="sans-serif" shape-rendering="geometricPrecision" stroke-miterlimit="1.45">
       <text x="375.7896" xml:space="preserve" y="39.4624" clip-path="url(#clipPath2)" stroke="none">r1</text>
@@ -116,9 +115,8 @@
 </svg>
       </g>
     </g>
-    <g fill="rgb(245,245,245)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-279,-8)" stroke="rgb(245,245,245)">
-      <rect x="471.5" y="23.5391" clip-path="url(#clipPath2)" width="99" rx="4" ry="4" height="306.4609" stroke="none"/>
-      <rect x="471.5" y="23.5391" clip-path="url(#clipPath2)" fill="rgb(235,235,235)" width="99" height="21.4609" stroke="none"/>
+    <g fill="rgb(235,235,235)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-279,-8)" stroke="rgb(235,235,235)">
+      <rect x="471.5" width="99" height="21.4609" y="23.5391" clip-path="url(#clipPath2)" stroke="none"/>
     </g>
     <g font-size="15px" stroke-linecap="butt" transform="matrix(1,0,0,1,-279,-8)" text-rendering="geometricPrecision" font-family="sans-serif" shape-rendering="geometricPrecision" stroke-miterlimit="1.45">
       <text x="552.7896" xml:space="preserve" y="39.4624" clip-path="url(#clipPath2)" stroke="none">r2</text>
@@ -197,9 +195,8 @@
       <path fill="none" d="M375.8044 220.6788 L489.1956 281.8212" clip-path="url(#clipPath2)"/>
       <path fill="none" d="M378.5 292.5 L486.5 292.5" clip-path="url(#clipPath2)"/>
     </g>
-    <g fill="rgb(245,245,245)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-279,-8)" stroke="rgb(245,245,245)">
-      <rect x="762.5" y="23.5391" clip-path="url(#clipPath2)" width="99" rx="4" ry="4" height="306.4609" stroke="none"/>
-      <rect x="762.5" y="23.5391" clip-path="url(#clipPath2)" fill="rgb(235,235,235)" width="99" height="21.4609" stroke="none"/>
+    <g fill="rgb(235,235,235)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-279,-8)" stroke="rgb(235,235,235)">
+      <rect x="762.5" width="99" height="21.4609" y="23.5391" clip-path="url(#clipPath2)" stroke="none"/>
     </g>
     <g font-size="15px" stroke-linecap="butt" transform="matrix(1,0,0,1,-279,-8)" text-rendering="geometricPrecision" font-family="sans-serif" shape-rendering="geometricPrecision" stroke-miterlimit="1.45">
       <text x="843.7896" xml:space="preserve" y="39.4624" clip-path="url(#clipPath2)" stroke="none">r2</text>
@@ -231,7 +228,6 @@
     </g>
     <g fill="rgb(56,180,70)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-279,-8)" stroke="rgb(56,180,70)">
       <circle r="22.5" clip-path="url(#clipPath2)" cx="800" cy="210" stroke="none"/>
-      <rect x="585.5" y="23.5391" clip-path="url(#clipPath2)" fill="rgb(245,245,245)" width="99" rx="4" ry="4" height="306.4609" stroke="none"/>
       <rect x="585.5" y="23.5391" clip-path="url(#clipPath2)" fill="rgb(235,235,235)" width="99" height="21.4609" stroke="none"/>
     </g>
     <g font-size="15px" stroke-linecap="butt" transform="matrix(1,0,0,1,-279,-8)" text-rendering="geometricPrecision" font-family="sans-serif" shape-rendering="geometricPrecision" stroke-miterlimit="1.45">
@@ -284,16 +280,15 @@
       <circle fill="none" r="22.5" clip-path="url(#clipPath2)" cx="647" cy="210"/>
       <path fill="none" d="M669.5 127.5 L777.5 127.5" clip-path="url(#clipPath2)"/>
       <path fill="none" d="M666.8044 138.1788 L780.1956 199.3212" clip-path="url(#clipPath2)"/>
-      <path fill="none" stroke-dasharray="6,2" d="M662.2986 276.0015 L784.7014 143.9985" clip-path="url(#clipPath2)"/>
-      <path fill="none" stroke-dasharray="6,2" d="M666.8044 281.8212 L780.1956 220.6788" clip-path="url(#clipPath2)"/>
       <path fill="none" stroke-dasharray="6,2" d="M669.5 292.5 L777.5 292.5" clip-path="url(#clipPath2)"/>
-      <path fill="none" stroke-dasharray="6,2" d="M666.8044 220.6788 L780.1956 281.8212" clip-path="url(#clipPath2)"/>
-      <path fill="none" stroke-dasharray="6,2" d="M669.5 210 L777.5 210" clip-path="url(#clipPath2)"/>
+      <path fill="none" stroke-dasharray="6,2" d="M666.8044 281.8212 L780.1956 220.6788" clip-path="url(#clipPath2)"/>
+      <path fill="none" stroke-dasharray="6,2" d="M662.2986 276.0015 L784.7014 143.9985" clip-path="url(#clipPath2)"/>
       <path fill="none" stroke-dasharray="6,2" d="M666.8044 199.3212 L780.1956 138.1788" clip-path="url(#clipPath2)"/>
+      <path fill="none" stroke-dasharray="6,2" d="M669.5 210 L777.5 210" clip-path="url(#clipPath2)"/>
+      <path fill="none" stroke-dasharray="6,2" d="M666.8044 220.6788 L780.1956 281.8212" clip-path="url(#clipPath2)"/>
     </g>
-    <g fill="rgb(245,245,245)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-279,-8)" stroke="rgb(245,245,245)">
-      <rect x="471.5" y="352.5" clip-path="url(#clipPath2)" width="99" rx="4" ry="4" height="306.4609" stroke="none"/>
-      <rect x="471.5" y="352.5" clip-path="url(#clipPath2)" fill="rgb(235,235,235)" width="99" height="21.4609" stroke="none"/>
+    <g fill="rgb(235,235,235)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-279,-8)" stroke="rgb(235,235,235)">
+      <rect x="471.5" width="99" height="21.4609" y="352.5" clip-path="url(#clipPath2)" stroke="none"/>
     </g>
     <g font-size="15px" stroke-linecap="butt" transform="matrix(1,0,0,1,-279,-8)" text-rendering="geometricPrecision" font-family="sans-serif" shape-rendering="geometricPrecision" stroke-miterlimit="1.45">
       <text x="552.7896" xml:space="preserve" y="368.4233" clip-path="url(#clipPath2)" stroke="none">r2</text>
@@ -303,7 +298,6 @@
       <circle r="22.5" clip-path="url(#clipPath2)" cx="509" cy="456.4609" stroke="none"/>
       <circle r="22.5" clip-path="url(#clipPath2)" cx="509" cy="538.9609" stroke="none"/>
       <circle fill="rgb(151,21,40)" r="22.5" clip-path="url(#clipPath2)" cx="509" cy="621.4609" stroke="none"/>
-      <rect x="294.5" y="352.5" clip-path="url(#clipPath2)" fill="rgb(245,245,245)" width="99" rx="4" ry="4" height="306.4609" stroke="none"/>
       <rect x="294.5" y="352.5" clip-path="url(#clipPath2)" fill="rgb(235,235,235)" width="99" height="21.4609" stroke="none"/>
     </g>
     <g font-size="15px" stroke-linecap="butt" transform="matrix(1,0,0,1,-279,-8)" text-rendering="geometricPrecision" font-family="sans-serif" shape-rendering="geometricPrecision" stroke-miterlimit="1.45">
@@ -363,9 +357,8 @@
       <path fill="none" stroke-dasharray="6,2" d="M378.5 538.9609 L486.5 538.9609" clip-path="url(#clipPath2)"/>
       <path fill="none" stroke-dasharray="6,2" d="M375.8044 549.6398 L489.1956 610.7821" clip-path="url(#clipPath2)"/>
     </g>
-    <g fill="rgb(245,245,245)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-279,-8)" stroke="rgb(245,245,245)">
-      <rect x="762.5" y="352.5" clip-path="url(#clipPath2)" width="99" rx="4" ry="4" height="306.4609" stroke="none"/>
-      <rect x="762.5" y="352.5" clip-path="url(#clipPath2)" fill="rgb(235,235,235)" width="99" height="21.4609" stroke="none"/>
+    <g fill="rgb(235,235,235)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-279,-8)" stroke="rgb(235,235,235)">
+      <rect x="762.5" width="99" height="21.4609" y="352.5" clip-path="url(#clipPath2)" stroke="none"/>
     </g>
     <g font-size="15px" stroke-linecap="butt" transform="matrix(1,0,0,1,-279,-8)" text-rendering="geometricPrecision" font-family="sans-serif" shape-rendering="geometricPrecision" stroke-miterlimit="1.45">
       <text x="843.7896" xml:space="preserve" y="368.4233" clip-path="url(#clipPath2)" stroke="none">r2</text>
@@ -375,7 +368,6 @@
       <circle r="22.5" clip-path="url(#clipPath2)" cx="800" cy="456.4609" stroke="none"/>
       <circle r="22.5" clip-path="url(#clipPath2)" cx="800" cy="538.9609" stroke="none"/>
       <circle fill="rgb(151,21,40)" r="22.5" clip-path="url(#clipPath2)" cx="800" cy="621.4609" stroke="none"/>
-      <rect x="585.5" y="352.5" clip-path="url(#clipPath2)" fill="rgb(245,245,245)" width="99" rx="4" ry="4" height="306.4609" stroke="none"/>
       <rect x="585.5" y="352.5" clip-path="url(#clipPath2)" fill="rgb(235,235,235)" width="99" height="21.4609" stroke="none"/>
     </g>
     <g font-size="15px" stroke-linecap="butt" transform="matrix(1,0,0,1,-279,-8)" text-rendering="geometricPrecision" font-family="sans-serif" shape-rendering="geometricPrecision" stroke-miterlimit="1.45">
@@ -393,9 +385,9 @@
       <path fill="none" stroke-dasharray="6,2" d="M666.8044 528.2821 L780.1956 467.1398" clip-path="url(#clipPath2)"/>
       <path fill="none" stroke-dasharray="6,2" d="M669.5 538.9609 L777.5 538.9609" clip-path="url(#clipPath2)"/>
       <path fill="none" stroke-dasharray="6,2" d="M666.8044 549.6398 L780.1956 610.7821" clip-path="url(#clipPath2)"/>
-      <path fill="none" stroke-dasharray="6,2" d="M662.2986 604.9624 L784.7014 472.9595" clip-path="url(#clipPath2)"/>
-      <path fill="none" stroke-dasharray="6,2" d="M666.8044 610.7821 L780.1956 549.6398" clip-path="url(#clipPath2)"/>
       <path fill="none" stroke-dasharray="6,2" d="M669.5 621.4609 L777.5 621.4609" clip-path="url(#clipPath2)"/>
+      <path fill="none" stroke-dasharray="6,2" d="M666.8044 610.7821 L780.1956 549.6398" clip-path="url(#clipPath2)"/>
+      <path fill="none" stroke-dasharray="6,2" d="M662.2986 604.9624 L784.7014 472.9595" clip-path="url(#clipPath2)"/>
     </g>
   </g>
 </svg>

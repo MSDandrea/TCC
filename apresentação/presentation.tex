@@ -396,9 +396,62 @@
         No segundo caso, a coloração também é simples. Se tais vértices tem cores distintas basta colorir seus respectivos conjuntos com a mesma cor. Se não, como temos três cores podemos colorir os vértices com a cor 1, um conjunto com a cor 2 e os demais vértices com a cor 3.
        \end{proof}
      \end{frame}
-     \begin{frame}[standout]
-       THANK YOU!
+     \begin{frame}
+       \begin{teorema}
+         Três vértices com lista de tamanho um são suficientes e necessários para que lista coloração em bipartido seja NP-completo.
+       \end{teorema}
+       \begin{proof}
+        Usando o gadget apresentado anteriormente, dois vértices $v$ com lista um em um vértice $u$ com lista três são capazes de reproduzir um vértice de lista um através da retirada da lista de $u$ as únicas possíveis cores para $v$, sendo assim tendo três vértices de distintas listas tamanho um, é possível obter seis vértices de lista um (com três listas distintas de cada lado) e reproduzir a redução mostrada no caso com seis vértices, que nos mostra a NP-Completude desse problema.
+       \end{proof}
+     \end{frame}
+     \begin{frame}{Vértices com listas de tamanho dois}
+       Como já visto o problema é de trivial solução quando todos os vértices tem listas de tamanho três, portanto precisamos ainda encontrar qual número de vértices de tamanho dois onde o problema se mantém NP-Completo.
+       \begin{teorema}
+         Seis vértices com listas tamanho 2 são necessários e suficientes para que lista-coloração em bipartido seja NP-Completo.
+       \end{teorema}
+       \textbf{Demonstração.}
        
-       Questions?
+ 
+       Se um conjunto independente contém apenas dois vértices com listas tamanho dois, todos os vértices nesse conjunto compartilham uma cor em suas listas, podendo colorir tal conjunto com essa cor.
+       
+        Todos os outros vértices ainda têm pelo menos uma cor disponível para sua coloração podendo ser colorido com ela. 
+       
+       Para completar nossa demonstração basta portanto, encontrar uma configuração onde o problema de lista coloração permanece NP-Completo.
+ 
+       Para tanto nos é interessante agora a vizinhança entre os vértices com lista dois, iremos isolar as instâncias em alguns casos.  
+       
+     \end{frame}
+     \begin{frame}{Vizinhança de algum vértice é tamanho um}
+        Nesse caso podemos notar que independentemente do vértice $v \in r_1$ e seu vizinho $u \in r_2$, eles sempre compartilharão uma cor, colorimos o vértice $u$ com tal cor, além disso como conhecemos a vizinhança de $v$ sabemos que nenhum outro vértice é vizinho deste, podemos então colorir os restantes vértices de $r_2$ com a cor de $v$, dessa forma uma das três cores ainda resta e podemos a usar para colorir o restante do $r_1$, independente das ligações entre os demais vértices de $r_1$ e $r_2$.
+     \end{frame}
+     \begin{frame}
+       \begin{figure}[H]
+         \centering
+         \fontsize{4}{10}
+         \includesvg[scale=0.4]{1-edge.svg}
+         \caption{Demonstração de coloração para vizinhança de tamanho um.}
+       \end{figure}
+     \end{frame}
+     \begin{frame}{Um vértice têm vizinhança tamanho dois, e compartilha uma cor com ambos os vizinhos}
+       Aqui podemos executar o seguinte algoritmo, sem perda de generalidade pinte os vértices vizinhos à $v \in r1$ com a cor compartilhada, novamente por conhecermos a vizinhança do vértice $v$ podemos pintar ele e os demais vértices de $r_2$ com a cor restante, dessa forma ainda nos resta uma cor para colorir os demais vértices de $r_1$.
+     \end{frame}
+     \begin{frame}
+       \begin{figure}[H]
+     \centering
+     \fontsize{5}{10}
+     \includesvg[scale=0.4]{2-edge.svg}
+     \caption{Demonstração de coloração para vizinhança de tamanho dois com cores compartilhadas.}
+   \end{figure}
+     \end{frame}
+     \begin{frame}{Todo vértice tem vizinhança de tamanho dois e nenhuma vizinhança possui uma cor em comum}
+       As restrições impostas a esse caso nos levam a uma única possível estrutura $\Gamma$ onde suas duas possíveis colorações são intercambiáveis.
+       
+       Portanto se mostra verdade que podemos excitar uma cor qualquer em outro vértice de lista tamanho três se o ligarmos a dois dos três vértices presentes no independente oposto sem ferir a bipartição do grafo.
+     \end{frame}
+     \section{Conclusão}
+     \begin{frame}[standout]
+       OBRIGADO!
+       
+       Perguntas?
      \end{frame}
 \end{document}

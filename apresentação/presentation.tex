@@ -2,6 +2,7 @@
 \documentclass[9pt, compress]{beamer}
 \usetheme[sectionpage=progressbar]{metropolis}
 
+\usepackage{subfigure} 
 \usepackage{booktabs}  
 \usepackage[scale=2]{ccicons}
 \usepackage[T1]{fontenc}
@@ -12,8 +13,11 @@
 \usepackage{booktabs}
 \usepackage{graphicx}			% Inclusão de gráficos
 \usepackage[portuguese]{babel}
+\usepackage{svg}
 \newtheorem{teorema}{Teorema}
 
+
+\graphicspath{{../figuras/}}
 
 \author{\textbf{Matheus S. D'Andrea Alves}, \textbf{Uéverton dos Santos Souza} } 
 \title{Coloração de Grafos$(r,\ell)$}
@@ -26,7 +30,7 @@
 %\setbeamertemplate{navigation symbols}{}
 \begin{document}
     \maketitle
-    \begin{frame}{Overral}
+    \begin{frame}{Agenda}
     \centering
         \tableofcontents
     \end{frame}
@@ -61,7 +65,7 @@
     \begin{frame}{Primeiros passos}
       Começaremos dos seguintes fatos:
       \begin{itemize}
-        \item Um grafo vazio(i.e. um Grafo$(0,0)$) é 0-colorível.
+        \item Um grafo nulo (i.e. um Grafo$(0,0)$) é 0-colorível.
         \item 
         \item 
         \item 
@@ -71,7 +75,7 @@
     \begin{frame}{Primeiros passos}
       Começaremos dos seguintes fatos:
       \begin{itemize}
-        \item Um grafo vazio (i.e. um Grafo$(0,0)$) é 0-colorível.
+        \item Um grafo nulo (i.e. um Grafo$(0,0)$) é 0-colorível.
         \item Um grafo sem arestas (i.e. um Grafo$(1,0)$) é 1-colorível.
         \item 
         \item 
@@ -81,7 +85,7 @@
     \begin{frame}{Primeiros passos}
       Começaremos dos seguintes fatos:
       \begin{itemize}
-        \item Um grafo vazio (i.e. um Grafo$(0,0)$) é 0-colorível.
+        \item Um grafo nulo (i.e. um Grafo$(0,0)$) é 0-colorível.
         \item Um grafo sem arestas (i.e. um Grafo$(1,0)$) é 1-colorível.
         \item Um grafo bipartido (i.e. um Grafo$(2,0)$) é 2-colorível.
         \item 
@@ -91,7 +95,7 @@
     \begin{frame}{Primeiros passos}
       Começaremos dos seguintes fatos:
       \begin{itemize}
-        \item Um grafo vazio (i.e. um Grafo$(0,0)$) é 0-colorível.
+        \item Um grafo nulo (i.e. um Grafo$(0,0)$) é 0-colorível.
         \item Um grafo sem arestas (i.e. um Grafo$(1,0)$) é 1-colorível.
         \item Um grafo bipartido (i.e. um Grafo$(2,0)$) é 2-colorível.
         \item Um grafo completo (i.e. um Grafo$(0,1)$) é $k-colorivel$ onde $k$ é a quantidade de vértices de G.
@@ -101,11 +105,11 @@
     \begin{frame}{Primeiros passos}
       Começaremos dos seguintes fatos:
       \begin{itemize}
-        \item Um grafo vazio (i.e. um Grafo$(0,0)$) é 0-colorível.
+        \item Um grafo nulo (i.e. um Grafo$(0,0)$) é 0-colorível.
         \item Um grafo sem arestas (i.e. um Grafo$(1,0)$) é 1-colorível.
         \item Um grafo bipartido (i.e. um Grafo$(2,0)$) é 2-colorível.
         \item Um grafo completo (i.e. um Grafo$(0,1)$) é $k-colorivel$ onde $k$ é a quantidade de vértices do grafo.
-        \item Um grafo split (i.e. um Grafo$(1,1)$) é $k-colorivel$ where $k$ é a quantidade de vértices na clique máxima do grafo.
+        \item Um grafo split (i.e. um Grafo$(1,1)$) é $k-colorivel$ onde $k$ é a quantidade de vértices na clique máxima do grafo.
       \end{itemize}
     \end{frame}
     \begin{frame}{A mais}
@@ -167,7 +171,7 @@
         \end{teorema}
     \end{frame}
     \begin{frame}{A relação entre coloração e lista-coloração em Grafos$(r,\ell)$}
-        \textbf{Proof.}
+        \textbf{Demonstração.}
         
         A prova consiste em mostrar que a solução do problema de lista coloração em um Grafo$(r,\ell)$ $G$, implica em uma solução para o problema de coloração em Grafos$(r,\ell+1)$ $H_G$.
         
@@ -183,20 +187,20 @@
       Seja $G$ um Grafo$(r,\ell)$ tal que cada vértice $v \in V(G)$ tenha uma lista de cores; 
       Cada lista tem pelo menos uma cor do seguinte conjunto: $C = \{c_1,c_2,c_3,...,c_k \}$. 
       \begin{center}
-        \includegraphics[scale=0.4]{../figuras/presentation-G.png}
+        \includegraphics[scale=0.4]{presentation-G.png}
       \end{center}
     \end{frame}
     \begin{frame}
       Seja $G$ uma instância \textbf{sim} para o problema de lista coloração, construirémos uma clique $K$, onde cada vértice $u \in V(K)$ representa uma cor de $C$.
       \begin{center}
-        \includegraphics[scale=0.4]{../figuras/presentation-K.png}
+        \includegraphics[scale=0.4]{presentation-K.png}
       \end{center}
       Note tque a clique $K$ tem exatamente $k$ vértices, portanto, podemos colorir $K$ com apenas $k$ cores, sem perda de generalidade assumiremos que $u_i \in K$ será colorido com a cor $c_i$.
     \end{frame}
     \begin{frame}  
       Suponha $H_G$ $= G \cup K$, e para cada vértice $u_i \in V(K)$ e todo vértice $v_j \in V(G)$ adicione uma aresta $(u_i,v_j) $ em $H_G$ se e somente se $c_i$ não é uma cor pertencente a lista de $v_j$.
       \begin{center}
-        \includegraphics[scale=0.4]{../figuras/presentation-H.png}
+        \includegraphics[scale=0.4]{presentation-H.png}
       \end{center}   
       Usando tal coloração, a coloração de $K$ não conflita para a coloração encontrada para $G$, temos assim uma coloração para $H_G$. 
     \end{frame}
@@ -221,10 +225,10 @@
       \end{itemize}
     \end{frame}
     \begin{frame}{ Peculiaridade do Grafo$(2,1)$ }
-      É trivial notar que essa classe de grafo possui um limite superior e um inferior para usa coloração ($K+1$ e $K$ respectivamente), porém apesar das restrições é NP-Completo determinar qual delas é a correta.
+      É trivial notar que essa classe de grafo possui um limite superior e um inferior para sua coloração ($K+1$ e $K$ respectivamente), porém apesar das restrições é NP-Completo determinar qual delas é a correta.
     \end{frame}
     \section{Resultados clássicos}
-    \begin{frame}{On minimum coloring}
+    \begin{frame}{Complexidade computacional de Coloração em Grafoa$(r,\ell)$}
         Os resultados encontrado preenchem a dicotomia.
         
         \begin{table}[htb!]
@@ -246,50 +250,151 @@
           \label{tab:tabela_dictrl}%
         \end{table}%
     \end{frame}
-    \begin{frame}{On clique cover}
-      Coloring of a Graph $G$ may be seen as \textit{Clique cover} of it's complement $G'$, impling in:
-      
-       \begin{table}[htb!]
-          \center
-          \begin{tabular}{l|*{7}c}
-            \toprule
-            \backslashbox{$r$}{$l$} & 0 & 1 & 2 & 3 & 4 & \ldots & n\\
-            \midrule
-            0 & \textit{P} & \textit{P} & \textit{P} & \textit{P} & \textit{NPc} & \ldots & \textit{NPc}\\
-            1 & \textit{P} & \textit{P} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \ldots & \textit{NPc}\\
-            2 & \textit{P} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \ldots & \textit{NPc}\\
-            3 & \textit{Npc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \ldots & \textit{NPc}\\
-            4 & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \ldots & \textit{NPc}\\
-            $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & \textit{NPc}\\
-            n & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \ldots & \textit{NPc}\\
-            \bottomrule
-          \end{tabular}%
-          \caption{Dichotomy of the clique cover problem on Graph(r,l)}
-          \label{tab:tabela_dictrl}%
-        \end{table}%
-    \end{frame}
     \begin{frame}[standout]
-      Does the Minimum vertex coloring problem has a parametrized solution for Graph(r,l)?
+      Como parametrizar a coloração de Grafos$(r,\ell)$?
     \end{frame}
-    \begin{frame}{Graph(2,1)}
-      \large{Parametrized by the size of the smallest independent set}
+    \section{Parametrizado pelo tamanho das partições}
+    \begin{frame}{A idéia}
+          Usar o tamanho das partições de um Grafo$(2,1)$ como parâmetros do problema.
+    \end{frame}
+    \begin{frame}{Parametrização}
+      \large{Parametrização de Grafo$(2,1)$ pelo tamanho do menor independente}
       \normalsize\newline\newline
-      We know the clique can be colored with k colors.
+            
+      Sabemos que podemos transformar esse problema em lista coloração de bipartido.
       
-      We know that we can transform a minimun coloring problem into a list coloring problem.
+      Fellows mostrou que lista-coloração é w[1]-difícil para bipartidos quando parametrizado pelo tamanho do menor independente.
       
-      Fellows showed that the list coloring problem is w[1]-hard for bipartide graph when parametrized by the size of the smallest independent set.
-      
-      Minimal vertex coloring is w[1]-hard when parametrized by the smallest independet set in a Graph(2,1).
+      Portanto coloração é w[1]-difícil quando parametrizado pelo tamanho do menor independente em um Grafo$(2,1)$.
     \end{frame}
-    \begin{frame}{Conclusion}
-       We were sucessfull in building our foundation, answering our first question, and discovered a interesting relation between two coloring problems applied to the Graph(r,l) class.
+    \begin{frame}{Parametrização}
+    \large{Parametrização de Grafo$(2,1)$ pelo tamanho do maior independente.}
+      \normalsize\newline\newline
+            
+      Sabemos que podemos transformar esse problema em lista coloração de bipartido.
+      
+      Em uma lista coloração de bipartido, se um vértice possui uma lista com mais cores do que o tamanho de sua vizinhança, ele sempre terá disponível uma cor para sua coloração, podemos portanto remover esse vértice do grafo sem alterar sua coloração.
+      
+      Observe que isso implica que após a remoção de todos os vértices com esse padrão o tamanho das listas está agora limitado por uma função de $k$, portanto aplicar um algoritmo de força bruta nos dá um algoritmo FPT.
+     \end{frame}
+     
+    \section{Parametrização pelo tamanho da clique}
+     \begin{frame}{Pre-coloring extension}
+      \large{Pre-coloring extension}
+      \normalsize\newline\newline
+      
+	      \textbf{Entrada:}  Um grafo G onde alguns vértices já possuem uma coloração definida com cores escolhidas dentre k possíveis cores.
+	      
+	      \textbf{Pergunta:}  É possível estender a coloração já existente para todo o grafo sem que dois vértices adjacentes possuam a mesma cor?
+     \end{frame}
+     
+     \begin{frame}{3-lista coloração em grafos bipartidos é NP-Completo.}
+    \large{3-lista coloração em grafos bipartidos é NP-Completo.}
+      \normalsize\newline\newline
+            
+      Tendo um grafo $G$ e uma paleta $C$ pertencente a uma instância $P$ de \emph{Pre coloring extension}.
+      
+      Formamos um grafo $G'$ usando todo vértice pré-colorido $v \in V(G)$ atribuindo ao mesmo uma lista com sua cor de $G$ em $G'$, aos demais vértices de $G$ criamos um vértice com lista contendo todos as cores de $C$ e mantendo sua vizinhança.
+      
+      Uma coloração possível para $G$ implica em uma coloração possível para $G'$ , já que nos basta atribuir aos vértices em $G'$ as mesmas cores atribuídas em $G$. De forma análoga, uma lista coloração possível em $G'$ implica em uma coloração possível em $G$.
+      
+      
+     \end{frame}
+     \begin{frame}{Parametrização.}
+    \large{Parametrização pelo tamanho da clique.}
+      \normalsize\newline\newline
+            
+      Para demonstração da intratabilidade parametrizada, basta retornarmos à transformação do problema de coloração em Grafo$(2,1)$ em lista coloração de bipartido.
+      
+      Estamos tentando parametrizar a resolução de lista coloração de bipartido pelo tamanho da paleta de cores, que mostramos ser inviável anteriormente.
+      
+      Portanto esse problema é para-NP-Completo quando parametrizado pelo tamanho da clique.
+      
+     \end{frame}
+     \section{Parametrização pela vizinhança da clique}
+     \begin{frame}{Observações}
+       Usando um Grafo$(2,1)$ onde a partição da clique também é a clique máxima e tem tamanho 3, nosso problema se torna o problema de 3-lista-coloração em bipartido.
        
-       Future works:
-       \begin{itemize}
-         \item Why the problem behave that way?
-         \item Does the Minimum vertex coloring problem has a parametrized solution for Graph(r,l)?
-       \end{itemize}
+       3-coloração de bipartido é Polinomial.
+       
+       2-coloração de bipartido é Polinomial 
+       
+       3-lista-coloração de bipartido é NP-Completo.
+       
+       O que ocorre quando o número de vértices com listas de tamanho 1, 2 e 3 variam? 
+     \end{frame}
+     \begin{frame}{Sobre a vizinhança da clique}
+       Observe que, se um nó não é vizinho de nenhum vértice na clique, após a redução esse vértice tem lista de tamanho três. Todo vértice vizinho a clique, após a transformação tem vértice com lista de tamanho $3-n$ onde $n$ é o número de seus vizinhos na clique.
+       
+       Um vértice nunca terá uma lista de tamanho 0.
+     \end{frame}
+     \begin{frame}{Vértices com listas de tamanho um}
+       \begin{teorema}
+       Seis vértices com lista de tamanho um são suficientes para que lista coloração em bipartido seja NP-completo.
+       \end{teorema}
+       \textbf{Demonstração.}
+       
+       Sabemos que em nosso problema temos dois conjuntos independentes, $r_1$ e $r_2$, também é verdade que exceto pelos citados seis vértices todos os outros tem listas de tamanho três, os vértices de $r_1$ podem estar ligados arbitrariamente aos de $r_2$. Observe a disposição de tais vértices na figura a seguir, chamaremos tal esquema de $\mathcal{N}$.
+     \end{frame}
+     \begin{frame}
+        
+        \begin{figure}[H]
+		        \centering
+		        \fontsize{4}{10}
+		        \includesvg[scale=0.4]{seis-vertices-lista-um.svg}
+		        \caption{Esquema de vizinhança formado por 6 vértices com distintas listas tamanho 1. }
+		        \label{fig:seis-vertices-lista-um}
+        \end{figure}
+    
+        Agora, através do gadget da figura seguinte mostraremos como a presença de vértices com distintas listas de tamanho um influencia na coloração de sua vizinhança comum.
+      \end{frame}
+    \begin{frame}
+   \begin{figure}[H]
+      \begin{subfigure}
+        \centering
+		    \includesvg[scale=0.4]{gadget-1.svg}
+      \end{subfigure}
+      \begin{subfigure}
+        \centering
+		    \includesvg[scale=0.4]{gadget-2.svg}
+      \end{subfigure}
+      \begin{subfigure}
+        \centering
+		    \includesvg[scale=0.4]{gadget-3.svg}
+      \end{subfigure}
+      \caption{Gadget com vértices de lista um reproduzindo vértice de lista um em vértice de lista três}
+      \label{fig:gadget}
+  \end{figure}
+
+      Com o gadget apresentado é possível conduzir à escolha de uma cor para um vértice com lista tamanho três dado que a única coloração possível para o gadget é a coloração aonde a cor desejada ocorre.
+    \end{frame}
+    \begin{frame}
+      Utilizando esse gadget é possível transformar uma instância de PreColoring Extension em bipartidos em uma de lista coloração em bipartido, basta para tanto pegarmos os vértices do Grafo $G$ que estão pré-coloridos e criar um vértice equivalente em um grafo $G'$ com listas tamanho três, os ligando aos vértices de $\mathcal{N}$ e mantendo a bipartição de forma a excitar a cor que este vértice possuia em $G$, os demais vértices são mapeados para vértices com listas tamanho três, mantendo sua vizinhança equivalente a em $G$.
+
+      Assim se a lista coloração for possível em $G'$ basta escolher as mesmas cores para colorir $G$, o mesmo se aplica a contraparte da demonstração. Dessa forma mostramos que com seis vértices com distintas listas tamanho um, encontrar uma lista coloração para tal grafo é NP-Completo. $\qed$
+    \end{frame}
+     \begin{frame}{Encontrando a quantidade mínima}
+       \begin{teorema}
+       Lista coloração em bipartido é de solução trivial quando há apenas um vértice de lista tamanho um.
+       \end{teorema}
+       \begin{proof}
+       Sabemos que além do vértice citado todos os outros vértices têm listas de tamanho três dessa forma basta que o conjunto independente no qual tal vértice está inserido seja colorido com a única cor escolhida para o vértice e o conjunto independente sobrante pode ser colorido com qualquer cor.
+       \end{proof}
+       \end{frame}
+       \begin{frame}
+       \begin{teorema}
+       Lista coloração em bipartido é de solução linear quando existem dois vértices de lista tamanho um.
+       \end{teorema}
+       \begin{proof}
+        Para essa demonstração é necessária a observação em que existem duas possíveis configurações para essa instância:
+        \begin{itemize}
+          \item Ambos os vértices pertencem ao mesmo conjunto independente.
+          \item Os vértices pertencem a conjuntos distintos.
+        \end{itemize} 
+        No primeiro caso pode-se adaptar a estratégia de coloração anterior para a solução. Para tanto basta colorir tais vértices com suas cores disponíveis e o conjunto independente ao qual pertencem com a cor de algum deles, e o conjunto sobressalente com a cor restante.
+ 
+        No segundo caso, a coloração também é simples. Se tais vértices tem cores distintas basta colorir seus respectivos conjuntos com a mesma cor. Se não, como temos três cores podemos colorir os vértices com a cor 1, um conjunto com a cor 2 e os demais vértices com a cor 3.
+       \end{proof}
      \end{frame}
      \begin{frame}[standout]
        THANK YOU!

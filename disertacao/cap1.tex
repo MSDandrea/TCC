@@ -30,7 +30,7 @@ Um conjunto independente $r \subseteq G$ é uma partição de $G$ tal que: $ \{v
 	\noindent
 	\begin{tabularx}{\textwidth}{@{\hspace{\parindent}} l X c}
 		\textbf{Entrada:} & um Grafo $G$ e um inteiro $k$.\\% Input
-		\textbf{Pergunta:} & $C$ Cada vértice pertencente à $G$ pode ser colorido com uma entre $k$ cores
+		\textbf{Pergunta:} & É possível atribuir a cada vértice pertencente à $G$ uma entre $k$ cores
 	de tal forma que dado quaisquer dois vértices adjacentes eles tenham cores distintas e $k$ seja o mínimo de cores possível?
 	\end{tabularx}
 	\par\addvspace{.5\baselineskip}
@@ -97,5 +97,4 @@ Usando as definições \ref{def:fpt-red} e \ref{def:wcs} definiremos então a pe
 \begin{definition}
  Um problema parametrizado $\Pi(k)$ pertence a classe $W[t]$ se e somente se existe uma FPT-Redução de tal problema para $WCS(t,h)$ para algum $h$ constante. Logo devido a transitividade de FPT-Redução, se existe uma FPT-Redução de qualquer problema $\Pi'(k')$ para $\Pi(k)$ então $\Pi(k) \in W[t]$
 \end{definition}
-
 

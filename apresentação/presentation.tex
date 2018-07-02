@@ -17,6 +17,9 @@
 \newtheorem{teorema}{Teorema}
 
 
+\renewcommand{\P}{\textit{P}}
+\newcommand{\NPc}{\textit{NPc}}
+
 \graphicspath{{../figuras/}}
 
 \author{\textbf{Matheus S. D'Andrea Alves}, \textbf{Uéverton dos Santos Souza} } 
@@ -187,20 +190,26 @@
       Seja $G$ um Grafo$(r,\ell)$ tal que cada vértice $v \in V(G)$ tenha uma lista de cores; 
       Cada lista tem pelo menos uma cor do seguinte conjunto: $C = \{c_1,c_2,c_3,...,c_k \}$. 
       \begin{center}
-        \includegraphics[scale=0.4]{presentation-G.png}
+        \begin{figure}
+        \includesvg[scale=0.4]{presentation-G.svg}
+      \end{figure}
       \end{center}
     \end{frame}
     \begin{frame}
       Seja $G$ uma instância \textbf{sim} para o problema de lista coloração, construirémos uma clique $K$, onde cada vértice $u \in V(K)$ representa uma cor de $C$.
       \begin{center}
-        \includegraphics[scale=0.4]{presentation-K.png}
+      \begin{figure}
+        \includesvg[scale=0.4]{presentation-K.svg}
+      \end{figure}  
       \end{center}
-      Note tque a clique $K$ tem exatamente $k$ vértices, portanto, podemos colorir $K$ com apenas $k$ cores, sem perda de generalidade assumiremos que $u_i \in K$ será colorido com a cor $c_i$.
+      Note que a clique $K$ tem exatamente $k$ vértices, portanto, podemos colorir $K$ com apenas $k$ cores, sem perda de generalidade assumiremos que $u_i \in K$ será colorido com a cor $c_i$.
     \end{frame}
     \begin{frame}  
       Suponha $H_G$ $= G \cup K$, e para cada vértice $u_i \in V(K)$ e todo vértice $v_j \in V(G)$ adicione uma aresta $(u_i,v_j) $ em $H_G$ se e somente se $c_i$ não é uma cor pertencente a lista de $v_j$.
       \begin{center}
-        \includegraphics[scale=0.4]{presentation-H.png}
+        \begin{figure}
+        \includesvg[scale=0.4]{presentation-H.svg}
+      \end{figure}
       \end{center}   
       Usando tal coloração, a coloração de $K$ não conflita para a coloração encontrada para $G$, temos assim uma coloração para $H_G$. 
     \end{frame}
@@ -448,7 +457,78 @@
        
        Portanto se mostra verdade que podemos excitar uma cor qualquer em outro vértice de lista tamanho três se o ligarmos a dois dos três vértices presentes no independente oposto sem ferir a bipartição do grafo.
      \end{frame}
+     \begin{frame}
+      \begin{figure}[H]
+        \centering
+        \fontsize{4}{10}
+        \includesvg[scale=0.3]{2-edge-b.svg}
+        \caption{Estrutura $\Gamma$ e suas possíveis colorações.}
+        \label{fig:2-edge-b}
+      \end{figure}
+      
+      Assim sendo para reduzir um problema de PreColoring extension em bipartido $\Pi$ ao nosso problema $\Pi'$ basta que para todo vértice pré-colorido $v_{c_j} \in V(\Pi) | c_j \in C$ cria-se um paralelo $u \in V(\Pi')$ com lista de tamanho três e liga-o aos vértices de $\Gamma$ a fim de excitar sua cor da seguinte forma:
+      
+     \end{frame}
+     \begin{frame}
+       \begin{columns}
+        \begin{column}{0.5\textwidth}
+          Escolha sem perda de generalidade um vértice $v \in r1$ pré-colorido com a cor $c_j$, observe que $\Gamma$ possui dois conjuntos de ligações capazes de excitar $c_j$ em $u$ utilizando o gadget da Figura \ref{fig:gadget}, escolha um desses conjuntos. Portanto $\forall v_{c_j} | j \neq i$ basta realizar a ligação com $\Gamma$ respeitando o conjunto de ligações já escolhido. Os demais vértices de $V(\Pi)$ são construídos mantendo suas respectivas vizinhanças em $\Pi'$ e com lista de tamanho três.
+        \end{column}
+        \begin{column}{0.5\textwidth}
+        \end{column}
+      \end{columns}
+     \end{frame}
+     
+     \begin{frame}
+       \begin{columns}
+        \begin{column}{0.5\textwidth}
+          Uma resposta para $\Pi'$ implica em uma resposta para $\Pi$, pois se $\Pi'$ é lista colorível, então $\Pi$ é colorível respeitando a pré-coloração, já que a coloração de $\Gamma$ é indiferente para os vértices não vizinhos à ela e sempre respeita a coloração de sua vizinhança, para a demonstração da volta basta escolher as mesmas cores escolhidas em $\Pi$ para seus respectivos em $\Pi'$ que implicará em uma coloração para $\Gamma$ inofensiva ao resultado. $\qed$
+        \end{column}
+        \begin{column}{0.5\textwidth}
+        \end{column}
+      \end{columns}
+     \end{frame}
+     \begin{frame}{Parametrizado pela quantidade de vértices não vizinhos a clique}
+       
+        \begin{teorema}
+         Lista coloração em bipartidos com listas de tamanho um a três é FPT quando parametrizado pela quantidade de vértices com lista de tamanho três.
+        \end{teorema}
+        \begin{proof}
+         Dado que temos $k$ vértices com 3 escolhas cada é possível montar um algoritmo de busca em árvore de altura limitada de tamanho $3^k$, e então executar o algoritmo linear conhecido da literatura, obtendo um algoritmo $\mathcal{O}(3^kn)$
+ 
+\end{proof}
+     \end{frame}
      \section{Conclusão}
+     \begin{frame}{Resultados colaterais}
+       Obtivemos portanto a dicotomia $\P/\NPc$ para o problema de coloração em grafos$(r,\ell)$, é conhecido que o problema de coloração em um grafo $G$ pode ser visto como um problema de clique cover em seu complemento $G'$, dessa forma podemos estender a dicotomia $\P/\NPc$ da tabela \ref{tab:tabela_dictrl} para o problema de clique cover em grafos$(r,\ell)$ simplesmente trocando as linhas pelas colunas da tabela, dessa forma obtemos a seguinte dicotomia $\P/\NPc$:
+\begin{table}[!htb]
+	\center
+	\begin{tabular}{l|*{7}c}
+		\toprule
+		\backslashbox{$r$}{$l$} & 0 & 1 & 2 & 3 & 4 & \ldots & n\\
+		\midrule
+		0 & \P & \P & \P & \P & \NPc & \ldots & \NPc\\
+		1 & \P & \P & \NPc & \NPc & \NPc & \ldots & \NPc\\
+		2 & \P & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
+		3 & \NPc & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
+		4 & \NPc & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
+		$\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & \NPc\\
+		n & \NPc & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
+		\bottomrule
+	\end{tabular}%
+	\caption{Dicotomia $\P/\NPc$ do problema de clique cover em Grafos$(r,\ell)$}%
+\end{table}%
+     \end{frame}
+     \begin{frame}{Resultados Parametrizados}
+       Exploramos também o comportamento do problema em Grafos$(2,1)$ Obtendo dessa forma 2 algoritmos FPT, uma demonstração de $W[1]-dificuldade$ e algumas de para-NP-completude, tendo colateralmente mostrado resultados clássicos e parametrizados para o problema de lista coloração em bipartidos.
+     \end{frame}
+     \begin{frame}{Trabalhos futuros}
+       \begin{itemize}
+  \item Existe uma relação entre as parametrizações da coloração de Grafos$(2,1)$ e clique cover de Grafos$(1,2)$?
+  \item Quais são as características que afetam parametrizações em Grafos$(r,\ell)$ diferentes de Grafos$(2,1)$?
+  \item Existe algum parâmetro que seja possível extrair um algoritmo FPT para qualquer $r$ ou $\ell$?
+\end{itemize}
+     \end{frame}
      \begin{frame}[standout]
        OBRIGADO!
        

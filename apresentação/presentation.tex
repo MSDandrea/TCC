@@ -14,11 +14,15 @@
 \usepackage{graphicx}			% Inclusão de gráficos
 \usepackage[portuguese]{babel}
 \usepackage{svg}
+
 \newtheorem{teorema}{Teorema}
-
-
-\renewcommand{\P}{\textit{P}}
-\newcommand{\NPc}{\textit{NPc}}
+\newtheorem{corolario}{Corolário}
+\definecolor{grena}{HTML}{971528}
+\definecolor{nice}{HTML}{38b446}
+\definecolor{warn}{HTML}{e2cb49}
+\renewcommand{\P}{\textcolor{nice}{\textit{P}}}
+\newcommand{\NPc}{\textcolor{grena}{\textit{NPc}}}
+\newcommand{\?}{\textcolor{warn}{\textit{?}}}
 
 \graphicspath{{../figuras/}}
 
@@ -115,6 +119,26 @@
         \item Um grafo split (i.e. um Grafo$(1,1)$) é $k-colorivel$ onde $k$ é a quantidade de vértices na clique máxima do grafo.
       \end{itemize}
     \end{frame}
+    \begin{frame}{Dicotomia parcial}
+        \begin{table}[htb!]
+          \center
+          \begin{tabular}{l|*{7}c}
+            \toprule
+            \backslashbox{$r$}{$l$} & 0 & 1 & 2 & 3 & 4 & \ldots & n\\
+            \midrule
+            0 & \P & \P & \? & \? & \? & \ldots & \?\\
+            1 & \P & \P & \? & \? & \? & \ldots & \?\\
+            2 & \P & \? & \? & \? & \? & \ldots & \?\\
+            3 & \? & \? & \? & \? & \? & \ldots & \?\\
+            4 & \? & \? & \? & \? & \? & \ldots & \?\\
+            $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & \?\\
+            n & \? & \? & \? & \? & \? & \ldots & \?\\
+            \bottomrule
+          \end{tabular}%
+          \caption{Dicotomia parcial para coloração de Grafos$(r,\ell)$}
+          \label{tab:tabela_part2dictrl}%
+        \end{table}%
+    \end{frame}
     \begin{frame}{A mais}
       \begin{teorema}
         Coloração de Grafos(0,2) é Polinomial.
@@ -133,6 +157,26 @@
       Saber se o mesmo pode ser colorido com duas ou uma cor é polinomial, portanto podemos afirmar que coloração em Grafos(3,0) é polinomial.
      \end{proof}
     \end{frame}
+    \begin{frame}{Dicotomia parcial}
+        \begin{table}[htb!]
+          \center
+          \begin{tabular}{l|*{7}c}
+            \toprule
+            \backslashbox{$r$}{$l$} & 0 & 1 & 2 & 3 & 4 & \ldots & n\\
+            \midrule
+            0 & \P & \P & \P & \? & \? & \ldots & \?\\
+            1 & \P & \P & \? & \? & \? & \ldots & \?\\
+            2 & \P & \? & \? & \? & \? & \ldots & \?\\
+            3 & \P & \? & \? & \? & \? & \ldots & \?\\
+            4 & \? & \? & \? & \? & \? & \ldots & \?\\
+            $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & \?\\
+            n & \? & \? & \? & \? & \? & \ldots & \?\\
+            \bottomrule
+          \end{tabular}%
+          \caption{Dicotomia parcial para coloração de Grafos$(r,\ell)$}
+          \label{tab:tabela_part2dictrl}%
+        \end{table}%
+    \end{frame}
     \begin{frame}{A mais}
       \begin{teorema}
         Coloração de Grafos$(4,0)$ é NP-Completo.
@@ -143,7 +187,6 @@
       Note que 3-coloração de planar é NP-Completo, e que existem subconjuntos de Grafos$(4,0)$ que são planares, logo coloração de Grafos$(4,0)$ é NP-Completo.
      \end{proof}
     \end{frame}
-    \section{Primeiros resultados}
     \begin{frame}{Dicotomia parcial}
         \begin{table}[htb!]
           \center
@@ -151,13 +194,34 @@
             \toprule
             \backslashbox{$r$}{$l$} & 0 & 1 & 2 & 3 & 4 & \ldots & n\\
             \midrule
-            0 & \textit{P} & \textit{P} & \textit{P} & ? & ? & \ldots & ?\\
-            1 & \textit{P} & \textit{P} & ? & ? & ? & \ldots & ?\\
-            2 & \textit{P} & ? & ? & ? & ? & \ldots & ?\\
-            3 & \textit{P} & ? & ? & ? & ? & \ldots & ?\\
-            4 & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \ldots & \textit{NPc}\\
-            $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & \textit{NPc}\\
-            n & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \ldots & \textit{NPc}\\
+            0 & \P & \P & \P & \? & \? & \ldots & \?\\
+            1 & \P & \P & \? & \? & \? & \ldots & \?\\
+            2 & \P & \? & \? & \? & \? & \ldots & \?\\
+            3 & \P & \? & \? & \? & \? & \ldots & \?\\
+            4 & \NPc & \? & \? & \? & \? & \ldots & \?\\
+            $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & \?\\
+            n & \? & \? & \? & \? & \? & \ldots & \?\\
+            \bottomrule
+          \end{tabular}%
+          \caption{Dicotomia parcial para coloração de Grafos$(r,\ell)$}
+          \label{tab:tabela_part2dictrl}%
+        \end{table}%
+    \end{frame}
+
+    \begin{frame}{Dicotomia parcial}
+        \begin{table}[htb!]
+          \center
+          \begin{tabular}{l|*{7}c}
+            \toprule
+            \backslashbox{$r$}{$l$} & 0 & 1 & 2 & 3 & 4 & \ldots & n\\
+            \midrule
+            0 & \P & \P & \P & \? & \? & \ldots & \?\\
+            1 & \P & \P & \? & \? & \? & \ldots & \?\\
+            2 & \P & \? & \? & \? & \? & \ldots & \?\\
+            3 & \P & \? & \? & \? & \? & \ldots & \?\\
+            4 & \NPc & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
+            $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & \NPc\\
+            n & \NPc & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
             \bottomrule
           \end{tabular}%
           \caption{Dicotomia parcial para coloração de Grafos$(r,\ell)$}
@@ -170,7 +234,7 @@
     \section{A relação entre coloração e lista-coloração em Grafos$(r,\ell)$}
     \begin{frame}{A relação entre coloração e lista-coloração em Grafos$(r,\ell)$}
         \begin{teorema}
-          Coloração é NP-Completo para Grafos$(r,\ell+1)$ quando lista coloração é NP-Completo para Grafo$(r,\ell)$
+          Lista coloração em Grafo$(r,\ell)$ se reduz à coloração em Grafos$(r,\ell+1)$. 
         \end{teorema}
     \end{frame}
     \begin{frame}{A relação entre coloração e lista-coloração em Grafos$(r,\ell)$}
@@ -229,14 +293,43 @@
       \begin{itemize}
         \item Coloração em Grafos$(1,2)$ é NP-Completo.\newline Deriva da demonstração de NP-Completude para lista coloração em Split mostrado por Jensen et al. em \textit{"Generalized coloring for tree-like graphs"}.
         \item Coloração em Grafos$(2,1)$ é NP-Completo.\newline Deriva da demonstração de NP-Completude para lista coloração em bipartidos mostrado por Fellows et al. em \textit{"List Coloring and Precoloring Extension are W[1]-hard parameterized by treewidth"}.
-        \item Coloração de Grafos$(0,3)$ é NP-Completo.
-        \newline Deriva da demonstração de NP-Completude para lista coloração em Grafos$(0,2)$ demonstrado por Jensen et al. em \textit{"Complexity results for the optimum cost chromatic partition problem"}.
+        %\item Coloração de Grafos$(0,3)$ é NP-Completo.
+        %\newline Deriva da demonstração de NP-Completude para lista coloração em Grafos$(0,2)$ demonstrado por Jensen et al. em \textit{"Complexity results for the optimum cost chromatic partition problem"}.
       \end{itemize}
     \end{frame}
+        
     \begin{frame}{ Peculiaridade do Grafo$(2,1)$ }
       É trivial notar que essa classe de grafo possui um limite superior e um inferior para sua coloração ($K+1$ e $K$ respectivamente), porém apesar das restrições é NP-Completo determinar qual delas é a correta.
     \end{frame}
-    \section{Resultados clássicos}
+    
+    \begin{frame}{Dicotomia parcial}
+        \begin{table}[htb!]
+          \center
+          \begin{tabular}{l|*{7}c}
+            \toprule
+            \backslashbox{$r$}{$l$} & 0 & 1 & 2 & 3 & 4 & \ldots & n\\
+            \midrule
+            0 & \P & \P & \P & \? & \? & \ldots & \?\\
+            1 & \P & \P & \NPc & \NPc & \NPc & \ldots & \NPc\\
+            2 & \P & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
+            3 & \P & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
+            4 & \NPc & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
+            $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & \NPc\\
+            n & \NPc & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
+            \bottomrule
+          \end{tabular}%
+          \caption{Dicotomia parcial para coloração de Grafos$(r,\ell)$}
+          \label{tab:tabela_part2dictrl}%
+        \end{table}%
+    \end{frame}
+    \begin{frame}
+      \begin{corolario}
+      Coloração de Grafos$(0,3)$ é NP-Completo.
+    \end{corolario}
+    \begin{proof}
+     Deriva da demonstração de NP-Completude para lista coloração em Grafos$(0,2)$ demonstrado por Jensen et al. em \textit{"Complexity results for the optimum cost chromatic partition problem"}.
+    \end{proof}    
+    \end{frame}
     \begin{frame}{Complexidade computacional de Coloração em Grafoa$(r,\ell)$}
         Os resultados encontrado preenchem a dicotomia.
         
@@ -246,13 +339,13 @@
             \toprule
             \backslashbox{$r$}{$l$} & 0 & 1 & 2 & 3 & 4 & \ldots & n\\
             \midrule
-            0 & \textit{P} & \textit{P} & \textit{P} & \textit{NPc} & \textit{NPc} & \ldots & \textit{NPc}\\
-            1 & \textit{P} & \textit{P} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \ldots & \textit{NPc}\\
-            2 & \textit{P} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \ldots & \textit{NPc}\\
-            3 & \textit{P} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \ldots & \textit{NPc}\\
-            4 & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \ldots & \textit{NPc}\\
-            $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & \textit{NPc}\\
-            n & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \textit{NPc} & \ldots & \textit{NPc}\\
+            0 & \P & \P & \P & \NPc & \NPc & \ldots & \NPc\\
+            1 & \P & \P & \NPc & \NPc & \NPc & \ldots & \NPc\\
+            2 & \P & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
+            3 & \P & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
+            4 & \NPc & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
+            $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & \NPc\\
+            n & \NPc & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
             \bottomrule
           \end{tabular}%
           \caption{Dicotomia de complexidade para coloração em Grafos$(r,\ell)$}
@@ -260,7 +353,9 @@
         \end{table}%
     \end{frame}
     \begin{frame}[standout]
-      Como parametrizar a coloração de Grafos$(r,\ell)$?
+      O que investigar em Grafos$(r,\ell)$?
+      
+      Pelo que parametrizar Grafos$(2,1)$?
     \end{frame}
     \section{Parametrizado pelo tamanho das partições}
     \begin{frame}{A idéia}
@@ -272,9 +367,9 @@
             
       Sabemos que podemos transformar esse problema em lista coloração de bipartido.
       
-      Fellows mostrou que lista-coloração é w[1]-difícil para bipartidos quando parametrizado pelo tamanho do menor independente.
+      Fellows mostrou que lista-coloração é W[1]-difícil para bipartidos quando parametrizado pelo tamanho do menor independente.
       
-      Portanto coloração é w[1]-difícil quando parametrizado pelo tamanho do menor independente em um Grafo$(2,1)$.
+      Portanto coloração é W[1]-difícil quando parametrizado pelo tamanho do menor independente em um Grafo$(2,1)$.
     \end{frame}
     \begin{frame}{Parametrização}
     \large{Parametrização de Grafo$(2,1)$ pelo tamanho do maior independente.}
@@ -333,7 +428,7 @@
        O que ocorre quando o número de vértices com listas de tamanho 1, 2 e 3 variam? 
      \end{frame}
      \begin{frame}{Sobre a vizinhança da clique}
-       Observe que, se um nó não é vizinho de nenhum vértice na clique, após a redução esse vértice tem lista de tamanho três. Todo vértice vizinho a clique, após a transformação tem vértice com lista de tamanho $3-n$ onde $n$ é o número de seus vizinhos na clique.
+       Observe que, se um nó não é vizinho de nenhum vértice na clique, após a redução esse vértice tem lista de tamanho três. Todo vértice vizinho a clique, após a transformação tem vértice com lista de tamanho $3-x$ onde $x$ é o número de seus vizinhos na clique.
        
        Um vértice nunca terá uma lista de tamanho 0.
      \end{frame}

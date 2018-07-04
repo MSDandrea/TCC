@@ -52,7 +52,7 @@
         \begin{column}{0.5\textwidth}
           \textbf{Coloração dos vértices de um grafo}
           
-          Uma coloração de um grafo $G$ é uma associação de uma cor entre $k$ cores a cada vértice do grafo de forma que, dado dois vértices vizinhos em $G$ eles não compartilhem uma cor, e $k$ seja o menor número de cores possíveis a respeitar tal restrição. 
+          Uma coloração de um grafo $G$ é uma associação de uma cor entre $q$ cores a cada vértice do grafo de forma que, dado dois vértices vizinhos em $G$ eles não compartilhem uma cor, e $q$ seja o menor número de cores possíveis a respeitar tal restrição. 
         \end{column}
       \end{columns}
     \end{frame}
@@ -105,7 +105,7 @@
         \item Um grafo nulo (i.e. um Grafo$(0,0)$) é 0-colorível.
         \item Um grafo sem arestas (i.e. um Grafo$(1,0)$) é 1-colorível.
         \item Um grafo bipartido (i.e. um Grafo$(2,0)$) é 2-colorível.
-        \item Um grafo completo (i.e. um Grafo$(0,1)$) é $k-colorivel$ onde $k$ é a quantidade de vértices de G.
+        \item Um grafo completo (i.e. um Grafo$(0,1)$) é $n-colorivel$ onde $n$ é a quantidade de vértices de G.
         \item                                                                                                               
       \end{itemize}
     \end{frame}
@@ -115,7 +115,7 @@
         \item Um grafo nulo (i.e. um Grafo$(0,0)$) é 0-colorível.
         \item Um grafo sem arestas (i.e. um Grafo$(1,0)$) é 1-colorível.
         \item Um grafo bipartido (i.e. um Grafo$(2,0)$) é 2-colorível.
-        \item Um grafo completo (i.e. um Grafo$(0,1)$) é $k-colorivel$ onde $k$ é a quantidade de vértices do grafo.
+        \item Um grafo completo (i.e. um Grafo$(0,1)$) é $n-colorivel$ onde $n$ é a quantidade de vértices do grafo.
         \item Um grafo split (i.e. um Grafo$(1,1)$) é $k-colorivel$ onde $k$ é a quantidade de vértices na clique máxima do grafo.
       \end{itemize}
     \end{frame}
@@ -291,7 +291,7 @@
       Com o resultado obtido podemos afirmar que:
       \begin{itemize}
         \item Coloração em Grafos$(1,2)$ é NP-Completo.\newline Deriva da demonstração de NP-Completude para lista coloração em Split mostrado por Jensen et al. em \textit{"Generalized coloring for tree-like graphs"}.
-        \item Coloração em Grafos$(2,1)$ é NP-Completo.\newline Deriva da demonstração de NP-Completude para lista coloração em bipartidos mostrado por Fellows et al. em \textit{"List Coloring and Precoloring Extension are W[1]-hard parameterized by treewidth"}.
+        \item Coloração em Grafos$(2,1)$ é NP-Completo.\newline Deriva da demonstração de NP-Completude para lista coloração em bipartidos mostrado por Fellows et al. em \textit{"List Coloring and 3-Precoloring Extension are W[1]-hard parameterized by treewidth"}.
         %\item Coloração de Grafos$(0,3)$ é NP-Completo.
         %\newline Deriva da demonstração de NP-Completude para lista coloração em Grafos$(0,2)$ demonstrado por Jensen et al. em \textit{"Complexity results for the optimum cost chromatic partition problem"}.
       \end{itemize}
@@ -358,11 +358,11 @@
     \begin{frame}{A idéia}
           O Problema é NP-Completo.
           
-          Queremos encontrar um algoritmo FPT, que tem formato $\mathcal{O}(f(k)g(n)^c)$.
+          Queremos encontrar um algoritmo FPT, que tem formato $\mathcal{O}(f(k)n^c)$.
           
           Usar o tamanho das partições de um Grafo$(2,1)$ como parâmetros do problema.
     \end{frame}
-    \section{Parametrizado pelo tamanho dos conjuntos independentes}
+    \section{Parametrização pelo tamanho dos conjuntos independentes}
     
     \begin{frame}{Parametrização}
       \large{Parametrização de Grafo$(2,1)$ pelo tamanho do menor independente}
@@ -370,7 +370,7 @@
             
       Sabemos que podemos transformar esse problema em lista coloração de bipartido.
       
-      Fellows mostrou que lista-coloração é W[1]-difícil para bipartidos quando parametrizado pelo tamanho do menor independente.
+      Fellows mostrou que lista-coloração é W[1]-difícil para bipartidos quando parametrizado pelo tamanho do menor independente.\cite{fellows07}
       
       Portanto coloração é W[1]-difícil quando parametrizado pelo tamanho do menor independente em um Grafo$(2,1)$.
     \end{frame}
@@ -394,22 +394,22 @@
        Para isso iremos apresentar um problema que nos ajudará a entender o comportamento de lista coloração.
      \end{frame}
     
-     \begin{frame}{Pre-coloring extension}
-      \large{Pre-coloring extension}
+     \begin{frame}{PreColoring extension}
+      \large{PreColoring extension}
       \normalsize\newline\newline
       
 	      \textbf{Entrada:}  Um grafo G onde alguns vértices já possuem uma coloração definida com cores escolhidas dentre k possíveis cores.
 	      
 	      \textbf{Pergunta:}  É possível estender a coloração já existente para todo o grafo sem que dois vértices adjacentes possuam a mesma cor?
 	      
-	      Tal problema é mostrado ser NP-Completo para o caso restrito de 3-pre-coloring extension.
+	      Tal problema é mostrado ser NP-Completo para o caso restrito de 3-PreCloring extension.\cite{kratochvil94}
      \end{frame}
      
      \begin{frame}{3-lista coloração em grafos bipartidos é NP-Completo.}
     \large{3-lista coloração em grafos bipartidos é NP-Completo.}
       \normalsize\newline\newline
             
-      Tendo um grafo $G$ e uma paleta $C$ pertencente a uma instância $P$ de \emph{3-Pre-coloring extension}.
+      Tendo um grafo $G$ e uma paleta $C$ pertencente a uma instância $P$ de \emph{3-PreColoring extension}.
       
       Formamos um grafo $G'$ usando todo vértice pré-colorido $v \in V(G)$ atribuindo ao mesmo uma lista com sua cor de $G$ em $G'$, aos demais vértices de $G$ criamos um vértice com lista contendo todos as cores de $C$ e mantendo sua vizinhança.
       
@@ -483,7 +483,7 @@
     \begin{frame}{Vértices com listas de tamanho um}
     \begin{columns}
       \column{0.5\textwidth}
-      Utilizando esse gadget é possível transformar uma instância de PreColoring Extension em bipartidos em uma de lista coloração em bipartido, basta para tanto pegarmos os vértices do Grafo $G$ que estão pré-coloridos e criar um vértice equivalente em um grafo $G'$ com listas tamanho três, os ligando aos vértices com listas tamanho um e mantendo a bipartição de forma a excitar a cor que este vértice possuia em $G$, os demais vértices são mapeados para vértices com listas tamanho três, mantendo sua vizinhança equivalente a em $G$.
+      Utilizando esse gadget é possível transformar uma instância de 3-PreColoring Extension em bipartidos em uma de lista coloração em bipartido, basta para tanto pegarmos os vértices do Grafo $G$ que estão pré-coloridos e criar um vértice equivalente em um grafo $G'$ com listas tamanho três, os ligando aos vértices com listas tamanho um e mantendo a bipartição de forma a excitar a cor que este vértice possuia em $G$, os demais vértices são mapeados para vértices com listas tamanho três, mantendo sua vizinhança equivalente a em $G$.
       \column{0.5\textwidth}
     \end{columns}
       
@@ -493,7 +493,7 @@
          Três vértices com lista de tamanho um são suficientes para que lista coloração em bipartido seja NP-completo.
        \end{teorema}
        \begin{proof}
-        Usando o gadget apresentado anteriormente, dois vértices $v$ com lista um em um vértice $u$ com lista três são capazes de reproduzir um vértice de lista um através da retirada da lista de $u$ as únicas possíveis cores para $v$, sendo assim tendo três vértices de distintas listas tamanho um, é possível obter seis vértices de lista um (com três listas distintas de cada lado) permitindo dessa forma a redução da instância de Precoloring para instância de lista coloração.
+        Usando o gadget apresentado anteriormente, dois vértices $v$ com lista um em um vértice $u$ com lista três são capazes de reproduzir um vértice de lista um através da retirada da lista de $u$ as únicas possíveis cores para $v$, sendo assim tendo três vértices de distintas listas tamanho um, é possível obter seis vértices de lista um (com três listas distintas de cada lado) permitindo dessa forma a redução da instância de 3-Precoloring para instância de lista coloração.
        \end{proof}
      \end{frame}
      \begin{frame}{Vértices com listas de tamanho dois}
@@ -528,7 +528,7 @@
         \label{fig:2-edge-b}
       \end{figure}
       
-      Assim sendo para reduzir um problema de PreColoring extension em bipartido $\Pi$ ao nosso problema $\Pi'$ basta que para todo vértice pré-colorido $v_{c_j} \in V(\Pi) | c_j \in C$ cria-se um paralelo $u \in V(\Pi')$ com lista de tamanho três e liga-o aos vértices de $\Gamma$ a fim de excitar sua cor da seguinte forma:
+      Assim sendo para reduzir um problema de 3-PreColoring extension em bipartido $\Pi$ ao nosso problema $\Pi'$ basta que para todo vértice pré-colorido $v_{c_j} \in V(\Pi) | c_j \in C$ cria-se um paralelo $u \in V(\Pi')$ com lista de tamanho três e liga-o aos vértices de $\Gamma$ a fim de excitar sua cor da seguinte forma:
       
      \end{frame}
      \begin{frame}
@@ -611,7 +611,7 @@
           Para tanto desenvolvemos uma estratégia inédita de redução de lista coloração à coloração, permitindo a identificação de características passíveis de parametrização. 
      \end{frame}
      \begin{frame}{Resultados colaterais}
-      É conhecido que o problema de coloração em um grafo $G$ pode ser visto como um problema de clique cover em seu complemento $G'$, dessa forma podemos estender a dicotomia $\P/\NPc$ da tabela \ref{tab:tabela_dictrl} para o problema de clique cover em grafos$(r,\ell)$ simplesmente trocando as linhas pelas colunas da tabela, dessa forma obtemos a seguinte dicotomia $\P/\NPc$:
+      É conhecido que o problema de coloração em um grafo $G$ pode ser visto como um problema de clique cover em seu complemento $G'$\cite{gareyjohnson}, dessa forma podemos estender a dicotomia $\P/\NPc$ de coloração em $(r,\ell)$ para o problema de clique cover em grafos$(r,\ell)$ simplesmente trocando as linhas pelas colunas da tabela, dessa forma obtemos a seguinte dicotomia $\P/\NPc$:
 \begin{table}[!htb]
 	\center
 	\begin{tabular}{l|*{7}c}
@@ -650,5 +650,9 @@
        OBRIGADO!
        
        Perguntas?
+     \end{frame}
+     \begin{frame}{Referencias}
+       \bibliography{bibliografia}
+       \bibliographystyle{plain}
      \end{frame}
 \end{document}

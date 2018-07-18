@@ -38,7 +38,7 @@
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
   \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{394.5bp}%
+    \setlength{\unitlength}{372bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,21 +50,21 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,1.19011407)%
+  \begin{picture}(1,1.20844961)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{2-edge-b_svg-tex.pdf}}%
-    \put(0.38363044,1.13029962){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}r1\end{tabular}}}}%
+    \put(0.37847765,1.17108046){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}r1\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{2-edge-b_svg-tex.pdf}}%
-    \put(0.72013234,1.13029962){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}r2\end{tabular}}}}%
+    \put(0.73533249,1.17108046){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}r2\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{2-edge-b_svg-tex.pdf}}%
-    \put(0.13838326,0.51915721){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}r1\end{tabular}}}}%
+    \put(0.11839701,0.52297383){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}r1\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=4]{2-edge-b_svg-tex.pdf}}%
-    \put(0.42925782,0.51915721){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}r2\end{tabular}}}}%
+    \put(0.42686475,0.52297383){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}r2\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=5]{2-edge-b_svg-tex.pdf}}%
-    \put(0.64598786,0.51915721){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}r1\end{tabular}}}}%
+    \put(0.65670346,0.52297383){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}r1\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=6]{2-edge-b_svg-tex.pdf}}%
-    \put(0.93686238,0.51915721){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}r2\end{tabular}}}}%
+    \put(0.9651712,0.52297383){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}r2\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=7]{2-edge-b_svg-tex.pdf}}%
   \end{picture}%
 \endgroup%

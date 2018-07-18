@@ -1,7 +1,7 @@
 \chapter{Análise clássica para coloração em Grafos$(r,\ell)$}
 
 O problema de coloração aplicado a Grafos$(r,\ell)$ é de fácil solução para algumas especificações,
-por exemplo um Grafo vazio, que é um Grafo(0,0) pode ser colorido com 0 cores, um Grafo disperso i.e um Grafo(1,0) é colorível com apenas uma cor, já que não existem arestas nesse grafo.
+por exemplo um Grafo sem vértices, que é um Grafo(0,0) pode ser colorido com 0 cores, um Grafo sem arestas i.e um Grafo(1,0) é colorível com apenas uma cor, já que não existem arestas nesse grafo.
 
 Já um Grafo completo, ou seja um Grafo(0,1), é colorível com K cores onde K é a quantidade de vértices nesse grafo completo, em um Grafo split que é um Grafo(1,1) essa regra se repete, já que cada vértice do conjunto independente pode ser colorível com alguma cor já presente na clique.
 
@@ -48,7 +48,7 @@ Sabemos então que coloração é de solução polinomial para grafos completos,
 		Coloração de Grafo(4,0) é NP-Completo.
 	\end{teorema}
 	\begin{proof}
-		Sabemos que todo grafo planar é 4-colorível, e que alguns Grafos(4,0) são planares, portanto sabemos que para qualquer Grafo G $\in$ subconjunto de planares de Grafos(4,0), sua quantidade máxima de cores é 4, nos resta saber se 4 também é sua quantidade mínima, porém 3-coloração de planar é NP-Completo logo descobrir a coloração mínima de G é NP-Completo e consequentemente coloração de Grafos(4,0) é NP-Completo
+		Sabemos que todo grafo planar é 4-colorível \cite{appel77}, e que alguns Grafos(4,0) são planares, portanto sabemos que para qualquer Grafo G $\in$ subconjunto de planares de Grafos(4,0), sua quantidade máxima de cores é 4, nos resta saber se 4 também é sua quantidade mínima, porém 3-coloração de planar é NP-Completo logo descobrir a coloração mínima de G é NP-Completo e consequentemente coloração de Grafos(4,0) é NP-Completo
 	\end{proof}
 
 É importante notar aqui que, todo $Grafo(r,\ell)$ é simultaneamente um $Grafo(r,\ell+1)$ já que podemos formar uma nova clique trivial utilizando qualquer vértice, e um $Grafo(r+1,\ell)$ já que podemos formar um novo conjunto independente trivial a partir de qualquer vértice, portanto se o problema de coloração é NP-Completo para um $Grafo(r,\ell)$ então ele é NP-Completo para qualquer $Grafo(r+1,\ell)$ ou $Grafo(r,\ell+1)$ .
@@ -80,7 +80,7 @@ Ainda nos falta mostrar a complexidade para alguns casos de fronteira, que neces
 Iremos demonstrar abaixo a complexidade para tais casos utilizando o seguinte teorema. 
 \begin{teorema}
 \label{theorem:list-coloring}
-	O problema de lista coloração para um grafo $G(r,\ell)$, se reduz ao problema de coloração própria de um grafo $(r,\ell+1)$.
+	O problema de lista coloração para um grafo $G(r,\ell)$, se reduz ao problema de coloração própria de um grafo $H_G(r,\ell+1)$.
 \end{teorema}
 \begin{proof}
 	Para a demonstração é preciso mostrar que
@@ -127,16 +127,16 @@ Portanto utilizando o teorema \ref{theorem:list-coloring}, derivamos os seguinte
   \label{teorema:lista-2}
 	Lista coloração é NP-Completo para Grafos(0,2).
 	\begin{proof}
-		Para essa demonstração nos basearemos em um resultado obtido por Jansen\cite{jansen1999}. A demonstração se baseia em realizar uma redução do problema 3-SAT restrito para lista coloração de co-bipartido i.e. Grafo(0,2).
+		Para essa demonstração nos basearemos em um resultado obtido por Jansen \cite{jansen1999}. A demonstração se baseia em realizar uma redução do problema 3-SAT restrito para lista coloração de co-bipartido i.e. Grafo(0,2).
 		Suponha o problema 3-SAT com as seguintes restrições:
 		\begin{itemize}
 			\item cada cláusula $c_i$ contém dois ou três terminais.
-			\item cada terminal ou sua negação aparece no máximo em 3 cláusulas
+			\item cada literal ou sua negação aparece no máximo em 3 cláusulas
 		\end{itemize}
 		Construiremos agora uma instância de lista coloração da seguinte forma:\newline
-		Para cada terminal $j$ crie seis vértices:
+		Para cada literal $j$ crie seis vértices:
 		$a_j^{(1)}$, $a_j^{(2)}$, $a_j^{(3)}$;
-		$b_j^{(1)}$, $b_j^{(2)}$, $3_j^{(3)}$. Atribuindo a cada um uma lista de cores da seguinte forma:\newline
+		$b_j^{(1)}$, $b_j^{(2)}$, $b_j^{(3)}$. Atribuindo a cada vértice uma lista de cores da seguinte forma:\newline
 		$a_j^{(k)}$ <= \{$x_j^{(k)}$, $\overline{x_j}^{(k)}$ \}; $b_j^{(k)}$ <= \{$\overline{x_j}^{(k)}$,$x_j^{((k \Mod{3}) + 1 )}$ \}\newline
 		Definimos como A o conjunto de todos os $a_j^{(k)}$ e B o conjunto de todos os $b_j^{(k)}$ e construímos uma clique com os vértices de A e B. Observe que só existem duas maneiras de se colorir este grafo:
 		\begin{itemize}
@@ -165,7 +165,7 @@ Portanto utilizando o teorema \ref{theorem:list-coloring}, derivamos os seguinte
 		
 		Suponha a cláusula p, se p é verdadeiro então $a_p^{(1)},a_p^{(2)},a_p^{(3)}$ será colorido com $p'^1,p'^2,p'^3$, permitindo que a cor $p^x$ possa, e que a cor $p'^x$ não possa ser escolhidas para colorir uma cláusula.
 		
-		De tal forma, podemos facilmente notar que, expandindo a explicação anterior para os outros terminais uma resposta sim para o problema 3-SAT restrito nos leva a uma solução do problema de lista coloração em co-bipartido por exclusão das cores nas listas disponíveis. Para a volta a existência de uma lista coloração válida para o co-bipartido mostra uma solução para o 3-SAT restrito correspondente simplesmente descobrindo a representação em valor de terminal das cores escolhidas para as cláusulas. 
+		De tal forma, podemos facilmente notar que, expandindo a explicação anterior para os outros terminais uma resposta sim para o problema 3-SAT restrito nos leva a uma solução do problema de lista coloração em co-bipartido por exclusão das cores nas listas disponíveis. Para a volta a existência de uma lista coloração válida para o co-bipartido mostra uma solução para o 3-SAT restrito correspondente simplesmente descobrindo a representação em valor de literal das cores escolhidas para as cláusulas. 
 		
 	\end{proof}
 \end{teorema}
@@ -173,7 +173,7 @@ Portanto utilizando o teorema \ref{theorem:list-coloring}, derivamos os seguinte
 \begin{corolario}
  O problema de coloração é NP-Completo em Grafos$(0,3)$.
  \begin{proof}
-   Se da pela prova dos Teoremas \ref{theorem:list-coloring} e \ref{teorema:lista-2}.
+  Tal resultado sai diretamente da prova dos Teoremas \ref{theorem:list-coloring} e \ref{teorema:lista-2}.
  \end{proof}
 \end{corolario}
 Portanto podemos agora completar nossa tabela com:

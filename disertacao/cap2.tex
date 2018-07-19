@@ -1,132 +1,144 @@
 \chapter{Análise clássica para coloração em Grafos$(r,\ell)$}
 
-O problema de coloração aplicado a Grafos$(r,\ell)$ é de fácil solução para algumas especificações,
-por exemplo um Grafo sem vértices, que é um Grafo(0,0) pode ser colorido com 0 cores, um Grafo sem arestas i.e um Grafo(1,0) é colorível com apenas uma cor, já que não existem arestas nesse grafo.
+O problema de coloração aplicado a Grafos$(r,\ell)$ pode ser facilmente solucionável em alguns casos, por exemplo, um grafo sem arestas i.e um Grafo(1,0) é colorível com apenas uma cor, um grafo completo, ou seja um Grafo(0,1), é colorível com $n$ cores onde $n$ é a quantidade de vértices desse grafo, um grafo split, por sua vez, é um Grafo(1,1) e pode ser colorido utilizando $k$ cores, onde $k$ é o tamanho da clique máxima do grafo, pois assumindo uma partição (1,1) onde a clique é máxima, cada vértice do conjunto independente pode ser colorível com alguma cor já presente na clique.
+E por fim, grafos bipartidos são coloridos com 2 cores uma cor para cada conjunto independente.
 
-Já um Grafo completo, ou seja um Grafo(0,1), é colorível com K cores onde K é a quantidade de vértices nesse grafo completo, em um Grafo split que é um Grafo(1,1) essa regra se repete, já que cada vértice do conjunto independente pode ser colorível com alguma cor já presente na clique.
+Sendo assim, sabemos que coloração é um problema solucionável em tempo polinomial em grafos completos, nulos, splits e bipartidos. Portanto, temos como ponto de partida para a nossa análise as questões apresentadas na Tabela \ref{tab:tabela_part1dictrl}.
 
 %primeira tabela de Dicotomia $\P/\NPc$
 \begin{table}[!htb]
 	\center
 	\begin{tabular}{l|*{7}c}
 		\toprule
-		\backslashbox{$r$}{$l$} & 0 & 1 & 2 & 3 & 4 & \ldots & n\\
+		\backslashbox{$r$}{$\ell$} & 0 & 1 & 2 & 3 & 4 & \ldots & n\\
 		\midrule
-		0 & \P & \P & ? & ? & ? & \ldots & ?\\
-		1 & \P & \P & ? & ? & ? & \ldots & ?\\
-		2 & \P & ? & ? & ? & ? & \ldots & ?\\
-		3 & ? & ? & ? & ? & ? & \ldots & ?\\
-		4 & ? & ? & ? & ? & ? & \ldots & ?\\
-		$\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & ?\\
-		n & ? & ? & ? & ? & ? & \ldots & ?\\
-		\bottomrule
+        0 & \P & \P & \? & \? & \? & \ldots & \?\\
+        1 & \P & \P & \? & \? & \? & \ldots & \?\\
+        2 & \P & \? & \? & \? & \? & \ldots & \?\\
+        3 & \? & \? & \? & \? & \? & \ldots & \?\\
+        4 & \? & \? & \? & \? & \? & \ldots & \?\\
+        $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & \?\\
+        n & \? & \? & \? & \? & \? & \ldots & \?\\
+    \bottomrule
 	\end{tabular}%
 	\caption{1ª Dicotomia $\P/\NPc$ parcial do problema de coloração em Grafos$(r,\ell)$}
 	\label{tab:tabela_part1dictrl}%
 \end{table}%
 
-E por fim, Grafos bipartidos são coloridos com 2 cores uma cor para cada conjunto independente.
-
-Sabemos então que coloração é de solução polinomial para grafos completos, dispersos, split e para grafos bipartidos. Assim sendo, temos como ponto de partida para a exploração futura da complexidade de Grafos de cardinalidade superiores a Tabela \ref{tab:tabela_part1dictrl}, a ser preenchida de acordo com os seguintes resultados.
-
-%Teorema que coloração em (3,0) e (0,2) são polinomiais e (4,0) é NPc 
+Neste ponto, inciaremos a nossa discussão sobre a complexidade do problema de coloração para as demais classes de grafos $(r,\ell)$. 
+ 
 	\begin{teorema}
-		Coloração de Grafo(0,2) é Polinomial.
+		Coloração de Grafo(0,2) pode ser solucionado em tempo polinomial.
 	\end{teorema}
 	\begin{proof}
-		Um Grafo(0,2) $G$, também chamado de grafo co-bipartido, é um grafo separável em 2 cliques em que todo vértice faz parte de alguma das cliques. A partir da literatura \cite{bollo98} sabemos que um grafo co-bipartido é perfeito, isso é, seu número cromático é igual ao de sua clique máxima, observe que conhecer a clique máxima é equivalente a conhecer o conjunto independente máximo do complemento de $G$, que por sua vez é resolvível encontrando a menor cobertura por vértices do mesmo, mostrado ser resolvível em tempo polinomial \cite{konig31,zing12}. Portanto ao encontrar a cobertura por vértices mínima para o complemento de $G$ encontramos a clique máxima de $G$, e como $G$ é um grafo perfeito, sabemos resolver o problema de coloração em tempo polinomial.
+		Um Grafo(0,2) $G$, também conhecido como grafo co-bipartido, é um grafo onde seu conjunto de vértices pode ser particionado em dois conjuntos $K_1$ e $K_2$ tal que $V(G)=K_1\cup K_2$, $K_1\cap K_2=\emptyset$ e $G[K_1]$, $G[K_2]$ são grafos completos.
+É bem conhecido na literatura que um grafo co-bipartido é perfeito~\cite{bollo98}, consequentemente, seu número cromático é igual ao tamanho da maior clique. Note que encontrar a clique máxima de um grafo co-bipartido é equivalente a encontrar o conjunto independente máximo do complemento de $G$ que, por sua vez, pode ser feito em tempo polinomial através de um algoritmo para Cobertura por Vértices em grafos bipartidos~\cite{konig31,zing12}. Portanto, ao encontrar a cobertura por vértices mínima para o complemento de $G$ encontramos a clique máxima de $G$, e como $G$ é um grafo perfeito, sabemos resolver o problema de coloração em tempo polinomial.
+	\end{proof}
+	
+A seguir apresentamos outra classe em que o problema pode ser solucionado em tempo polinomial.	
+
+\begin{teorema}
+Coloração de Grafo(3,0) é Polinomial.
+\end{teorema}
+
+\begin{proof}
+Se $G$ é um grafo que admite um partição (3,0), sabe-se que o número cromático de $G$ é no máximo 3, sendo assim, para determinarmos o valor exato de seu número cromático, basta verificar se $G$ é um grafo vazio (número cromático igual a um), e caso contrário verificar se $G$ é bipartido (número cromático igual a dois), como ambas verificações são executáveis em tempo polinomial podemos afirmar que o número cromático de um grafo(3,0) pode ser determinado em tempo polinomial.
+	\end{proof}
+	
+Como o número cromático de grafos(3,0) pode ser solucionável em tempo polinomial, uma pergunta interessante passa a ser a complexidade de determinar o número cromático de um grafo (4,0).	
+	
+
+\begin{teorema}
+	Coloração de Grafo(4,0) é NP-Completo.
+\end{teorema}
+	
+\begin{proof}
+Sabemos que todo grafo planar é 4-colorível \cite{appel77}, logo os grafos planares formam uma subclasse dos grafos(4,0). Portanto, para determinar o número cromático de um grafo planar $G$ é necessário solucionar 3-coloração em grafos planares, no entanto, tal problema é NP-Completo[???], logo descobrir o número cromático de um grafo planar $G$ é NP-Completo e consequentemente resolver coloração em grafos(4,0) é NP-Completo.
 	\end{proof}
 
-	\begin{teorema}
-		Coloração de Grafo(3,0) é Polinomial.
-	\end{teorema}
-	\begin{proof}
-		Tendo um Grafo G da classe (3,0) como entrada para o problema de coloração sabemos então que o grafo pode ser colorido com 3 cores, resta saber se 3 é o número mínimo de cores que pode ser usado, portanto devemos verificar se G é bipartido (colorível com duas cores) ou um grafo sem arestas (colorível com uma cor), como ambas verificações são polinomiais podemos afirmar que coloração de Grafo(3,0) é resolvível de forma polinomial.
-	\end{proof}
+É importante notar que, todo $Grafo(r,\ell)$ é simultaneamente um $Grafo(r,\ell+1)$ e um $Grafo(r+1,\ell)$ já que por definição algumas partes podem ser vazias, portanto se o problema de coloração é NP-Completo para Grafo$(r,\ell)$ então ele é NP-Completo para $Grafo(r+1,\ell)$ e $Grafo(r,\ell+1)$.
 
-	\begin{teorema}
-		Coloração de Grafo(4,0) é NP-Completo.
-	\end{teorema}
-	\begin{proof}
-		Sabemos que todo grafo planar é 4-colorível \cite{appel77}, e que alguns Grafos(4,0) são planares, portanto sabemos que para qualquer Grafo G $\in$ subconjunto de planares de Grafos(4,0), sua quantidade máxima de cores é 4, nos resta saber se 4 também é sua quantidade mínima, porém 3-coloração de planar é NP-Completo logo descobrir a coloração mínima de G é NP-Completo e consequentemente coloração de Grafos(4,0) é NP-Completo
-	\end{proof}
+Os resultados anteriores e a monotonicidade observada anteriormente no leva ao seguinte cenário: 
 
-É importante notar aqui que, todo $Grafo(r,\ell)$ é simultaneamente um $Grafo(r,\ell+1)$ já que podemos formar uma nova clique trivial utilizando qualquer vértice, e um $Grafo(r+1,\ell)$ já que podemos formar um novo conjunto independente trivial a partir de qualquer vértice, portanto se o problema de coloração é NP-Completo para um $Grafo(r,\ell)$ então ele é NP-Completo para qualquer $Grafo(r+1,\ell)$ ou $Grafo(r,\ell+1)$ .
-
-Esses resultados nos levam à preencher a Dicotomia $\P/\NPc$ da forma mostrada na Tabela \ref{tab:tabela_part2dictrl}
 %Segunda tabela de Dicotomia $\P/\NPc$
 \begin{table}[htb!]
 	\center
 	\begin{tabular}{l|*{7}c}
 		\toprule
-		\backslashbox{$r$}{$l$} & 0 & 1 & 2 & 3 & 4 & \ldots & n\\
+		\backslashbox{$r$}{$\ell$} & 0 & 1 & 2 & 3 & 4 & \ldots & n\\
 		\midrule
-		0 & \P & \P & \P & ? & ? & \ldots & ?\\
-		1 & \P & \P & ? & ? & ? & \ldots & ?\\
-		2 & \P & ? & ? & ? & ? & \ldots & ?\\
-		3 & \P & ? & ? & ? & ? & \ldots & ?\\
-		4 & \NPc & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
-		$\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & \NPc\\
-		n & \NPc & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
-		\bottomrule
+            0 & \P & \P & \P & \? & \? & \ldots & \?\\
+            1 & \P & \P & \? & \? & \? & \ldots & \?\\
+            2 & \P & \? & \? & \? & \? & \ldots & \?\\
+            3 & \P & \? & \? & \? & \? & \ldots & \?\\
+            4 & \NPc & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
+            $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & \NPc\\
+            n & \NPc & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
+            \bottomrule
 	\end{tabular}%
 	\caption{2ª Dicotomia $\P/\NPc$ parcial do problema de coloração em Grafos$(r,\ell)$}
 	\label{tab:tabela_part2dictrl}%
 \end{table}%
 
-Ainda nos falta mostrar a complexidade para alguns casos de fronteira, que necessitam de uma demonstração mais complexa.
+Como podemos observar, ainda nos falta mostrar a complexidade para alguns casos de fronteira, que necessitam de uma demonstração mais complexa.
 %Demonstrar lista-coloração(r,l)Npc -> coloração(r,l+1)Npc e seus colorários (1,2) & (2,1)
 
-Iremos demonstrar abaixo a complexidade para tais casos utilizando o seguinte teorema. 
+Nesto ponto, iremos apresentar uma ferramenta importante que nos auxiliará nos demais resultados.
+ 
 \begin{teorema}
 \label{theorem:list-coloring}
-	O problema de lista coloração para um grafo $G(r,\ell)$, se reduz ao problema de coloração própria de um grafo $H_G(r,\ell+1)$.
+O problema de lista coloração de um grafo $(r,\ell)$, se reduz ao problema de coloração de um grafo $(r,\ell+1)$.
 \end{teorema}
+
 \begin{proof}
-	Para a demonstração é preciso mostrar que
-	\begin{itemize}
-		\item Se um grafo G$(r,\ell)$ possui uma lista coloração própria então $H_G$ é k-colorível para k do tamanho da paleta $C$ (1)
-		\item Se $H_G$ é k-colorível então G possui uma lista coloração própria (2)
-	\end{itemize}
-	(1):\newline
+Seja $G$ uma instância do problema de lista coloração em grafos$(r,\ell)$, isto é, cada vértice $v \in V(G)$ possui uma lista de cores $S_v$. Seja $C=\{c_1,c_2,\ldots,c_k\}$ a paleta de cores utilizada em $G$. A  partir de $G$ criaremos um grafo $H_G$, instância do problema de coloração, da seguinte forma:
+
+\begin{itemize}
+\item inicialmente faça $V(H_G)=V(G)$ e $E(H_G)=E(G)$;
+\item adicione em $H_G$ uma clique $K$ formada por $k$ novos vértices, $w_1,w_2,\ldots,w_k$, cada vértice $w_i \in V(K)$ representará a cor $c_i$ presente em $C$;
+\item para todo vértice $v \in V(H_G)\cap V(G)$ e todo vértice $w_i \in V(K)$ adicione uma aresta $(u_i,v)$ em $H_G$ se $v$ não possui a cor $c_i$ na lista coloração $S_v$ em $G$.
+\end{itemize}
+
+Neste ponto nos resta demonstrar que $G$ possui uma lista coloração própria se e somente se $H_G$ é k-colorível, onde para $k$ é o número de cores da paleta $C$ de $G$.
 	
-	Usaremos a seguinte construção:\newline
-	Considere G um grafo$(r,\ell)$ e que para cada vértice $v \in V(G)$ exista uma lista de cores $S_v$ referente a esse vértice, cada lista contém pelo menos uma cor da paleta $C = \{c_1,c_2,c_3,...,c_k \}$, sendo G uma instância sim para o problema de lista coloração, criemos uma clique K onde cada vértice $k \in V(K)$ representa uma cor presente em $C$. Seja $H_G = G \cup K$ para todo vértice $v \in G$ e todo vértice $u_i \in K$ adicione uma aresta $(u_i,v)$ à $H_G$ se e somente se v não possui a cor $c_i$ em sua lista coloração em G
+%------	
+
+Suponha que $G$ possui uma lista coloração. Iremos mostrar que $H_G$ admite um $k$-coloração como segue. Atribua para cada vértice em $V(H_G)\cap V(G)$ a mesma cor que lhe foi atribuída em $G$. Note que a clique $K$ possui exatamente $k$ vértices, consequentemente para colorirmos $K$ precisaremos de $k$ cores, assumimos que $w_1$ será colorido com $c_1$, $w_2$ será colorido com $c_2$ e assim por diante. Por construção, só existe aresta de $w_i$ para um vértice $v \in V(H_G)\setminus V(K)$ se $v$ não possui $c_i$ em sua lista de cores, portanto a coloração atribuída a clique $K$ não conflita com as cores atribuídas aos vértices em $V(H_G)\cap V(G)$, como a paleta de $G$ possui $k$ cores, temos que $H_G$ é $k$-colorível.
 	
-	Podemos então generalizar da seguinte forma, dado um grafo$(r,\ell)$ $G$ onde cada vértice de $G$ possui uma lista de possíveis cores então o grafo $H_G$ obtido pela construção anterior possui uma k-coloração.
-	
-	Note que a clique K possui exatamente k vértices, consequentemente para colorirmos K precisaremos de k cores, sem perda de generalidade assumimos que $u_1$ será colorido com $c_1$, $u_2$ com $c_2$ e assim por diante.
-	
-	Por construção uma aresta de $u_i$ só existe para $v_a$ em $H_G$ se e somente se, $v_a$ não possui $c_i$ em sua lista de cores, portanto a coloração atribuída à K não conflita com a com a lista coloração de G, e portanto para todo vértice pertencente a G podemos lhe atribuir a mesma cor que lhe foi atribuída no problema de lista coloração, obtendo uma coloração própria mínima para $H_G$
-	
-	(2):\newline
-	Suponha que o grafo $H_G$ possua uma k-coloração própria, onde k é o número de cores nas listas de G
-	
-	Seja K a maior clique presente em $H_G$, por construção $H_G$ é colorível com k cores onde k é a cardinalidade de K, observe que a remoção de K não afeta a coloração de $H_G - K$
-	
-	Como $H_G$ é k-colorível e a clique K possui k vértices todas as cores de tal k-coloração estão presentes em K. Sem perda de generalidade podemos assumir que as cores $c_1,c_2,...,c_k$ estão atribuídas aos vértices $u_1,u_2,...,u_k$ pertencentes à K
-	
-	Por construção de $H_G$ todo par $(v,u_i)$ onde $v \in H_G - K$ e $u_i \in K$ é não adjacente se e somente se o vértice $v$ não possui $c_i$ em sua lista coloração no grafo $G$
-	
-	Logo a k-coloração atribuídas aos vértices em $H_G - K$ formam uma coloração para G onde todo vértice em $V(G)$ possui uma cor de sua lista. Portanto G é uma instância sim de lista coloração
+
+Suponha que o grafo $H_G$ possua uma $k$-coloração. Por construção, $k$ é a cardinalidade de $K$, observe que a remoção de K não afeta a coloração de $H_G \setminus K$.
+Como $H_G$ é $k$-colorível e a clique $K$ possui $k$ vértices todas as cores de tal $k$-coloração estão presentes em $K$. Sem perda de generalidade, podemos assumir que as cores $c_1,c_2,...,c_k$ estão atribuídas aos vértices $w_1,w_2,...,w_k$, respectivamente.
+Por construção de $H_G$ todo par $v,w_i$ onde $v \in V(H_G) \setminus V(K)$ e $w_i \in V(K)$ é não adjacente se e somente se o vértice $v$ não possui $c_i$ em sua lista coloração no grafo $G$, logo a coloração atribuídas aos vértices em $H_G \setminus K$ formam uma solução para lista coloração em $G$. Portanto $G$ é uma instância sim de lista coloração.
 \end{proof}
-Portanto utilizando o teorema \ref{theorem:list-coloring}, derivamos os seguintes corolários:
+
+
+A partir do Teorema~\ref{theorem:list-coloring}, obtemos os seguintes corolários:
+
 \begin{corolario}
-	O problema de coloração é NP-Completo para Grafos$(1,2)$.
-	\begin{proof}
-		Segue da NP-Completude de lista coloração em Grafos$(1,1)$, demonstrado por Jansen et al.\cite{jansen1997}.
-	\end{proof}
+O problema de coloração é NP-Completo para Grafos$(1,2)$.
 \end{corolario}
+
+\begin{proof}
+Segue da NP-Completude de lista coloração em Grafos$(1,1)$, demonstrado por Jansen et al.\cite{jansen1997}.
+\end{proof}
+
+	
 \begin{corolario}
-	O problema de coloração é NP-Completo em Grafos$(2,1)$.
-	\begin{proof}
-		Segue da NP-Completude de lista coloração em grafos bipartido demonstrado por Fellows et al.\cite{fellows07}.
-	\end{proof}
+O problema de coloração é NP-Completo em Grafos$(2,1)$.
 \end{corolario}    
-\begin{teorema}
-  \label{teorema:lista-2}
-	Lista coloração é NP-Completo para Grafos(0,2).
-	\begin{proof}
+
+\begin{proof}
+Segue da NP-Completude de lista coloração em grafos bipartido demonstrado por Fellows et al.\cite{fellows07}.
+\end{proof}
+
+Neste ponto, nos resta determinar a complexidade coloração em grafos (0,2).
+
+
+\begin{teorema} \label{teorema:lista-2}
+Lista coloração é NP-Completo para Grafos(0,2).
+\end{teorema}
+
+\begin{proof}
 		Para essa demonstração nos basearemos em um resultado obtido por Jansen \cite{jansen1999}. A demonstração se baseia em realizar uma redução do problema 3-SAT restrito para lista coloração de co-bipartido i.e. Grafo(0,2).
 		Suponha o problema 3-SAT com as seguintes restrições:
 		\begin{itemize}
@@ -165,24 +177,24 @@ Portanto utilizando o teorema \ref{theorem:list-coloring}, derivamos os seguinte
 		
 		Suponha a cláusula p, se p é verdadeiro então $a_p^{(1)},a_p^{(2)},a_p^{(3)}$ será colorido com $p'^1,p'^2,p'^3$, permitindo que a cor $p^x$ possa, e que a cor $p'^x$ não possa ser escolhidas para colorir uma cláusula.
 		
-		De tal forma, podemos facilmente notar que, expandindo a explicação anterior para os outros terminais uma resposta sim para o problema 3-SAT restrito nos leva a uma solução do problema de lista coloração em co-bipartido por exclusão das cores nas listas disponíveis. Para a volta a existência de uma lista coloração válida para o co-bipartido mostra uma solução para o 3-SAT restrito correspondente simplesmente descobrindo a representação em valor de literal das cores escolhidas para as cláusulas. 
-		
-	\end{proof}
-\end{teorema}
-\newpage
-\begin{corolario}
- O problema de coloração é NP-Completo em Grafos$(0,3)$.
- \begin{proof}
-  Tal resultado sai diretamente da prova dos Teoremas \ref{theorem:list-coloring} e \ref{teorema:lista-2}.
- \end{proof}
-\end{corolario}
-Portanto podemos agora completar nossa tabela com:
+		De tal forma, podemos facilmente notar que, expandindo a explicação anterior para os outros terminais uma resposta sim para o problema 3-SAT restrito nos leva a uma solução do problema de lista coloração em co-bipartido por exclusão das cores nas listas disponíveis. Em contrapartida a existência de uma lista coloração válida para o co-bipartido mostra uma solução para o 3-SAT restrito correspondente simplesmente descobrindo a representação em valor de literal das cores escolhidas para as cláusulas. 	
+\end{proof}
 
-\begin{table}[!htb]
+\begin{corolario}
+O problema de coloração é NP-Completo em Grafos$(0,3)$.
+\end{corolario}
+
+\begin{proof}
+ Tal resultado sai diretamente da prova dos Teoremas \ref{theorem:list-coloring} e \ref{teorema:lista-2}.
+ \end{proof}
+
+Portanto temos a dicotomia $\P/\NPc$ do problema de coloração em Grafos$(r,\ell)$.
+\newpage
+\begin{table}[!h]
 	\center
 	\begin{tabular}{l|*{7}c}
 		\toprule
-		\backslashbox{$r$}{$l$} & 0 & 1 & 2 & 3 & 4 & \ldots & n\\
+		\backslashbox{$r$}{$\ell$} & 0 & 1 & 2 & 3 & 4 & \ldots & n\\
 		\midrule
 		0 & \P & \P & \P & \NPc & \NPc & \ldots & \NPc\\
 		1 & \P & \P & \NPc & \NPc & \NPc & \ldots & \NPc\\

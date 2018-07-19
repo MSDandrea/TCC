@@ -5,9 +5,12 @@ Particularmente, o problema de particionamento em grafos tem despertado muito in
 O problema de partição de grafos pode ser descrito como tendo por objetivo particionar o conjunto dos vértices de um grafo em subconjuntos $V_1,V_2, 
 \ldots, V_k$ onde $V_1 \cup V_2 \cup \ldots \cup V_k = V$ e $V_i \cap V_j = \emptyset$, $i \neq j$, $1 \leq i \leq k$ e $1 \leq j \leq k$, exigindo-se, porém, algumas propriedades sobre estes subconjuntos de vértices. Estas propriedades podem ser \textit{internas}, como por exemplo exigir que os vértices de cada subconjunto $V_i$ sejam dois-a-dois adjacentes (isto é, $V_i$ seja uma clique) ou dois-a-dois não-adjacentes (isto é, $V_i$ seja um conjunto independente), ou \textit{externas}, onde as exigências são feitas sobre os pares de $V_i\times V_j$, podem ser adjacentes ou não-adjacentes entre si. 
 
+Um problema bem conhecido é o de verificar se um dado grafo $G$ é split, isto é, verificar se os vértices de $G$ podem ser particionados em dois subconjuntos, dos quais um é independente e o outro uma clique. Brandstädt foi o responsável por generalizar a definição de split no que chamamos aqui de Grafos$(r,\ell)$, um grafo que pode ser particionado em $r$ conjuntos independentes e $\ell$ cliques.
+
 Em outra perspectiva o problema de coloração de vértices de um grafo também é de grande interesse, tendo suas aplicações em diversas áreas; \emph{Pattern matching}, escalonamento em esportes e no trânsito, e resolução de problemas de \emph{Sudoku} são alguns exemplos de problemas onde a coloração de grafos pode ser empregada\cite{lewis15}. O problema de coloração mínima dos vértices de um grafo chamado também de coloração própria de um grafo é descrito como a atribuição de cores em um grafo $G$ de forma que seja possível atribuir a cada um dos vértices de $G$ uma entre $k$ cores de forma que, dado quaisquer dois vértices vizinhos em $G$ eles não compartilhem uma mesma cor e $k$ seja o menor número onde tal restrição é atingida.
 
 
+\section{Organização do trabalho}
 O intuito deste trabalho é o de desvendar e classificar a dificuldade do problema de coloração em Grafos$(r,\ell)$. Ao nos aprofundar na investigação mostraremos ainda a proficuidade dos tamanhos das partições para a extração de um algoritmo FPT. 
 
 O capítulo sobre análise computacional clássica se propõe a demonstrar uma dicotomia \emph{Polinomial / NP-Completo} para o problema abordando a quantidade de partições. Uma vez definida tal dicotomia o capitúlo de análise parametrizada busca através de parâmetros encontrar algoritmos tratáveis por parâmetro fixo para solucionar o problema em questão. Concluiremos o escrito sumarizando nossas descobertas e esclarecendo as repercursões de nosso trabalho e os novos desafios que nos pode trazer.
@@ -16,46 +19,53 @@ As seções mostradas a seguir se propõem a esclarecer as estruturas, problemas
 
 \section{Estruturas básicas}
 
- Um Grafo $G$ é uma estrutura que contém um conjunto de vértices $V(G) = \{v_1,v_2,...,v_n\}$ e um conjunto de arestas $E(G)=\{(v,j) | \{v,j\} \subset V(G)$, dizemos que o vértice $v$ pertence ao grafo $G$ se $v \in V(G)$, e que existe uma aresta entre $v$ e $u$ se $(u,v) \in E(G)$. Nesse trabalho usaremos apenas grafos não direcionados, dessa forma $(u,v) \equiv (v,u)$. Um Grafo dito Grafo$(r,\ell)$ ou abreviadamente $G(r,\ell)$ é qualquer grafo pertencente à classe dos grafos que podem ser particionados em $r$ conjuntos independentes e $\ell$ cliques.
+ Um Grafo $G$ é uma estrutura que contém um conjunto de vértices $V(G) = \{v_1,v_2,...,v_n\}$ e um conjunto de arestas $E(G)=\{(v,j) | \{v,j\} \subset V(G)$, dizemos que o vértice $v$ pertence ao grafo $G$ se $v \in V(G)$, e que existe uma aresta entre $v$ e $u$ se $(u,v) \in E(G)$. Nesse trabalho usaremos apenas grafos não direcionados, dessa forma $(u,v) \equiv (v,u)$. 
  
+ Um Grafo dito Grafo$(r,\ell)$ ou abreviadamente $G(r,\ell)$ é qualquer grafo pertencente à classe dos grafos que podem ser particionados em $r$ conjuntos independentes $\ell$ cliques. Considere aqui que assumiremos que as partições dadas em um Grafo$(r,\ell)$ podem estar vazias, isto é, não possuírem nenhum vértice. 
 
-Um conjunto independente $R \subseteq G$ é uma partição de $G$ tal que: $ \{v,u\} \subset V(R) \implies \nexists (v,u) \in E(R)$. Já uma clique $L \subseteq G$ é uma partição de $G$ tal que: $ \{v,u\} \subset V(L) \implies \exists (v,u) \in E(L)$. Dizemos que um grafo $G$ possui uma bipartição quando todos os seus vértices podem ser divididos entre dois conjuntos independentes disjuntos.
+Um conjunto independente $R \subseteq G$ é uma partição de $G$ tal que: $ \{v,u\} \subset V(R) \implies \nexists (v,u) \in E(R)$. Já uma clique $L \subseteq G$ é uma partição de $G$ tal que: $ \{v,u\} \subset V(L) \implies \exists (v,u) \in E(L)$. Dizemos que um grafo $G$ possui uma bipartição quando todos os seus vértices podem ser divididos em dois conjuntos independentes disjuntos. Um conjunto independente ou clique é dita máximo ou máxima respectivamente, se tal partição contém o maior número possível de vértices que mantém sua propriedade.
+
+Um grafo é completo se todos os seus vértices são adjacentes entre si, e nulo se nenhum vértice é adjacente a outro.
+
+Denominamos por $G[S]$ o grafo induzido por $S$ em $G$ onde $S \subset V(G)$.
 
 \section{Problemas abordados}
 
 
 \begin{definition}
-	Coloração mínima de Grafos.\\
+	Coloração própria de Grafos.\\
 	\par\addvspace{.1\baselineskip}
 	\noindent
 	\begin{tabularx}{\textwidth}{@{\hspace{\parindent}} l X c}
-		\textbf{Entrada:} & um Grafo $G$ e um inteiro $k$.\\% Input
+		\textbf{Entrada:} & Um grafo $G$ e um inteiro $k$.\\% Input
 		\textbf{Pergunta:} & É possível atribuir a cada vértice pertencente à $G$ uma entre $k$ cores
 	de tal forma que dado quaisquer dois vértices adjacentes eles tenham cores distintas e $k$ seja o mínimo de cores possível?
 	\end{tabularx}
 	\par\addvspace{.5\baselineskip}
 \end{definition}
-\pagebreak
+
+É importante notarmos que, por motivos de simplicidade sempre que nos referirmos ao problema de Coloração de um grafo, nos refereimos à Coloração Própria de Grafos, a menos que dito o contrário. Observe também que $k$ é conhecido como o número cromático de $G$ se $G$ posui uma $k$-coloração própria.
 
 \begin{definition}
 	Lista coloração de Grafos.\\
 	\par\addvspace{.1\baselineskip}
 	\noindent
 	\begin{tabularx}{\textwidth}{@{\hspace{\parindent}} l X c}
-		\textbf{Entrada:} & Uma paleta de cores $P$ e um Grafo $G$ onde todo $v \in V(G)$ pode ser colorido com um subconjunto $P(v) \subset P$.\\% Input
-		\textbf{Pergunta:} & É possível escolher uma cor dentro das de $P(v)$ para todo vértice $v$ de forma que dado quaisquer dois vértices adjacentes eles tenham cores distintas?
+		\textbf{Entrada:} & Uma paleta de cores $P$ e um Grafo $G$ onde todo $v \in V(G)$ pode ser colorido com um subconjunto $S_v \subset P$.\\% Input
+		\textbf{Pergunta:} & É possível escolher uma cor dentro das de $S_v$ para todo vértice $v$ de forma que dado quaisquer dois vértices adjacentes eles tenham cores distintas?
 	\end{tabularx}
 	\par\addvspace{.5\baselineskip}
 \end{definition}
 
+Note que quando $|S_v|=|V(G)|$ o problema é o Problema de Coloração clássico.
 
 \section{Complexidade computacional}
 
-Um algoritmo de tempo polinomial é definido como um algoritmo cuja sua função de complexidade de tempo é $\mathcal{O}(p(n))$, para alguma função polinomial $p$, onde $n$ é usado para denotar o tamanho da entrada.
+Um algoritmo de tempo polinomial é um algoritmo cuja função de complexidade de tempo é $\mathcal{O}(p(n))$, para alguma função polinomial $p$, onde $n$ é usado para denotar o tamanho da entrada.
 
-Um problema $\Pi$ pertence à classe $\P$ se e somente se $\Pi$ pode ser solucionado em tempo polinomial por algum algoritmo determinístico. Um problema $\Pi$ pertence à classe $\textit{NP}$ se e somente se para um dado certificado há um algoritmo que verifica sua validade em tempo polinomial.
+Um problema $\Pi$ pertence à classe \emph{P} se e somente se $\Pi$ pode ser solucionado em tempo polinomial por algum algoritmo determinístico. Um problema $\Pi$ pertence à classe $\textit{NP}$ se e somente se para um dado certificado afirmativo há um algoritmo que verifica sua validade em tempo polinomial.
 
-Dados dois problemas $\Pi$ e $\Pi'$ dizemos que $\Pi \propto \Pi'$ ($\Pi$ se reduz à $\Pi'$ em tempo polinomial) se existe um algoritmo capaz de construir uma instância $J$ de $\Pi'$ a partir de uma instância $I$ de $\Pi$ em tempo polinomial, tal que a partir de uma resposta para $J$ uma resposta para $I$ possa ser construída em tempo polinomial. 
+Dados dois problemas $\Pi$ e $\Pi'$ dizemos que $\Pi \propto \Pi'$ ($\Pi$ se reduz à $\Pi'$ em tempo polinomial) se existe um algoritmo capaz de construir uma instância $J$ de $\Pi'$ a partir de uma instância $I$ de $\Pi$ em tempo polinomial, tal que a partir de uma resposta para $J$ se tenha uma resposta para $I$ em tempo polinomial. 
 
 \subsection{NP-Completude}
 Um problema $\Pi'$ é dito $NP-Difícil$ se todo problema $\Pi \in NP$ se reduz à $\Pi'$. Se $\Pi' \in NP$ então $\Pi'$ é $NP-Completo$.
@@ -87,7 +97,7 @@ Esta seção irá sumarizar as definições de $W-hierarquia$ estabelecida por D
 	\noindent
 	\begin{tabularx}{\textwidth}{@{\hspace{\parindent}} l X c}
 		\textbf{Entrada:} & um circuito de decisão $C$ com entrelaçamento $t$ e profundidade $h$.\\% Input
-		\textbf{Pergunta:} & $C$ possui uma atribuição satisfazível?
+		\textbf{Pergunta:} & $C$ possui uma atribuição satisfatível?
 	\end{tabularx}
 	\par\addvspace{.5\baselineskip}
 \end{definition}
@@ -97,4 +107,3 @@ Usando as definições \ref{def:fpt-red} e \ref{def:wcs} definiremos então a pe
 \begin{definition}
  Um problema parametrizado $\Pi(k)$ pertence a classe $W[t]$ se e somente se existe uma FPT-Redução de tal problema para $WCS(t,h)$ para algum $h$ constante. Logo devido a transitividade de FPT-Redução, se existe uma FPT-Redução de qualquer problema $\Pi'(k')$ para $\Pi(k)$ então $\Pi(k) \in W[t]$
 \end{definition}
-

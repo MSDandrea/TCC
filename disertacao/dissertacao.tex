@@ -46,7 +46,7 @@
 \usepackage{svg}
 \usepackage{mathtools}
 
-
+\usepackage[final]{pdfpages}
 
 \usepackage{multicol}
 \usepackage{multirow}
@@ -54,8 +54,12 @@
 
 \newcommand{\cclass}[1]{\mathcal{#1}}
 
-\renewcommand{\P}{\textit{P}}
-\newcommand{\NPc}{\textit{NPc}}
+\definecolor{grena}{HTML}{971528}
+\definecolor{nice}{HTML}{38b446}
+\definecolor{warn}{HTML}{e2cb49}
+\renewcommand{\P}{\textcolor{nice}{\textit{P}}}
+\newcommand{\NPc}{\textcolor{grena}{\textit{NPc}}}
+\newcommand{\?}{\textcolor{warn}{?}}
 
 
 \renewcommand{\algorithmicend}{\textbf{Fim}}

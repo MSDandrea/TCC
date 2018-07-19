@@ -272,5 +272,35 @@ Lista 3-coloração em bipartidos é FPT quando parametrizado pela quantidade de
 \end{teorema}
 
 \begin{proof}
-Dado que temos $k$ vértices com 3 escolhas cada é possível montar um algoritmo de busca em árvore de altura limitada de tamanho $3^k$, e então executar o algoritmo linear proposto em \cite{hujter93} obtendo um algoritmo $\mathcal{O}(3^kn)$.
+Dado que temos $k$ vértices com 3 escolhas cada é possível montar um algoritmo de busca em árvore de altura limitada da seguinte forma:
+
+\begin{itemize}
+  \item Considere a instância de nosso problema como um vértice.
+  \begin{figure}[H]
+		\centering
+		\fontsize{5}{10}
+		\includesvg[scale=0.4]{bound-tree-k.svg}
+		\caption{Árvore de altura limitada inicial. }
+\end{figure}
+
+  \item Escolha um dos $k$ vértices de lista tamanho três.
+  \item Para cada cor disponível adicione uma instância com $k-1$ vértices de lista tamanho três.
+  \begin{figure}[H]
+		\centering
+		\fontsize{5}{10}
+		\includesvg[scale=0.4]{bound-tree-k-1.svg}
+		\caption{Árvore de altura limitada 1ª iteração. }
+\end{figure}
+
+  \item Realize os passos anteriores $x$ vezes até o nível $k-x=0$.
+  \begin{figure}[H]
+		\centering
+		\fontsize{5}{10}
+		\includesvg[scale=0.4]{bound-tree-k-k.svg}
+		\caption{Árvore de altura limitada última iteração. }
+\end{figure}
+\end{itemize}
+ 
+ Observe que ao finalizarmos tal algoritmo temos uma árvore de tamanho $3^k$, onde as folhas são instâncias sem nenhum vértice que possuem lista de tamanho três. 
+ Podemos então executar o algoritmo polinomial proposto em \cite{hujter93} nas folhas, obtendo assim um algoritmo $\mathcal{O}(3^kn^{\mathcal{O}(1)})$. para nosso problema.
 \end{proof}

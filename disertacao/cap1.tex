@@ -59,6 +59,17 @@ Denominamos por $G[S]$ o grafo induzido por $S$ em $G$ onde $S \subset V(G)$.
 
 Note que quando $|S_v|=|V(G)|$ o problema é o Problema de Coloração clássico.
 
+\begin{definition}
+	Lista $k$-coloração de Grafos.\\
+	\par\addvspace{.1\baselineskip}
+	\noindent
+	\begin{tabularx}{\textwidth}{@{\hspace{\parindent}} l X c}
+		\textbf{Entrada:} & Uma paleta $P$ com $k$ cores e um Grafo $G$ onde todo $v \in V(G)$ pode ser colorido com um subconjunto $S_v \subset P$.\\% Input
+		\textbf{Pergunta:} & É possível escolher uma cor dentro das de $S_v$ para todo vértice $v$ de forma que dado quaisquer dois vértices adjacentes eles tenham cores distintas?
+	\end{tabularx}
+	\par\addvspace{.5\baselineskip}
+\end{definition}
+
 \section{Complexidade computacional}
 
 Um algoritmo de tempo polinomial é um algoritmo cuja função de complexidade de tempo é $\mathcal{O}(p(n))$, para alguma função polinomial $p$, onde $n$ é usado para denotar o tamanho da entrada.

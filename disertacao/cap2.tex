@@ -53,7 +53,7 @@ Como o número cromático de grafos(3,0) pode ser solucionável em tempo polinom
 \end{teorema}
 	
 \begin{proof}
-Sabemos que todo grafo planar é 4-colorível \cite{appel77}, logo os grafos planares formam uma subclasse dos grafos(4,0). Portanto, para determinar o número cromático de um grafo planar $G$ é necessário solucionar 3-coloração em grafos planares, no entanto, tal problema é NP-Completo[???], logo descobrir o número cromático de um grafo planar $G$ é NP-Completo e consequentemente resolver coloração em grafos(4,0) é NP-Completo.
+Sabemos que todo grafo planar é 4-colorível \cite{appel77}, logo os grafos planares formam uma subclasse dos grafos(4,0). Portanto, para determinar o número cromático de um grafo planar $G$ é necessário solucionar 3-coloração em grafos planares, no entanto, tal problema é NP-Completo~\cite{larry}, logo descobrir o número cromático de um grafo planar $G$ é NP-Completo e consequentemente resolver coloração em grafos(4,0) é NP-Completo.
 	\end{proof}
 
 É importante notar que, todo $Grafo(r,\ell)$ é simultaneamente um $Grafo(r,\ell+1)$ e um $Grafo(r+1,\ell)$ já que por definição algumas partes podem ser vazias, portanto se o problema de coloração é NP-Completo para Grafo$(r,\ell)$ então ele é NP-Completo para $Grafo(r+1,\ell)$ e $Grafo(r,\ell+1)$.

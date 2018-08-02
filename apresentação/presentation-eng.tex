@@ -1,0 +1,659 @@
+                %!TEX program = xelatex
+\documentclass[9pt, compress]{beamer}
+\usetheme[sectionpage=progressbar]{metropolis}
+
+\usepackage{subfigure} 
+\usepackage{booktabs}  
+\usepackage[scale=2]{ccicons}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsthm}
+\usepackage{diagbox} %tabelas com barras
+\usepackage{booktabs}
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage[english]{babel}
+\usepackage{svg}
+
+\newtheorem{teorema}{Theorem}
+\newtheorem{corolario}{Corolary}
+\definecolor{grena}{HTML}{971528}
+\definecolor{nice}{HTML}{38b446}
+\definecolor{warn}{HTML}{e2cb49}
+\renewcommand{\P}{\textcolor{nice}{\textit{P}}}
+\newcommand{\NPc}{\textcolor{grena}{\textit{NPc}}}
+\newcommand{\?}{\textcolor{warn}{\textit{?}}}
+
+\graphicspath{{../figuras/}}
+
+\author{\textbf{Matheus S. D'Andrea Alves}, \textbf{Uéverton dos Santos Souza} } 
+\title{The colourability problem on $(r,\ell)$-graphs.}
+\subtitle{And a few parametrized solutions}
+%\logo{}
+%\institute{\textbf{Universidade Federal Fluminense}}
+\date{August 2018}
+%\subject{}
+%\setbeamercovered{transparent}
+%\setbeamertemplate{navigation symbols}{}
+\begin{document}
+    \maketitle
+    \begin{frame}{Topics}
+    \centering
+        \tableofcontents
+    \end{frame}
+    \section{The problem}
+    \begin{frame}{Basic concepts}
+      \begin{columns}
+        \begin{column}{0.5\textwidth}
+          \textbf{$(r,\ell)$-Graph}
+          
+          A graph which the vertex set is partitionable into $r$ independent sets and $\ell$ cliques.
+        \end{column}
+        \begin{column}{0.5\textwidth}
+          \textbf{Proper vertex coloring}
+          
+          A proper vertex coloring of a graph $G$ is the assignment of one element from a set $C$ of $q$ to each vertex in $V(G)$, such that no two adjacent vertices share a common color. A coloring using at most $q$ color is called a (proper) $q$-coloring.
+        \end{column}
+      \end{columns}
+    \end{frame}
+    \begin{frame}[standout]
+      Our question:
+      
+      When does this problem become NP-Complete? 
+      
+      Why?
+    \end{frame}
+    \section{Our approach}
+    \begin{frame}{The strategy}
+      Build a dichotomy of the problem, based on the growth of both $r$ and $\ell$.
+      
+      Use the results to find patterns that exposes the hardness of the problem.
+    \end{frame}
+    \begin{frame}{First step}
+      It is easy to see that:
+      \begin{itemize}
+        \item A \emph{null} graph (i.e. a graph with 0 vertices) is 0-colorable.
+        \item 
+        \item 
+        \item 
+         \item                                                                                                                
+      \end{itemize}
+    \end{frame}
+    \begin{frame}{First step}
+      It is easy to see that:
+      \begin{itemize}
+        \item A \emph{null} graph (i.e. a graph with no vertices) is 0-colorable.
+        \item A empty graph (i.e. a graph with no edges) is 1-colorable.
+        \item 
+        \item 
+         \item                                                                                                                
+      \end{itemize}
+    \end{frame}
+    \begin{frame}{First step}
+     It is easy to see that:
+      \begin{itemize}
+        \item A \emph{null} graph (i.e. a graph with no vertices) is 0-colorable.
+        \item A empty graph (i.e. a graph with no edges) is 1-colorable.
+        \item A bipartite graph (i.e. a graph partitionated into two independent sets) is 2-colorable.
+        \item 
+         \item                                                                                                                
+      \end{itemize}
+    \end{frame}
+    \begin{frame}{First step}
+      It is easy to see that:
+      \begin{itemize}
+        \item A \emph{null} graph (i.e. a graph with no vertices) is 0-colorable.
+        \item A empty graph (i.e. a graph with no edges) is 1-colorable.
+        \item A bipartite graph (i.e. a graph partitionated into two independent sets) is 2-colorable.
+        \item A complete graph (i.e. a graph in which every pair of distinct vertices is connected ) is $n$-colorable where $n$ is the size of $V(G)$.
+        \item                                                                                                               
+      \end{itemize}
+    \end{frame}
+    \begin{frame}{First step}
+      It is easy to see that:
+      \begin{itemize}
+        \item A \emph{null} graph (i.e. a graph with no vertices) is 0-colorable.
+        \item A empty graph (i.e. a graph with no edges) is 1-colorable.
+        \item A bipartite graph (i.e. a graph partitionated into two independent sets) is 2-colorable.
+        \item A complete graph (i.e. a graph in which every pair of distinct vertices is connected ) is $n$-colorable where $n$ is the size of $V(G)$.
+        \item A split graph (i.e. a graph partitionated into a independent set and a clique) is $k$-colorable where $k$ is the size of the maximal clique.
+      \end{itemize}
+    \end{frame}
+    \begin{frame}{Partial dichotomy}
+        \begin{table}[htb!]
+          \center
+          \begin{tabular}{l|*{7}c}
+            \toprule
+            \backslashbox{$r$}{$l$} & 0 & 1 & 2 & 3 & 4 & \ldots & n\\
+            \midrule
+            0 & \P & \P & \? & \? & \? & \ldots & \?\\
+            1 & \P & \P & \? & \? & \? & \ldots & \?\\
+            2 & \P & \? & \? & \? & \? & \ldots & \?\\
+            3 & \? & \? & \? & \? & \? & \ldots & \?\\
+            4 & \? & \? & \? & \? & \? & \ldots & \?\\
+            $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & \?\\
+            n & \? & \? & \? & \? & \? & \ldots & \?\\
+            \bottomrule
+          \end{tabular}%
+          \caption{Partial dichotomy on the Colourability problem in $(r,\ell)$-graphs}
+          \label{tab:tabela_part2dictrl}%
+        \end{table}%
+    \end{frame}
+    \begin{frame}{Further}
+      \begin{teorema}
+        Colourability in $(0,2)$-graphs can be solved in polynomial time.
+     \end{teorema}
+     \begin{proof}
+      A co-bipartite graph is a graph partitionated into two cliques such that every vertex belongs to a clique. It is widely known that any co-bipartite graph is a perfect graph, therefore, your chromatic number is the size of it's maximal clique. 
+      It has been shown that, to find the maximal clique in a co-bipartite graph is equivalent  to find a vertex cover in it's complement, and therefore solvable in polynomial time.
+     \end{proof}
+    \end{frame}
+    \begin{frame}{Further}
+      \begin{teorema}
+        Colourability in $(3,0)$-graphs can be solved in polynomial time.
+     \end{teorema}
+     \begin{proof}
+      As we know that the given graph is a $(3,0)$-graph, we know that it is $3-colorable$. 
+      
+      To find out if it is $2$-colorable (i.e bipartite) or $1$-colorable (i.e a empty graph) is solvable in polynomial time. Therefore determining the chromatic number of such graph can be solved in polynomial time.
+     \end{proof}
+    \end{frame}
+    \begin{frame}{Partial dichotomy}
+        \begin{table}[htb!]
+          \center
+          \begin{tabular}{l|*{7}c}
+            \toprule
+            \backslashbox{$r$}{$l$} & 0 & 1 & 2 & 3 & 4 & \ldots & n\\
+            \midrule
+            0 & \P & \P & \P & \? & \? & \ldots & \?\\
+            1 & \P & \P & \? & \? & \? & \ldots & \?\\
+            2 & \P & \? & \? & \? & \? & \ldots & \?\\
+            3 & \P & \? & \? & \? & \? & \ldots & \?\\
+            4 & \? & \? & \? & \? & \? & \ldots & \?\\
+            $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & \?\\
+            n & \? & \? & \? & \? & \? & \ldots & \?\\
+            \bottomrule
+          \end{tabular}%
+          \caption{Partial dichotomy on the Colourability problem in $(r,\ell)$-graphs}
+          \label{tab:tabela_part2dictrl}%
+        \end{table}%
+    \end{frame}
+    \begin{frame}{Further}
+      \begin{teorema}
+        Colourability in $(4,0)$-graphs is NP-Complete.
+     \end{teorema}
+     \begin{proof}
+      As we know that the given graph is a $(3,0)$-graph, we know that it is $3-colorable$. 
+      We need to find out if it can be colored with fewer colors; 
+      Note that 3-coloring of planar graphs is NP-Complete, planar graphs are a sub-class of $(4,0)$-graphs, leading to the NP-Completeness of Colourability in $(4,0)$-graphs.
+     \end{proof}
+    \end{frame}
+    \begin{frame}{Partial dichotomy}
+        \begin{table}[htb!]
+          \center
+          \begin{tabular}{l|*{7}c}
+            \toprule
+            \backslashbox{$r$}{$l$} & 0 & 1 & 2 & 3 & 4 & \ldots & n\\
+            \midrule
+            0 & \P & \P & \P & \? & \? & \ldots & \?\\
+            1 & \P & \P & \? & \? & \? & \ldots & \?\\
+            2 & \P & \? & \? & \? & \? & \ldots & \?\\
+            3 & \P & \? & \? & \? & \? & \ldots & \?\\
+            4 & \NPc & \? & \? & \? & \? & \ldots & \?\\
+            $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & \?\\
+            n & \? & \? & \? & \? & \? & \ldots & \?\\
+            \bottomrule
+          \end{tabular}%
+          \caption{Partial dichotomy on the Colourability problem in $(r,\ell)$-graphs}
+          \label{tab:tabela_part2dictrl}%
+        \end{table}%
+    \end{frame}
+
+    \begin{frame}{Partial dichotomy}
+        \begin{table}[htb!]
+          \center
+          \begin{tabular}{l|*{7}c}
+            \toprule
+            \backslashbox{$r$}{$l$} & 0 & 1 & 2 & 3 & 4 & \ldots & n\\
+            \midrule
+            0 & \P & \P & \P & \? & \? & \ldots & \?\\
+            1 & \P & \P & \? & \? & \? & \ldots & \?\\
+            2 & \P & \? & \? & \? & \? & \ldots & \?\\
+            3 & \P & \? & \? & \? & \? & \ldots & \?\\
+            4 & \NPc & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
+            $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & \NPc\\
+            n & \NPc & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
+            \bottomrule
+          \end{tabular}%
+          \caption{Partial dichotomy on the Colourability problem in $(r,\ell)$-graphs}
+          \label{tab:tabela_part2dictrl}%
+        \end{table}%
+    \end{frame}
+    \begin{frame}[standout]
+      How to proceed?
+    \end{frame}
+    \section{The relationship between coloring and list-coloring in $(r,\ell)$-graphs}
+    \begin{frame}{The relationship between coloring and list-coloring in $(r,\ell)$-graphs}
+        \begin{teorema}
+          List-coloring in $(r,\ell)$-graphs is equivalent to coloring in $(r,\ell+1)$-graphs. 
+        \end{teorema}
+    \end{frame}
+    \begin{frame}{The relationship between coloring and list-coloring in $(r,\ell)$-graphs}
+        \textbf{Proof.}
+        
+        A prova consiste em mostrar que a solução do problema de lista coloração em um Grafo$(r,\ell)$ $G$, implica em uma solução para o problema de coloração em Grafos$(r,\ell+1)$ $H_G$.
+        
+        Para tanto, mostraremos que:
+          \begin{itemize}
+        \item Se um grafo G$(r,\ell)$ possui uma lista coloração própria então $H_G$ é k-colorível para k do tamanho da paleta $C$ (1).
+		\item Se $H_G$ é k-colorível então G possui uma lista coloração própria (2).
+      \end{itemize}
+    \end{frame}
+    \begin{frame}{A relação entre coloração e lista-coloração em Grafos$(r,\ell)$}
+      \textbf{(1):}
+      
+      Seja $G$ um Grafo$(r,\ell)$ tal que cada vértice $v \in V(G)$ tenha uma lista de cores; 
+      Cada lista tem pelo menos uma cor do seguinte conjunto: $C = \{c_1,c_2,c_3,...,c_k \}$. 
+      \begin{center}
+        \begin{figure}
+        \includesvg[scale=0.4]{presentation-G.svg}
+      \end{figure}
+      \end{center}
+    \end{frame}
+    \begin{frame}
+      Seja $G$ uma instância para o problema de lista coloração, construirémos uma clique $K$, onde cada vértice $u \in V(K)$ representa uma cor de $C$.
+      \begin{center}
+      \begin{figure}
+        \includesvg[scale=0.4]{presentation-K.svg}
+      \end{figure}  
+      \end{center}
+      Note que a clique $K$ tem exatamente $k$ vértices, portanto, podemos colorir $K$ com apenas $k$ cores, sem perda de generalidade$^*$ assumiremos que $u_i \in K$ será colorido com a cor $c_i$.
+    \end{frame}
+    \begin{frame}  
+      Suponha $H_G$ $= G \cup K$, e para cada vértice $u_i \in V(K)$ e todo vértice $v_j \in V(G)$ adicione uma aresta $(u_i,v_j) $ em $H_G$ se e somente se $c_i$ não é uma cor pertencente a lista de $v_j$.
+      \begin{center}
+        \begin{figure}
+        \includesvg[scale=0.4]{presentation-H.svg}
+      \end{figure}
+      \end{center}   
+      Ao colorir $G$, colorir $u_i$ com $c_i$ em $K$ não conflita para a coloração encontrada para $G$, e nos leva à coloração para $H_G$. 
+    \end{frame}
+    \begin{frame}{A relação entre coloração e lista-coloração em Grafos$(r,\ell)$}
+      \textbf{(2):}
+      
+      Sabemos que o grafo $H_G$ é um grafo$(r,\ell+1)$ e possui uma k-coloração.
+      
+      Perceba que a remoção de $K$ de $H_G$ (que se tronará $G$) não afeta sua coloração, perceba que para os restantes vértices $v \in V(G)$ construímos suas listas baseando-se em seus não vizinhos em $K$ portanto a coloração adquirida em $H_G$ ainda é válida em $G$ por construção.
+      
+      Dessa forma mostramos que, se $H_G$ é k-colorível, $G$ é lista-colorível.
+      $\qed$
+    \end{frame}
+    \begin{frame}{Corolários}
+      Com o resultado obtido podemos afirmar que:
+      \begin{itemize}
+        \item Coloração em Grafos$(1,2)$ é NP-Completo.\newline Deriva da demonstração de NP-Completude para lista coloração em Split mostrado por Jensen et al. em \textit{"Generalized coloring for tree-like graphs"}.
+        \item Coloração em Grafos$(2,1)$ é NP-Completo.\newline Deriva da demonstração de NP-Completude para lista coloração em bipartidos mostrado por Fellows et al. em \textit{"List Coloring and 3-Precoloring Extension are W[1]-hard parameterized by treewidth"}.
+        %\item Coloração de Grafos$(0,3)$ é NP-Completo.
+        %\newline Deriva da demonstração de NP-Completude para lista coloração em Grafos$(0,2)$ demonstrado por Jensen et al. em \textit{"Complexity results for the optimum cost chromatic partition problem"}.
+      \end{itemize}
+    \end{frame}
+        
+    \begin{frame}{ Peculiaridade do Grafo$(2,1)$ }
+      É trivial notar que essa classe de grafo possui um limite superior e um inferior para sua coloração ($K+1$ e $K$ respectivamente), porém apesar das restrições é NP-Completo determinar qual delas é a correta.
+    \end{frame}
+    
+    \begin{frame}{Dicotomia parcial}
+        \begin{table}[htb!]
+          \center
+          \begin{tabular}{l|*{7}c}
+            \toprule
+            \backslashbox{$r$}{$l$} & 0 & 1 & 2 & 3 & 4 & \ldots & n\\
+            \midrule
+            0 & \P & \P & \P & \? & \? & \ldots & \?\\
+            1 & \P & \P & \NPc & \NPc & \NPc & \ldots & \NPc\\
+            2 & \P & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
+            3 & \P & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
+            4 & \NPc & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
+            $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & \NPc\\
+            n & \NPc & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
+            \bottomrule
+          \end{tabular}%
+          \caption{Dicotomia parcial para coloração de Grafos$(r,\ell)$}
+          \label{tab:tabela_part2dictrl}%
+        \end{table}%
+    \end{frame}
+    \begin{frame}
+      \begin{corolario}
+      Coloração de Grafos$(0,3)$ é NP-Completo.
+    \end{corolario}
+    \begin{proof}
+     Deriva da demonstração de NP-Completude para lista coloração em Grafos$(0,2)$ demonstrado por Jensen et al. em \textit{"Complexity results for the optimum cost chromatic partition problem"}.
+    \end{proof}    
+    \end{frame}
+    \begin{frame}{Complexidade computacional de Coloração em Grafoa$(r,\ell)$}
+        Os resultados encontrado preenchem a dicotomia.
+        
+        \begin{table}[htb!]
+          \center
+          \begin{tabular}{l|*{7}c}
+            \toprule
+            \backslashbox{$r$}{$l$} & 0 & 1 & 2 & 3 & 4 & \ldots & n\\
+            \midrule
+            0 & \P & \P & \P & \NPc & \NPc & \ldots & \NPc\\
+            1 & \P & \P & \NPc & \NPc & \NPc & \ldots & \NPc\\
+            2 & \P & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
+            3 & \P & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
+            4 & \NPc & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
+            $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & \NPc\\
+            n & \NPc & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
+            \bottomrule
+          \end{tabular}%
+          \caption{Dicotomia de complexidade para coloração em Grafos$(r,\ell)$}
+          \label{tab:tabela_dictrl}%
+        \end{table}%
+    \end{frame}
+    \begin{frame}[standout]
+      O que investigar em Grafos$(r,\ell)$?
+      
+    \end{frame}
+    \begin{frame}{A idéia}
+          O Problema é NP-Completo.
+          
+          Queremos encontrar um algoritmo FPT, que tem formato $\mathcal{O}(f(k)n^c)$.
+          
+          Usar o tamanho das partições de um Grafo$(2,1)$ como parâmetros do problema.
+    \end{frame}
+    \section{Parametrização pelo tamanho dos conjuntos independentes}
+    
+    \begin{frame}{Parametrização}
+      \large{Parametrização de Grafo$(2,1)$ pelo tamanho do menor independente}
+      \normalsize\newline\newline
+            
+      Sabemos que podemos transformar esse problema em lista coloração de bipartido.
+      
+      Fellows mostrou que lista-coloração é W[1]-difícil para bipartidos quando parametrizado pelo tamanho do menor independente.\cite{fellows07}
+      
+      Portanto coloração é W[1]-difícil quando parametrizado pelo tamanho do menor independente em um Grafo$(2,1)$.
+    \end{frame}
+    \begin{frame}{Parametrização}
+    \large{Parametrização de Grafo$(2,1)$ pelo tamanho do maior independente.}
+      \normalsize\newline\newline
+            
+      Sabemos que podemos transformar esse problema em lista coloração de bipartido.
+      
+      Em uma lista coloração de bipartido, se um vértice possui uma lista com mais cores do que o tamanho de sua vizinhança, ele sempre terá disponível uma cor para sua coloração, podemos portanto remover esse vértice do grafo sem alterar sua coloração.
+      
+      Observe que isso implica que após a remoção de todos os vértices com esse padrão o tamanho das listas está agora limitado por uma função de $k$, portanto aplicar um algoritmo de força bruta nos dá um algoritmo FPT.
+     \end{frame}
+     
+    \section{Parametrização pelo tamanho da clique}
+     \begin{frame}
+       Queremos agora entender o comportamento e parametrização de coloração quando a clique é pequena.
+       
+       Coloração de Grafo$(2,1)$ quando a clique é restrita, é equivalente a lista coloração em bipartido com a paleta restrita.
+       
+       Para isso iremos apresentar um problema que nos ajudará a entender o comportamento de lista coloração.
+     \end{frame}
+    
+     \begin{frame}{PreColoring extension}
+      \large{PreColoring extension}
+      \normalsize\newline\newline
+      
+	      \textbf{Entrada:}  Um grafo G onde alguns vértices já possuem uma coloração definida com cores escolhidas dentre k possíveis cores.
+	      
+	      \textbf{Pergunta:}  É possível estender a coloração já existente para todo o grafo sem que dois vértices adjacentes possuam a mesma cor?
+	      
+	      Tal problema é mostrado ser NP-Completo para o caso restrito de 3-PreCloring extension.\cite{kratochvil94}
+     \end{frame}
+     
+     \begin{frame}{3-lista coloração em grafos bipartidos é NP-Completo.}
+    \large{3-lista coloração em grafos bipartidos é NP-Completo.}
+      \normalsize\newline\newline
+            
+      Tendo um grafo $G$ e uma paleta $C$ pertencente a uma instância $P$ de \emph{3-PreColoring extension}.
+      
+      Formamos um grafo $G'$ usando todo vértice pré-colorido $v \in V(G)$ atribuindo ao mesmo uma lista com sua cor de $G$ em $G'$, aos demais vértices de $G$ criamos um vértice com lista contendo todos as cores de $C$ e mantendo sua vizinhança.
+      
+      Uma coloração possível para $G$ implica em uma coloração possível para $G'$ , já que nos basta atribuir aos vértices em $G'$ as mesmas cores atribuídas em $G$. De forma análoga, uma lista coloração possível em $G'$ implica em uma coloração possível em $G$.
+      
+      
+     \end{frame}
+     \begin{frame}{Parametrização.}
+    \large{Parametrização pelo tamanho da clique.}
+      \normalsize\newline\newline
+            
+      Para demonstração da intratabilidade parametrizada, basta retornarmos à transformação do problema de coloração em Grafo$(2,1)$ onde a clique é um triângulo em lista coloração de bipartido com paleta com três cores.
+      
+      Estamos tentando parametrizar a resolução de lista coloração de bipartido pelo tamanho da paleta de cores, que mostramos ser inviável anteriormente.
+      
+      Portanto esse problema é para-NP-Completo quando parametrizado pelo tamanho da clique.
+      
+     \end{frame}
+     \begin{frame}[standout]
+       Os resultados ainda são insatisfatórios.
+       
+       O que mais observamos sobre esse comportamento?
+     \end{frame}
+     
+     \begin{frame}{Observações}
+       Usando um Grafo$(2,1)$ onde a partição da clique também é a clique máxima e tem tamanho 3, nosso problema se torna o problema de 3-lista-coloração em bipartido.
+       
+       3-coloração de bipartido é Polinomial.
+       
+       2-coloração de bipartido é Polinomial 
+       
+       3-lista-coloração de bipartido é NP-Completo.
+       
+       O que ocorre quando o número de vértices com listas de tamanho 1, 2 e 3 variam? 
+     \end{frame}
+     \begin{frame}{Sobre a vizinhança da clique}
+       Observe que, se um nó não é vizinho de nenhum vértice na clique, após a redução esse vértice tem lista de tamanho três. Todo vértice vizinho a clique, após a transformação tem vértice com lista de tamanho $3-x$ onde $x$ é o número de seus vizinhos na clique.
+       
+       Um vértice nunca terá uma lista de tamanho 0.
+     \end{frame}
+     \section{Parametrização pela vizinhança da clique}
+     \begin{frame}{Vértices com listas de tamanho um}
+       \begin{teorema}
+       Seis vértices com lista de tamanho um são suficientes para que lista coloração em bipartido seja NP-completo.
+       \end{teorema}
+       \textbf{Demonstração.}
+       
+       Sabemos que em nosso problema temos dois conjuntos independentes, $r_1$ e $r_2$, também é verdade que exceto pelos citados seis vértices todos os outros tem listas de tamanho três, os vértices de $r_1$ podem estar ligados arbitrariamente aos de $r_2$. Observe o seguinte gadget.
+     \end{frame}
+     
+    \begin{frame}{Vértices com listas de tamanho um}
+   \begin{figure}[H]
+      \begin{subfigure}
+        \centering
+		    \includesvg[scale=0.4]{gadget-1.svg}
+      \end{subfigure}
+      \begin{subfigure}
+        \centering
+		    \includesvg[scale=0.4]{gadget-2.svg}
+      \end{subfigure}
+      \begin{subfigure}
+        \centering
+		    \includesvg[scale=0.4]{gadget-3.svg}
+      \end{subfigure}
+      \caption{Gadget com vértices de lista um reproduzindo vértice de lista um em vértice de lista três}
+      \label{fig:gadget}
+  \end{figure}
+
+      Com o gadget apresentado é possível conduzir à escolha de uma cor para um vértice com lista tamanho três dado que a única coloração possível para o gadget é a coloração aonde a cor desejada ocorre.
+    \end{frame}
+    \begin{frame}{Vértices com listas de tamanho um}
+    \begin{columns}
+      \column{0.5\textwidth}
+      Utilizando esse gadget é possível transformar uma instância de 3-PreColoring Extension em bipartidos em uma de lista coloração em bipartido, basta para tanto pegarmos os vértices do Grafo $G$ que estão pré-coloridos e criar um vértice equivalente em um grafo $G'$ com listas tamanho três, os ligando aos vértices com listas tamanho um e mantendo a bipartição de forma a excitar a cor que este vértice possuia em $G$, os demais vértices são mapeados para vértices com listas tamanho três, mantendo sua vizinhança equivalente a em $G$.
+      \column{0.5\textwidth}
+    \end{columns}
+      
+    \end{frame}
+     \begin{frame}{Vértices com listas de tamanho um}
+       \begin{teorema}
+         Três vértices com lista de tamanho um são suficientes para que lista coloração em bipartido seja NP-completo.
+       \end{teorema}
+       \begin{proof}
+        Usando o gadget apresentado anteriormente, dois vértices $v$ com lista um em um vértice $u$ com lista três são capazes de reproduzir um vértice de lista um através da retirada da lista de $u$ as únicas possíveis cores para $v$, sendo assim tendo três vértices de distintas listas tamanho um, é possível obter seis vértices de lista um (com três listas distintas de cada lado) permitindo dessa forma a redução da instância de 3-Precoloring para instância de lista coloração.
+       \end{proof}
+     \end{frame}
+     \begin{frame}{Vértices com listas de tamanho dois}
+       Como já visto o problema é de trivial solução quando todos os vértices tem listas de tamanho três, portanto precisamos ainda encontrar qual número de vértices de tamanho dois onde o problema se mantém NP-Completo.
+       \begin{teorema}
+         Seis vértices com listas tamanho 2 são necessários e suficientes para que lista-coloração em bipartido seja NP-Completo.
+       \end{teorema}
+       \textbf{Demonstração.}
+       
+ 
+       Se um conjunto independente contém apenas dois vértices com listas tamanho dois, todos os vértices nesse conjunto compartilham uma cor em suas listas, podendo colorir tal conjunto com essa cor.
+       
+        Todos os outros vértices ainda têm pelo menos uma cor disponível para sua coloração podendo ser colorido com ela. 
+       
+       Para completar nossa demonstração basta portanto, encontrar uma configuração onde o problema de lista coloração permanece NP-Completo.
+ 
+       Para tanto nos é interessante agora a vizinhança entre os vértices com lista dois, iremos isolar as instâncias em alguns casos.  
+       
+     \end{frame}
+     
+     \begin{frame}{Todo vértice tem vizinhança de tamanho dois e nenhuma vizinhança fechada possui uma cor em comum}
+       As restrições impostas a esse caso nos levam a uma única possível estrutura $\Gamma$ onde suas duas possíveis colorações são intercambiáveis.
+       
+       Portanto se mostra verdade que podemos excitar uma cor qualquer em outro vértice de lista tamanho três se o ligarmos a dois dos três vértices presentes no independente oposto sem ferir a bipartição do grafo.
+     \end{frame}
+     \begin{frame}
+      \begin{figure}[H]
+        \centering
+        \fontsize{4}{10}
+        \includesvg[scale=0.3]{2-edge-b.svg}
+        \caption{Estrutura $\Gamma$ e suas possíveis colorações.}
+        \label{fig:2-edge-b}
+      \end{figure}
+      
+      Assim sendo para reduzir um problema de 3-PreColoring extension em bipartido $\Pi$ ao nosso problema $\Pi'$ basta que para todo vértice pré-colorido $v_{c_j} \in V(\Pi) | c_j \in C$ cria-se um paralelo $u \in V(\Pi')$ com lista de tamanho três e liga-o aos vértices de $\Gamma$ a fim de excitar sua cor da seguinte forma:
+      
+     \end{frame}
+     \begin{frame}
+       \begin{columns}
+        \begin{column}{0.5\textwidth}
+          Escolha sem perda de generalidade um vértice $v \in r1$ pré-colorido com a cor $c_j$, observe que $\Gamma$ possui dois conjuntos de ligações capazes de excitar $c_j$ em $u$ utilizando o gadget da Figura \ref{fig:gadget}, escolha um desses conjuntos. Portanto $\forall v_{c_j} | j \neq i$ basta realizar a ligação com $\Gamma$ respeitando o conjunto de ligações já escolhido. Os demais vértices de $V(\Pi)$ são construídos mantendo suas respectivas vizinhanças em $\Pi'$ e com lista de tamanho três.
+        \end{column}
+        \begin{column}{0.5\textwidth}
+        \end{column}
+      \end{columns}
+     \end{frame}
+     
+     \begin{frame}
+       \begin{columns}
+        \begin{column}{0.5\textwidth}
+          Uma resposta para $\Pi'$ implica em uma resposta para $\Pi$, pois se $\Pi'$ é lista colorível, então $\Pi$ é colorível respeitando a pré-coloração, já que a coloração de $\Gamma$ é indiferente para os vértices não vizinhos à ela e sempre respeita a coloração de sua vizinhança, para a demonstração da volta basta escolher as mesmas cores escolhidas em $\Pi$ para seus respectivos em $\Pi'$ que implicará em uma coloração para $\Gamma$ inofensiva ao resultado. $\qed$
+        \end{column}
+        \begin{column}{0.5\textwidth}
+        \end{column}
+      \end{columns}
+     \end{frame}
+     \begin{frame}{Parametrizado pela quantidade de vértices não vizinhos a clique}
+       
+        \begin{teorema}
+         Lista coloração em bipartidos com listas de tamanho um a três é FPT quando parametrizado pela quantidade de vértices com lista de tamanho três.
+        \end{teorema}
+        \begin{proof}
+         Dado que temos $k$ vértices com 3 escolhas cada é possível montar um algoritmo de busca em árvore de altura limitada de tamanho $3^k$, e então executar o algoritmo linear conhecido da literatura, obtendo um algoritmo $\mathcal{O}(3^kn^{c})$
+\end{proof}
+     \end{frame}
+     \begin{frame}{Árvore de altura limitada}
+       \begin{figure}[H]
+        \centering
+        \fontsize{4}{10}
+        \includesvg[scale=0.5]{bound-tree-k.svg}
+      \end{figure}
+     \end{frame}
+     \begin{frame}{Árvore de altura limitada}
+       \begin{figure}[H]
+        \centering
+        \fontsize{4}{10}
+        \includesvg[scale=0.5]{bound-tree-k-1.svg}
+      \end{figure}
+     \end{frame}
+     \begin{frame}{Árvore de altura limitada}
+       \begin{figure}[H]
+        \centering
+        \fontsize{4}{10}
+        \includesvg[scale=0.5]{bound-tree-k-n.svg}
+      \end{figure}
+     \end{frame}
+     \begin{frame}{Árvore de altura limitada}
+       \begin{figure}[H]
+        \centering
+        \fontsize{4}{10}
+        \includesvg[scale=0.5]{bound-tree-k-k.svg}
+      \end{figure}
+     \end{frame}
+     \section{Conclusão}
+     \begin{frame}{Resultados clássicos}
+       Conseguimos portanto a partir desse trabalho descrever a complexidade computacional do problema em questão.
+       \begin{table}[htb!]
+          \center
+          \begin{tabular}{l|*{7}c}
+            \toprule
+            \backslashbox{$r$}{$l$} & 0 & 1 & 2 & 3 & 4 & \ldots & n\\
+            \midrule
+            0 & \P & \P & \P & \NPc & \NPc & \ldots & \NPc\\
+            1 & \P & \P & \NPc & \NPc & \NPc & \ldots & \NPc\\
+            2 & \P & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
+            3 & \P & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
+            4 & \NPc & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
+            $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & \NPc\\
+            n & \NPc & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
+            \bottomrule
+          \end{tabular}%
+          \caption{Dicotomia de complexidade para coloração em Grafos$(r,\ell)$}
+          \label{tab:tabela_dictrl}%
+        \end{table}
+          Para tanto desenvolvemos uma estratégia inédita de redução de lista coloração à coloração, permitindo a identificação de características passíveis de parametrização. 
+     \end{frame}
+     \begin{frame}{Resultados colaterais}
+      É conhecido que o problema de coloração em um grafo $G$ pode ser visto como um problema de clique cover em seu complemento $G'$\cite{gareyjohnson}, dessa forma podemos estender a dicotomia $\P/\NPc$ de coloração em $(r,\ell)$ para o problema de clique cover em grafos$(r,\ell)$ simplesmente trocando as linhas pelas colunas da tabela, dessa forma obtemos a seguinte dicotomia $\P/\NPc$:
+\begin{table}[!htb]
+	\center
+	\begin{tabular}{l|*{7}c}
+		\toprule
+		\backslashbox{$r$}{$l$} & 0 & 1 & 2 & 3 & 4 & \ldots & n\\
+		\midrule
+		0 & \P & \P & \P & \P & \NPc & \ldots & \NPc\\
+		1 & \P & \P & \NPc & \NPc & \NPc & \ldots & \NPc\\
+		2 & \P & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
+		3 & \NPc & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
+		4 & \NPc & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
+		$\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & \NPc\\
+		n & \NPc & \NPc & \NPc & \NPc & \NPc & \ldots & \NPc\\
+		\bottomrule
+	\end{tabular}%
+	\caption{Dicotomia $\P/\NPc$ do problema de clique cover em Grafos$(r,\ell)$}%
+\end{table}%
+     \end{frame}
+     \begin{frame}{Resultados Parametrizados}
+       Exploramos também o comportamento do problema em Grafos$(2,1)$ Obtendo dessa forma:
+       \begin{itemize}
+         \item 2 algoritmos FPT.
+         \item Uma demonstração de $W[1]-dificuldade$
+         \item Algumas de para-NP-completude
+       \end{itemize}
+        Mostrando colateralmente características inesperadas de dificuldade.
+     \end{frame}
+     \begin{frame}{Trabalhos futuros}
+       \begin{itemize}
+  \item Existe uma relação entre as parametrizações da coloração de Grafos$(2,1)$ e clique cover de Grafos$(1,2)$?
+  \item Quais são as características que afetam parametrizações em Grafos$(r,\ell)$ diferentes de Grafos$(2,1)$?
+  \item Existe algum parâmetro que seja possível extrair um algoritmo FPT para qualquer $r$ ou $\ell$?
+\end{itemize}
+     \end{frame}
+     \begin{frame}[standout]
+       OBRIGADO!
+       
+       Perguntas?
+     \end{frame}
+     \begin{frame}{Referencias}
+       \bibliography{bibliografia}
+       \bibliographystyle{plain}
+     \end{frame}
+\end{document}
